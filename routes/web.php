@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ManagementAccountController;
+use App\Http\Controllers\ManagementCustomerController;
+use App\Http\Controllers\ManagementPostController;
+use App\Http\Controllers\ManagementTourController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +17,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/index', function () {
-    return view('index');
-})->name('index');
-
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware('auth')->group(function (){
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    //management-posts
+    Route::get('/management-post/index', [ManagementPostController::class, 'index'])->name('management-post.index');
+    Route::get('/management-post/create', [ManagementPostController::class, 'create'])->name('management-post.create');
+    Route::get('/management-post/edit', [ManagementPostController::class, 'edit'])->name('management-post.edit');
+
+    //management-customers
+    Route::get('/management-customer/index', [ManagementCustomerController::class, 'index'])->name('management-customer.index');
+    Route::get('/management-customer/create', [ManagementCustomerController::class, 'create'])->name('management-customer.create');
+    Route::get('/management-customer/edit', [ManagementCustomerController::class, 'edit'])->name('management-customer.edit');
+
+    //management-accounts
+    Route::get('/management-account/index', [ManagementAccountController::class, 'index'])->name('management-account.index');
+    Route::get('/management-account/create', [ManagementAccountController::class, 'create'])->name('management-account.create');
+    Route::get('/management-account/edit', [ManagementAccountController::class, 'edit'])->name('management-account.edit');
+
+    //management-tours
+    Route::get('/management-tour/index', [ManagementTourController::class, 'index'])->name('management-tour.index');
+    Route::get('/management-tour/create', [ManagementTourController::class, 'create'])->name('management-tour.create');
+    Route::get('/management-tour/edit', [ManagementTourController::class, 'edit'])->name('management-tour.edit');
+});
