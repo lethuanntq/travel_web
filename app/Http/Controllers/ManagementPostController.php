@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class ManagementPostController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('management-posts.index');
+    }
 }
