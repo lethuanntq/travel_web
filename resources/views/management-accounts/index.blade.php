@@ -4,6 +4,9 @@
         <div>
             <h1>Quản lý tài khoản</h1>
         </div>
+        @if(\Illuminate\Support\Facades\Session::has('message'))
+            <div class="success alert-success" style="width: 30%">{{ \Illuminate\Support\Facades\Session::get('message') }}</div>
+        @endif
         <div class="mt-sm-5">
             <div class="row">
                 <div class="col-sm-8">

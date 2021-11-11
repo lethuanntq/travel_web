@@ -17,6 +17,8 @@ class User extends Authenticatable
       2 => 'Biên tập viên'
     ];
 
+    const INACTIVE = 0;
+    const ACTIVE = 1;
     /**
      * The attributes that are mass assignable.
      *
@@ -46,4 +48,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function rules()
+    {
+        return [
+            'account.name' => 'required|max:255',
+            'account.email' => 'required|email|unique',
+            'account.phone_number' => 'required|regex:/(01)[0-9]{9}/|digits:10',
+            'account.password' => 'required_with:account.password_confirm|same:account.password_confirm|min:8|max:30',
+            'account.password_confirm' => 'required_with:account.password|same:account.password',
+            'account.role' => 'required'
+        ];
+    }
 }

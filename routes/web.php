@@ -35,7 +35,10 @@ Route::middleware('auth')->group(function (){
     //management-accounts
     Route::get('/management-account/index', [ManagementAccountController::class, 'index'])->name('management-account.index');
     Route::get('/management-account/create', [ManagementAccountController::class, 'create'])->name('management-account.create');
-    Route::get('/management-account/edit', [ManagementAccountController::class, 'edit'])->name('management-account.edit');
+    Route::get('/management-account/{id}/edit', [ManagementAccountController::class, 'edit'])->name('management-account.edit');
+
+    Route::post('/management-account/store', [ManagementAccountController::class, 'store'])->name('management-account.store');
+    Route::match(['put', 'patch'], '/management-account/update/{id}', [ManagementAccountController::class, 'update'])->name('management-account.update');
 
     //management-tours
     Route::get('/management-tour/index', [ManagementTourController::class, 'index'])->name('management-tour.index');
