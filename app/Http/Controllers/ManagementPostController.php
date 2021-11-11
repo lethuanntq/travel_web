@@ -10,4 +10,9 @@ class ManagementPostController extends Controller
     {
         return view('management-posts.index');
     }
+
+    public function create()
+    {
+        return view('management-posts.create');
+    }
 }
