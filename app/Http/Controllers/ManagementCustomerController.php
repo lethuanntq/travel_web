@@ -10,4 +10,14 @@ class ManagementCustomerController extends Controller
     {
         return view('management-customers.index');
     }
+
+    public function create()
+    {
+        return view('management-customers.create');
+    }
+
+    public function edit()
+    {
+        return view('management-customers.edit');
+    }
 }

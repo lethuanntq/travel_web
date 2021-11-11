@@ -5,15 +5,22 @@
             <h1>Quản lý tài khoản</h1>
         </div>
         <div class="mt-sm-5">
-            <form>
-                <div class="input-group rounded mb-2" style="width: 30%">
-                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-                           aria-describedby="search-addon" />
-                    <button type="button" class="btn">
-                        <i class="fas fa-search"></i>
-                    </button>
+            <div class="row">
+                <div class="col-sm-8">
+                    <form >
+                        <div class="input-group rounded mb-2"  style="width: 45%">
+                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                                   aria-describedby="search-addon" />
+                            <button type="button" class="btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
                 </div>
-            </form>
+                <div class="col-sm-4">
+                    <a href="{{ route('management-account.create') }}" class="btn btn-secondary float-right">Tạo mới</a>
+                </div>
+            </div>
             <table class="table table-striped">
                 <thead>
                 <tr>

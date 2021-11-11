@@ -18,7 +18,7 @@
                     </form>
                 </div>
                 <div class="col-sm-4">
-                    <button class="btn btn-secondary float-right">Tạo mới</button>
+                    <a href="{{ route('management-tour.create') }}" class="btn btn-secondary float-right">Tạo mới</a>
                 </div>
             </div>
             <table class="table table-striped">

@@ -34,7 +34,7 @@
     <!-- Right Menu -->
 
     <!-- Footer Menu -->
-        @include('layouts.bottom_menu')
+{{--        @include('layouts.bottom_menu')--}}
     <!-- Footer Menu -->
 
 </div>
@@ -48,5 +48,7 @@
 <script src="{{ asset('vendors/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('vendors/dist/js/adminlte.min.js') }}"></script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+@stack('custom-script')
 </body>
 </html>

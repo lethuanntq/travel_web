@@ -10,4 +10,14 @@ class ManagementTourController extends Controller
     {
         return view('management-tours.index');
     }
+
+    public function create()
+    {
+        return view('management-tours.create');
+    }
+
+    public function edit()
+    {
+        return view('management-tours.edit');
+    }
 }

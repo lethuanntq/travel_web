@@ -15,4 +15,9 @@ class ManagementPostController extends Controller
     {
         return view('management-posts.create');
     }
+
+    public function edit()
+    {
+        return view('management-posts.edit');
+    }
 }
