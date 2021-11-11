@@ -43,6 +43,6 @@
             @endforeach
     </div>
     <div class="mt-3">
-        <button type="submit" name="submit" class="btn btn-secondary">Tạo mới</button>
+        <button type="submit" name="submit" class="btn btn-secondary">Save</button>
     </div>
 </div>
