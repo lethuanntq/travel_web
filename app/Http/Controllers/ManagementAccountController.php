@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Services\AccountService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ManagementAccountController extends Controller
 {
@@ -17,11 +16,13 @@ class ManagementAccountController extends Controller
 
     public function index()
     {
+        session(['title' => 'Quản lý tài khoản']);
         return view('management-accounts.index');
     }
 
     public function create()
     {
+        session(['title' => 'Tạo mới tài khoản']);
         return view('management-accounts.create');
     }
 

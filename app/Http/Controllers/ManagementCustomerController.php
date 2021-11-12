@@ -8,11 +8,13 @@ class ManagementCustomerController extends Controller
 {
     public function index()
     {
+        session(['title' => 'Quản lý khách hàng']);
         return view('management-customers.index');
     }
 
     public function create()
     {
+        session(['title' => 'Tạo mới tài khoản']);
         return view('management-customers.create');
     }
 
