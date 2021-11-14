@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use phpDocumentor\Reflection\Types\This;
 
 class User extends Authenticatable
 {
@@ -53,11 +54,23 @@ class User extends Authenticatable
     {
         return [
             'account.name' => 'required|max:255',
-            'account.email' => 'required|email|unique',
-            'account.phone_number' => 'required|regex:/(01)[0-9]{9}/|digits:10',
-            'account.password' => 'required_with:account.password_confirm|same:account.password_confirm|min:8|max:30',
-            'account.password_confirm' => 'required_with:account.password|same:account.password',
+            'account.email' => 'required|email|unique:users,email',
+            'account.phone_number' => 'required|digits:10',
+            'account.password' => 'required|min:8|max:30|confirmed',
+            'account.password_confirmation' => 'required|min:8|max:30',
             'account.role' => 'required'
+        ];
+    }
+
+    public static function attributes()
+    {
+        return [
+            'account.name' => 'first name and last name',
+            'account.email' => 'email',
+            'account.phone_number' => 'phone number',
+            'account.password' => 'password',
+            'account.password_confirmation' => 'password confirm',
+            'account.role' => 'role'
         ];
     }
 }

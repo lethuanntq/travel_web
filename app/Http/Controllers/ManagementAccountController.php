@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\AccountService;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
+use App\Models\User;
+use App\Services\AccountService;
 
 class ManagementAccountController extends Controller
 {
@@ -31,9 +33,16 @@ class ManagementAccountController extends Controller
         $this->accountService->store($request);
         return redirect()->route('management-account.index')->with('message', 'Lưu thành công!');
     }
-    public function edit()
+    public function edit(User $user)
     {
-        return view('management-accounts.edit');
+        session(['title' => 'Cập nhật tài khoản']);
+        return view('management-accounts.edit', [
+            'user' => $user
+        ]);
     }
 
+    public function getData()
+    {
+        return Datatables::of(User::query())->make(true);;
+    }
 }

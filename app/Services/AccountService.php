@@ -3,11 +3,9 @@
 
 namespace App\Services;
 
-use Exception;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
@@ -16,10 +14,11 @@ class AccountService extends BaseService
     public function store(Request $request)
     {
         $rules = User::rules();
+        $attr = User::attributes();
         DB::beginTransaction();
-        try {
+//        try {
             $data = $request->all();
-            $validator = Validator::make($data, $rules);
+            $validator = Validator::make($data, $rules, [], $attr);
             if ($validator->fails()) {
                 throw new ValidationException($validator);
             }
@@ -30,12 +29,13 @@ class AccountService extends BaseService
             $user->password = bcrypt($request->input('account.password'));
             $user->role = $request->input('account.role');
             $user->active = $request->input('account.active') ?? User::INACTIVE;
+
             $user->save();
             DB::commit();
-        }catch (Exception $e) {
-            DB::rollBack();
-            Log::error($e->getMessage());
-        }
+//        }catch (Exception $e) {
+//            Log::error($e->getMessage());
+//            DB::rollBack();
+//        }
 
 
     }

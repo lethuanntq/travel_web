@@ -21,32 +21,50 @@
                     <a href="{{ route('management-account.create') }}" class="btn btn-secondary float-right">Tạo mới</a>
                 </div>
             </div>
-            <table class="table table-striped">
+            <table class="table table-striped" id="users-table">
                 <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Tên tài khoản</th>
-                    <th scope="col">Số điện thoại</th>
+                    <th scope="col">id</th>
+                    <th scope="col">name</th>
+                    <th scope="col">Email</th>
                     <th scope="col">Chức vụ</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td style="width: 15%">
-                        <a href="#"><u>Xem</u></a>
-                        <a href="#"><u>Chỉnh sửa</u></a>
-                        <a href="#"><u>Xóa</u></a>
-                    </td>
-                </tr>
-                </tbody>
+{{--                <tbody>--}}
+{{--                <tr>--}}
+{{--                    <th scope="row">1</th>--}}
+{{--                    <td>Mark</td>--}}
+{{--                    <td>Otto</td>--}}
+{{--                    <td>@mdo</td>--}}
+{{--                    <td style="width: 15%">--}}
+{{--                        <a href="#"><u>Xem</u></a>--}}
+{{--                        <a href="{{ route('management-account.edit', 2) }}"><u>Chỉnh sửa</u></a>--}}
+{{--                        <a href="#"><u>Xóa</u></a>--}}
+{{--                    </td>--}}
+{{--                </tr>--}}
+{{--                </tbody>--}}
             </table>
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script>
+        $(function() {
+            $('#users-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '{!! route('management-account.data') !!}',
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'name', name: 'name' },
+                    { data: 'email', name: 'email' },
+                    { data: 'created_at', name: 'created_at' },
+                    { data: 'updated_at', name: 'updated_at' }
+                ]
+            });
+        });
+    </script>
+@endpush
 
 

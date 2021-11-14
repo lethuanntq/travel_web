@@ -37,7 +37,7 @@
         <button type="submit" name="submit" class="btn btn-secondary">Tạo mới</button>
     </div>
 </div>
-@push('custom-script')
+@push('scripts')
     <script>
         CKEDITOR.replace('tour-description')
     </script>
