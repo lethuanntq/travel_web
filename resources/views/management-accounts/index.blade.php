@@ -7,7 +7,7 @@
         <div>
             <div class="row">
                 <div class="col-sm-4">
-                    <a href="{{ route('management-account.create') }}" class="btn btn-secondary float-right">Tạo mới</a>
+{{--                    <a href="{{ route('management-account.create') }}" class="btn btn-secondary float-right">Tạo mới</a>--}}
                 </div>
             </div>
             <table class="table table-bordered" id="users-table">
@@ -17,7 +17,6 @@
                     <th scope="col" style="width: 20%">name</th>
                     <th scope="col" style="width: 20%">Email</th>
                     <th scope="col" style="width: 20%">Chức vụ</th>
-                    <th scope="col" style="width: 20%">Created_at</th>
                     <th scope="col" style="width: 20%">Action</th>
                 </tr>
                 </thead>
@@ -37,7 +36,6 @@
                     { data: 'name', name: 'name' },
                     { data: 'email', name: 'email' },
                     { data: 'role', name: 'role' },
-                    { data: 'created_at', name: 'created_at' },
                     { data: 'action', name: 'action' }
                 ]
             });

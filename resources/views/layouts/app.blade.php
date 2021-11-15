@@ -42,9 +42,36 @@
 
 </div>
 <!-- ./wrapper -->
-
+<div class="modal fade" id="delete-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="delete-confirm-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có muốn xóa không ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" onclick="event.preventDefault();document.getElementById('delete-form').submit();">Có</button>
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Không</button>
+            </div>
+            <form method="post" action="#" id="delete-form" class="d-block">
+                @method('DELETE')
+                @csrf
+            </form>
+        </div>
+    </div>
+</div>
 <!-- REQUIRED SCRIPTS -->
-
+<script>
+    $('#delete-confirm-modal').on('shown.bs.modal', function (event) {
+        console.log(event);
+        let target = $(event.relatedTarget);
+        $('#delete-form').attr('action', target.data('action'));
+    });
+</script>
 <!-- jQuery -->
 <script src="{{ asset('vendors/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
@@ -56,5 +83,6 @@
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
 @stack('scripts')
+
 </body>
 </html>

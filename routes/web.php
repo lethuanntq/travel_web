@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function (){
 
     Route::post('/management-account/store', [ManagementAccountController::class, 'store'])->name('management-account.store');
     Route::match(['put', 'patch'], '/management-account/update/{user}', [ManagementAccountController::class, 'update'])->name('management-account.update');
+    Route::delete('/management-account/delete/{user}', [ManagementAccountController::class, 'delete'])->name('management-account.delete');
 
     //management-tours
     Route::get('/management-tour/index', [ManagementTourController::class, 'index'])->name('management-tour.index');
