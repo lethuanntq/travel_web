@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Yajra\DataTables\DataTables;
 use App\Models\User;
 use App\Services\AccountService;
+use Yajra\DataTables\DataTables;
 
 class ManagementAccountController extends Controller
 {
@@ -43,6 +43,14 @@ class ManagementAccountController extends Controller
 
     public function getData()
     {
-        return Datatables::of(User::query())->make(true);;
+        $users = User::query()->select(['id', 'name', 'email', 'role', 'created_at'])->get();
+        return Datatables::of($users)
+            ->editColumn('role', function ($user) {
+                return User::ROLES[$user->role];
+            })
+            ->addColumn('action', function ($user) {
+                return '<a href="'. route('management-account.edit', $user->id) .'" class="btn btn-xs btn-warning"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a> <a href="javascript:void(0)" data-id="' . $user->id . '" class="btn btn-xs btn-danger btn-delete"><i class="fa fa-times"></i> Delete</a>';
+            })
+            ->make(true);
     }
 }

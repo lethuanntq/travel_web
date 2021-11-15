@@ -6,44 +6,21 @@
         @endif
         <div>
             <div class="row">
-                <div class="col-sm-8">
-                    <form >
-                        <div class="input-group rounded mb-2"  style="width: 45%">
-                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-                                   aria-describedby="search-addon" />
-                            <button type="button" class="btn">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
                 <div class="col-sm-4">
                     <a href="{{ route('management-account.create') }}" class="btn btn-secondary float-right">Tạo mới</a>
                 </div>
             </div>
-            <table class="table table-striped" id="users-table">
+            <table class="table table-bordered" id="users-table">
                 <thead>
                 <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Chức vụ</th>
-                    <th scope="col"></th>
+                    <th scope="col" style="width: 4%">id</th>
+                    <th scope="col" style="width: 20%">name</th>
+                    <th scope="col" style="width: 20%">Email</th>
+                    <th scope="col" style="width: 20%">Chức vụ</th>
+                    <th scope="col" style="width: 20%">Created_at</th>
+                    <th scope="col" style="width: 20%">Action</th>
                 </tr>
                 </thead>
-{{--                <tbody>--}}
-{{--                <tr>--}}
-{{--                    <th scope="row">1</th>--}}
-{{--                    <td>Mark</td>--}}
-{{--                    <td>Otto</td>--}}
-{{--                    <td>@mdo</td>--}}
-{{--                    <td style="width: 15%">--}}
-{{--                        <a href="#"><u>Xem</u></a>--}}
-{{--                        <a href="{{ route('management-account.edit', 2) }}"><u>Chỉnh sửa</u></a>--}}
-{{--                        <a href="#"><u>Xóa</u></a>--}}
-{{--                    </td>--}}
-{{--                </tr>--}}
-{{--                </tbody>--}}
             </table>
         </div>
     </div>
@@ -59,8 +36,9 @@
                     { data: 'id', name: 'id' },
                     { data: 'name', name: 'name' },
                     { data: 'email', name: 'email' },
+                    { data: 'role', name: 'role' },
                     { data: 'created_at', name: 'created_at' },
-                    { data: 'updated_at', name: 'updated_at' }
+                    { data: 'action', name: 'action' }
                 ]
             });
         });
