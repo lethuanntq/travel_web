@@ -16,6 +16,9 @@ class CreateInitTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title')->nullable();
+            $table->string('seo_tag')->nullable();
+            $table->string('seo_description')->nullable();
+            $table->string('key_word')->nullable();
             $table->string('description')->nullable();
 
             $table->timestamps();
@@ -30,8 +33,12 @@ class CreateInitTable extends Migration
             $table->string('title')->nullable();
             $table->string('description')->nullable();
             $table->decimal('price', 10, 2)->nullable();
-            $table->dateTime('date_from')->nullable();
-            $table->dateTime('date_to')->nullable();
+            $table->dateTime('start_date')->nullable();
+            $table->dateTime('end_date')->nullable();
+            $table->string('price_promotion')->nullable();
+            $table->string('key_word')->nullable();
+            $table->string('seo_tag')->nullable();
+            $table->string('seo_description')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreignId('created_by')->unsigned()->nullable()->constrained('users');

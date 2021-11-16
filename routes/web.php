@@ -24,11 +24,14 @@ Route::middleware('auth')->group(function (){
 
     //management-posts
     Route::get('/management-post/index', [ManagementPostController::class, 'index'])->name('management-post.index');
+    Route::get('/management-post/get-data', [ManagementPostController::class, 'getData'])->name('management-post.data');
     Route::get('/management-post/create', [ManagementPostController::class, 'create'])->name('management-post.create');
     Route::get('/management-post/{post}/edit', [ManagementPostController::class, 'edit'])->name('management-post.edit');
 
-    Route::post('/management-post/store', [ManagementAccountController::class, 'store'])->name('management-post.store');
-    Route::match(['put', 'patch'], '/management-account/post/{post}', [ManagementAccountController::class, 'update'])->name('management-post.update');
+    Route::post('/management-post/store', [ManagementPostController::class, 'store'])->name('management-post.store');
+    Route::match(['put', 'patch'], '/management-account/post/{post}', [ManagementPostController::class, 'update'])->name('management-post.update');
+
+    Route::delete('/management-post/delete/{post}', [ManagementPostController::class, 'delete'])->name('management-post.delete');
 
     //management-customers
     Route::get('/management-customer/index', [ManagementCustomerController::class, 'index'])->name('management-customer.index');
@@ -51,9 +54,13 @@ Route::middleware('auth')->group(function (){
 
     //management-tours
     Route::get('/management-tour/index', [ManagementTourController::class, 'index'])->name('management-tour.index');
+    Route::get('/management-tour/get-data', [ManagementTourController::class, 'getData'])->name('management-tour.data');
     Route::get('/management-tour/create', [ManagementTourController::class, 'create'])->name('management-tour.create');
     Route::get('/management-tour/{tour}/edit', [ManagementTourController::class, 'edit'])->name('management-tour.edit');
 
-    Route::post('/management-tour/store', [ManagementAccountController::class, 'store'])->name('management-tour.store');
-    Route::match(['put', 'patch'], '/management-tour/update/{tour}', [ManagementAccountController::class, 'update'])->name('management-tour.update');
+    Route::post('/management-tour/store', [ManagementTourController::class, 'store'])->name('management-tour.store');
+    Route::match(['put', 'patch'], '/management-tour/update/{tour}', [ManagementTourController::class, 'update'])->name('management-tour.update');
+
+    Route::delete('/management-tour/delete/{tour}', [ManagementTourController::class, 'delete'])->name('management-tour.delete');
+
 });

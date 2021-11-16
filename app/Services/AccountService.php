@@ -52,7 +52,6 @@ class AccountService extends BaseService
 
     public function save(User $user, Request $request)
     {
-
         $user->name = $request->input('account.name');
         $user->email = $request->input('account.email');
         $user->phone_number = $request->input('account.phone_number');
