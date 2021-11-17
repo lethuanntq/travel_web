@@ -10,7 +10,7 @@ class Customer extends Model
     use HasFactory;
 
     const STATUS = [
-      0 => 'Đang xử lý',
-      1 => 'Khách hàng mới'
+      0 => 'Chưa booking',
+      1 => 'Đang booking'
     ];
 }

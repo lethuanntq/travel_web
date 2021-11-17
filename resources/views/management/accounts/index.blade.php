@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('management.layouts.app')
 @section('content')
     <div class="ml-3 mr-3">
         @if(\Illuminate\Support\Facades\Session::has('message'))
@@ -7,7 +7,7 @@
         <div>
             <div class="row">
                 <div class="col-sm-4">
-{{--                    <a href="{{ route('management-account.create') }}" class="btn btn-secondary float-right">Tạo mới</a>--}}
+{{--                    <a href="{{ route('management.account.create') }}" class="btn btn-secondary float-right">Tạo mới</a>--}}
                 </div>
             </div>
             <table class="table table-bordered" id="users-table">
@@ -30,7 +30,7 @@
             $('#users-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{!! route('management-account.data') !!}',
+                ajax: '{!! route('management.account.data') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'name', name: 'name' },
@@ -40,6 +40,7 @@
                 ]
             });
         });
+
     </script>
 @endpush
 

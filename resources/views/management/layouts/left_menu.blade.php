@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('management-post.index') }}" class="nav-link">
+                    <a href="{{ route('management.post.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Quản lý bài viết
@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('management-tour.index') }}" class="nav-link">
+                    <a href="{{ route('management.tour.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Quản lý tour
@@ -60,7 +60,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('management-customer.index') }}" class="nav-link">
+                    <a href="{{ route('management.customer.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Quản lý khách hàng
@@ -69,7 +69,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('management-account.index')}}" class="nav-link">
+                    <a href="{{route('management.account.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Quản lý tài khoản

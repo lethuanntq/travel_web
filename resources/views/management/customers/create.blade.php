@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('management.layouts.app')
 @section('content')
     <div class="ml-3 mr-3">
         <div>
@@ -6,7 +6,7 @@
         </div>
         <form method="post" action="">
             @csrf
-            @include('management-customers._form')
+            @include('management.customers._form')
         </form>
     </div>
 @endsection

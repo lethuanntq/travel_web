@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('management.layouts.app')
 @section('content')
     <div class="ml-3 mr-3">
         @if(\Illuminate\Support\Facades\Session::has('message'))
@@ -18,7 +18,7 @@
                     </form>
                 </div>
                 <div class="col-sm-4">
-                    <a href="{{ route('management-tour.create') }}" class="btn btn-secondary float-right">Tạo mới</a>
+                    <a href="{{ route('management.tour.create') }}" class="btn btn-secondary float-right">Tạo mới</a>
                 </div>
             </div>
             <table class="table table-striped" id="tour-table">
@@ -44,7 +44,7 @@
             $('#tour-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{!! route('management-tour.data') !!}',
+                ajax: '{!! route('management.tour.data') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'title', name: 'title' },

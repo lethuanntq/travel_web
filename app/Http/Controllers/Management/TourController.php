@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Management;
 
+use App\Http\Controllers\Controller;
 use App\Models\Tour;
 use App\Models\User;
 use App\Services\TourService;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
-class ManagementTourController extends Controller
+class TourController extends Controller
 {
     protected $tourService;
 
@@ -20,32 +21,32 @@ class ManagementTourController extends Controller
     public function index()
     {
         session(['title' => 'Quản lý tour']);
-        return view('management-tours.index');
+        return view('management.tours.index');
     }
 
     public function create()
     {
         session(['title' => 'Tạo mới tour']);
-        return view('management-tours.create');
+        return view('management.tours.create');
     }
 
     public function edit(Tour $tour)
     {
-        return view('management-tours.edit', ['tour' => $tour]);
+        return view('management.tours.edit', ['tour' => $tour]);
     }
 
     public function store(Request $request)
     {
         $this->tourService->store($request);
 
-        return redirect()->route('management-tour.index')->with('message', 'Lưu thành công!');
+        return redirect()->route('management.tour.index')->with('message', 'Lưu thành công!');
     }
 
     public function update(Tour $tour, Request $request)
     {
         $this->tourService->update($tour, $request);
 
-        return redirect()->route('management-tour.index')->with('message', 'Update thành công!');
+        return redirect()->route('management.tour.index')->with('message', 'Update thành công!');
     }
 
     public function getData()
@@ -61,9 +62,9 @@ class ManagementTourController extends Controller
                 return html_entity_decode($tour->description);
             })
             ->addColumn('action', function ($tour) {
-                return '<a href="' . route('management-tour.create') . '" class="btn btn-xs btn-success"><i class="fa fa-new"></i>Create</a>
-                        <a href="'. route('management-tour.edit', $tour->id) .'" class="btn btn-xs btn-warning"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
-                        <a href="#" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete-confirm-modal"  data-action="' . route('management-tour.delete', $tour->id) . '"' . '><i class="fa fa-times"></i> Delete</a>';
+                return '<a href="' . route('management.tour.create') . '" class="btn btn-xs btn-success"><i class="fa fa-new"></i>Create</a>
+                        <a href="'. route('management.tour.edit', $tour->id) .'" class="btn btn-xs btn-warning"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
+                        <a href="#" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete-confirm-modal"  data-action="' . route('management.tour.delete', $tour->id) . '"' . '><i class="fa fa-times"></i> Delete</a>';
             })
             ->make(true);
     }

@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ManagementAccountController;
-use App\Http\Controllers\ManagementCustomerController;
-use App\Http\Controllers\ManagementPostController;
-use App\Http\Controllers\ManagementTourController;
+use App\Http\Controllers\Management\AccountController;
+use App\Http\Controllers\Management\CustomerController;
+use App\Http\Controllers\Management\PostController;
+use App\Http\Controllers\Management\TourController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,49 +18,54 @@ use App\Http\Controllers\ManagementTourController;
 */
 
 Auth::routes();
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware('auth')->group(function (){
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group([
+    'as' => 'management.',
+    'prefix' => 'management',
+    'middleware' => 'auth'
+], function () {
 
-    //management-posts
-    Route::get('/management-post/index', [ManagementPostController::class, 'index'])->name('management-post.index');
-    Route::get('/management-post/get-data', [ManagementPostController::class, 'getData'])->name('management-post.data');
-    Route::get('/management-post/create', [ManagementPostController::class, 'create'])->name('management-post.create');
-    Route::get('/management-post/{post}/edit', [ManagementPostController::class, 'edit'])->name('management-post.edit');
+    //posts
+    Route::get('post', [PostController::class, 'index'])->name('post.index');
+    Route::get('post-data', [PostController::class, 'getData'])->name('post.data');
+    Route::get('post/new', [PostController::class, 'create'])->name('post.create');
+    Route::get('post/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
 
-    Route::post('/management-post/store', [ManagementPostController::class, 'store'])->name('management-post.store');
-    Route::match(['put', 'patch'], '/management-account/post/{post}', [ManagementPostController::class, 'update'])->name('management-post.update');
+    Route::post('post-store', [PostController::class, 'store'])->name('post.store');
+    Route::match(['put', 'patch'], 'post/{post}', [PostController::class, 'update'])->name('post.update');
 
-    Route::delete('/management-post/delete/{post}', [ManagementPostController::class, 'delete'])->name('management-post.delete');
+    Route::delete('post-delete/{post}', [PostController::class, 'delete'])->name('post.delete');
 
-    //management-customers
-    Route::get('/management-customer/index', [ManagementCustomerController::class, 'index'])->name('management-customer.index');
-    Route::get('/management-customer/create', [ManagementCustomerController::class, 'create'])->name('management-customer.create');
-    Route::get('/management-customer/{customer}/edit', [ManagementCustomerController::class, 'edit'])->name('management-customer.edit');
+    //customers
+    Route::get('customer', [CustomerController::class, 'index'])->name('customer.index');
+    Route::get('customer-data', [CustomerController::class, 'getData'])->name('customer.data');
+    Route::get('customer/new', [CustomerController::class, 'create'])->name('customer.create');
+    Route::get('customer/{customer}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
 
-    Route::post('/management-customer/store', [ManagementAccountController::class, 'store'])->name('management-customer.store');
-    Route::match(['put', 'patch'], '/management-customer/update/{customer}', [ManagementAccountController::class, 'update'])->name('management-customer.update');
+    Route::post('customer-store', [CustomerController::class, 'store'])->name('customer.store');
+    Route::match(['put', 'patch'], '/customer/update/{customer}', [CustomerController::class, 'update'])->name('customer.update');
 
+    Route::delete('customer/{tour}', [CustomerController::class, 'delete'])->name('customer.delete');
 
-    //management-accounts
-    Route::get('/management-account/index', [ManagementAccountController::class, 'index'])->name('management-account.index');
-    Route::get('/management-account/get-data', [ManagementAccountController::class, 'getData'])->name('management-account.data');
-    Route::get('/management-account/create', [ManagementAccountController::class, 'create'])->name('management-account.create');
-    Route::get('/management-account/{user}/edit', [ManagementAccountController::class, 'edit'])->name('management-account.edit');
+    //accounts
+    Route::get('account', [AccountController::class, 'index'])->name('account.index');
+    Route::get('account-data', [AccountController::class, 'getData'])->name('account.data');
+    Route::get('account/new', [AccountController::class, 'create'])->name('account.create');
+    Route::get('account/{user}/edit', [AccountController::class, 'edit'])->name('account.edit');
 
-    Route::post('/management-account/store', [ManagementAccountController::class, 'store'])->name('management-account.store');
-    Route::match(['put', 'patch'], '/management-account/update/{user}', [ManagementAccountController::class, 'update'])->name('management-account.update');
-    Route::delete('/management-account/delete/{user}', [ManagementAccountController::class, 'delete'])->name('management-account.delete');
+    Route::post('account', [AccountController::class, 'store'])->name('account.store');
+    Route::match(['put', 'patch'], 'account/{user}', [AccountController::class, 'update'])->name('account.update');
+    Route::delete('/account/delete/{user}', [AccountController::class, 'delete'])->name('account.delete');
 
-    //management-tours
-    Route::get('/management-tour/index', [ManagementTourController::class, 'index'])->name('management-tour.index');
-    Route::get('/management-tour/get-data', [ManagementTourController::class, 'getData'])->name('management-tour.data');
-    Route::get('/management-tour/create', [ManagementTourController::class, 'create'])->name('management-tour.create');
-    Route::get('/management-tour/{tour}/edit', [ManagementTourController::class, 'edit'])->name('management-tour.edit');
+    //tours
+    Route::get('tour', [TourController::class, 'index'])->name('tour.index');
+    Route::get('tour-data', [TourController::class, 'getData'])->name('tour.data');
+    Route::get('tour/new', [TourController::class, 'create'])->name('tour.create');
+    Route::get('tour/{tour}/edit', [TourController::class, 'edit'])->name('tour.edit');
 
-    Route::post('/management-tour/store', [ManagementTourController::class, 'store'])->name('management-tour.store');
-    Route::match(['put', 'patch'], '/management-tour/update/{tour}', [ManagementTourController::class, 'update'])->name('management-tour.update');
+    Route::post('tour', [TourController::class, 'store'])->name('tour.store');
+    Route::match(['put', 'patch'], 'tour-update/{tour}', [TourController::class, 'update'])->name('tour.update');
 
-    Route::delete('/management-tour/delete/{tour}', [ManagementTourController::class, 'delete'])->name('management-tour.delete');
-
+    Route::delete('tour/{tour}', [TourController::class, 'delete'])->name('tour.delete');
 });

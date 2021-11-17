@@ -19,11 +19,11 @@
 <div class="wrapper">
 
     <!-- Top Menu -->
-        @include('layouts.top_menu')
+        @include('management.layouts.top_menu')
     <!-- Top Menu -->
 
     <!-- Left Menu -->
-        @include('layouts.left_menu')
+        @include('management.layouts.left_menu')
     <!-- Left Menu -->
 
     <!-- Content Wrapper. Contains page content -->
@@ -33,7 +33,7 @@
         <!-- Content  -->
     </div>
     <!-- Right Menu -->
-        @include('layouts.right_menu')
+        @include('management.layouts.right_menu')
     <!-- Right Menu -->
 
     <!-- Footer Menu -->
@@ -50,7 +50,7 @@
                 <button type="button" class="btn" data-dismiss="modal" style="display: inline">いいえ</button>
                 <button type="button" class="btn" onclick="event.preventDefault();document.getElementById('delete-form').submit();" style="display: inline">はい</button>
             </div>
-            <form method="post" action="#" id="delete-form" class="d-none">
+            <form method="post" action="#" id="delete-form" class="d-block">
                 @csrf
                 @method('delete')
             </form>
@@ -70,7 +70,8 @@
 <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
 @stack('scripts')
 <script>
-    $('#delete-confirm-modal').on('shown.bs.modal', function (event) {
+    $('.delete').on('click', function (event) {
+        console.log('delete');
         let target = $(event.relatedTarget);
         $('#delete-form').attr('action', target.data('action'));
     });

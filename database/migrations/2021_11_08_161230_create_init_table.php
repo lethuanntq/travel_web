@@ -48,9 +48,9 @@ class CreateInitTable extends Migration
 
         Schema::create('customers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->foreignId('user_id')->unsigned()->nullable()->constrained('users');
             $table->integer('number_booked');
-            $table->bigInteger('booking');
+            $table->bigInteger('tour_id_booking')->nullable();
             $table->smallInteger('status')->comment('1:booking ; 2:not_booking');
             $table->timestamps();
             $table->softDeletes();

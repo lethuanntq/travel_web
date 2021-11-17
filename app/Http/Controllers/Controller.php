@@ -23,8 +23,8 @@ class Controller extends BaseController
                 return html_entity_decode($data->description);
             })
             ->addColumn('action', function ($data) {
-                return '<a href="' . route('management-post.create') . '" class="btn btn-xs btn-success"><i class="fa fa-new"></i>Create</a>
-                        <a href="'. route('management-post.edit', $data->id) .'" class="btn btn-xs btn-warning"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
+                return '<a href="' . route('management.post.create') . '" class="btn btn-xs btn-success"><i class="fa fa-new"></i>Create</a>
+                        <a href="'. route('management.post.edit', $data->id) .'" class="btn btn-xs btn-warning"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
                         <a href="#" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete-confirm-modal"  data-action="' . route('management-post.delete', $data->id) . '"' . '><i class="fa fa-times"></i> Delete</a>';
             })
             ->make(true);

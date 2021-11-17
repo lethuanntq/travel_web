@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('management.layouts.app')
 @section('content')
     <div class="ml-3 mr-3">
         <div>
@@ -18,36 +18,38 @@
                     </form>
                 </div>
                 <div class="col-sm-4">
-                    <a href="{{ route('management-customer.create') }}" class="btn btn-secondary float-right">Tạo mới</a>
+                    <a href="{{ route('management.customer.create') }}" class="btn btn-secondary float-right">Tạo mới</a>
                 </div>
             </div>
-            <table class="table table-striped">
+            <table class="table table-striped" id="customer-table">
                 <thead>
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Tên khách hàng</th>
-                    <th scope="col">Số điện thoại</th>
-                    <th scope="col">Email</th>
-                    <th scope="col"></th>
+                    <th scope="col">Số lần book tour</th>
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Action</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td style="width: 15%">
-                        <a href="#"><u>Xem</u></a>
-                        <a href="#"><u>Chỉnh sửa</u></a>
-                        <a href="#"><u>Xóa</u></a>
-                    </td>
-                </tr>
-                </tbody>
             </table>
         </div>
     </div>
 @endsection
-
-
-@extends('layouts.app')
+@push('scripts')
+    <script>
+        $(function() {
+            $('#customer-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '{!! route('management.customer.data') !!}',
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'user_id', name:'user_id' },
+                    { data: 'number_booked', name: 'number_booked' },
+                    { data: 'status', name: 'status' },
+                    { data: 'action', name: 'action' }
+                ]
+            });
+        });
+    </script>
+@endpush

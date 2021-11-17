@@ -26,13 +26,10 @@
         <textarea class="form-control" rows="5" id="customer-note" name="customer[note]"></textarea>
     </div>
     <div class="mt-3">
-        <label>Nội dung</label>
-        <select class="form-control">
-            <option value=""></option>
-            @foreach(\App\Models\Customer::STATUS as $key => $status)
-                <option value="{{$key}}">{{$status}}</option>
-            @endforeach
-        </select>
+        <div>
+            <label>Tour đang booking</label>
+            <div><a href="#">Không có tour</a></div>
+        </div>
     </div>
     <div class="mt-3">
         <button type="submit" name="submit" class="btn btn-secondary">Tạo mới</button>

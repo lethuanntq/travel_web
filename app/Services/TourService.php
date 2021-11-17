@@ -38,7 +38,6 @@ class TourService extends BaseService
         $attrs = Tour::attributes();
         DB::beginTransaction();
         try {
-            dd($request->all());
             $this->validate($request->all(), $rules, $attrs);
             $this->save($tour, $request);
             DB::commit();
