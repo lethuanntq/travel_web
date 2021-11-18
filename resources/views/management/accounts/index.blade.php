@@ -1,4 +1,5 @@
 @extends('management.layouts.app')
+@section('title', 'Quản lý tài khoản')
 @section('content')
     <div class="ml-3 mr-3">
         @if(\Illuminate\Support\Facades\Session::has('message'))

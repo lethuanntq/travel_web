@@ -49,12 +49,44 @@
             <div>
                 <label class="label">Trạng thái</label>
             </div>
-
             <input type="checkbox" value="1" id="account-active" name="account[active]" @if( old('account.active', $user->active ?? null) == 1) checked @endif><span class="ml-2">Active</span>
             <div class="invalid-feedback d-block">{{ $errors->first("account.active") }}</div>
+        </div>
+    </div>
+    <div class="mt-3">
+        <div>
+            <div>
+                <label class="label">Avatar</label>
+            </div>
+            <input type="file" value="1" id="account-avatar" name="account[avatar]">
+
+            <div style="width: 30%; height: 30%">
+                <label id="image-upload">
+                    <img id="blah" src="#" style="width: 50%; height: 50%;display: none">
+                </label>
+            </div>
         </div>
     </div>
     <div class="mt-3">
         <button type="submit" name="submit" class="btn btn-secondary" value="save">Save</button>
     </div>
 </div>
+@push('scripts')
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#blah').attr('src', e.target.result);
+                    $('#image-upload').attr('for', 'account-avatar');
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#account-avatar").change(function(){
+            $('#blah').css('display', 'block');
+            readURL(this);
+            $("#account-avatar").hide()
+        });
+    </script>
+@endpush
