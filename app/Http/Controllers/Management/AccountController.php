@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Management;
 
 use App\Http\Controllers\Controller;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Services\AccountService;
@@ -35,8 +36,10 @@ class AccountController extends Controller
 
     public function edit(User $user)
     {
+        $image = Image::query()->where('user_id', $user->id)->first();
         return view('management.accounts.edit', [
-            'user' => $user
+            'user' => $user,
+            'image' => $image
         ]);
     }
 
@@ -54,9 +57,8 @@ class AccountController extends Controller
                 return User::ROLES[$user->role];
             })
             ->addColumn('action', function ($user) {
-                return '<a href="' . route('management.account.create') . '" class="btn btn-xs btn-success"><i class="fa fa-new"></i>Create</a>
-                        <a href="'. route('management.account.edit', $user->id) .'" class="btn btn-xs btn-warning"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
-                        <a href="#" class="btn btn-xs btn-danger delete" data-toggle="modal" data-target="#delete-confirm-modal"  data-action="' . route('management.account.delete', $user->id) . '"' . '><i class="fa fa-times"></i> Delete</a>';
+                return '<a href="'. route('management.account.edit', $user->id) .'" class="btn btn-xs btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                        <a href="#" class="btn btn-xs btn-danger delete" data-toggle="modal" data-target="#delete-confirm-modal"  data-action="' . route('management.account.delete', $user->id) . '"' . '><i class="fa fa-times"></i></a>';
             })
             ->make(true);
     }

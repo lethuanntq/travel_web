@@ -6,22 +6,28 @@
             <div class="success alert-success" style="width: 30%">{{ \Illuminate\Support\Facades\Session::get('message') }}</div>
         @endif
         <div>
-            <div class="row">
-                <div class="col-sm-4">
-{{--                    <a href="{{ route('management.account.create') }}" class="btn btn-secondary float-right">Tạo mới</a>--}}
+            <div class="row mb-1">
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6">
+                    <a id="create-account" href="{{ route('management.account.create') }}" class="btn btn-primary float-right"><i class="fa fa-plus"></i></a>
                 </div>
             </div>
-            <table class="table table-bordered" id="users-table">
-                <thead>
-                <tr>
-                    <th scope="col" style="width: 4%">id</th>
-                    <th scope="col" style="width: 20%">name</th>
-                    <th scope="col" style="width: 20%">Email</th>
-                    <th scope="col" style="width: 20%">Chức vụ</th>
-                    <th scope="col" style="width: 20%">Action</th>
-                </tr>
-                </thead>
-            </table>
+            <div class="row">
+               <div class="col-sm-12">
+                   <table class="table table-bordered" id="users-table">
+                       <thead>
+                       <tr>
+                           <th scope="col" style="width: 4%">id</th>
+                           <th scope="col" style="width: 20%">name</th>
+                           <th scope="col" style="width: 20%">Email</th>
+                           <th scope="col" style="width: 20%">Chức vụ</th>
+                           <th scope="col" style="width: 6%">Action</th>
+                       </tr>
+                       </thead>
+                   </table>
+               </div>
+            </div>
         </div>
     </div>
 @endsection
@@ -41,7 +47,6 @@
                 ]
             });
         });
-
     </script>
 @endpush
 

@@ -16,7 +16,7 @@ class Post extends Model
             'post.seo_tag' => 'required|max:255',
             'post.seo_description' => 'required|max:255',
             'post.key_word' => 'required|max:255',
-            'post.description' => 'required|max:255',
+            'post.description' => 'required',
         ];
     }
 

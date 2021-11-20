@@ -19,7 +19,7 @@ class CreateInitTable extends Migration
             $table->string('seo_tag')->nullable();
             $table->string('seo_description')->nullable();
             $table->string('key_word')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
@@ -31,7 +31,7 @@ class CreateInitTable extends Migration
         Schema::create('tours', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->decimal('price', 10, 2)->nullable();
             $table->dateTime('start_date')->nullable();
             $table->dateTime('end_date')->nullable();
@@ -49,8 +49,9 @@ class CreateInitTable extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId('user_id')->unsigned()->nullable()->constrained('users');
+            $table->bigInteger('tour_id')->nullable();
             $table->integer('number_booked');
-            $table->bigInteger('tour_id_booking')->nullable();
+            $table->longText('note')->nullable();
             $table->smallInteger('status')->comment('1:booking ; 2:not_booking');
             $table->timestamps();
             $table->softDeletes();
@@ -72,9 +73,9 @@ class CreateInitTable extends Migration
 
         Schema::create('images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id');
-            $table->bigInteger('post_id');
-            $table->bigInteger('tour_id');
+            $table->bigInteger('user_id')->nullable();
+            $table->bigInteger('post_id')->nullable();
+            $table->bigInteger('tour_id')->nullable();
             $table->string('path_image')->nullable();
             $table->timestamps();
             $table->softDeletes();

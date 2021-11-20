@@ -68,4 +68,6 @@ Route::group([
     Route::match(['put', 'patch'], 'tour-update/{tour}', [TourController::class, 'update'])->name('tour.update');
 
     Route::delete('tour/{tour}', [TourController::class, 'delete'])->name('tour.delete');
+
+    Route::post('image', [\App\Http\Controllers\Management\ImageController::class, 'store'])->name('image');
 });

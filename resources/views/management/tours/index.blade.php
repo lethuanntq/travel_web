@@ -1,37 +1,29 @@
 @extends('management.layouts.app')
+@section('title', 'Quản lý tour')
 @section('content')
     <div class="ml-3 mr-3">
         @if(\Illuminate\Support\Facades\Session::has('message'))
             <div class="success alert-success" style="width: 30%">{{ \Illuminate\Support\Facades\Session::get('message') }}</div>
         @endif
         <div class="mt-sm-5">
-            <div class="row">
-                <div class="col-sm-8">
-                    <form >
-                        <div class="input-group rounded mb-2"  style="width: 45%">
-                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-                                   aria-describedby="search-addon" />
-                            <button type="button" class="btn">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </form>
+            <div class="row mb-1">
+                <div class="col-sm-6">
                 </div>
-                <div class="col-sm-4">
-                    <a href="{{ route('management.tour.create') }}" class="btn btn-secondary float-right">Tạo mới</a>
+                <div class="col-sm-6">
+                    <a id="create-account" href="{{  route('management.tour.create') }}" class="btn btn-primary float-right"><i class="fa fa-plus"></i></a>
                 </div>
             </div>
             <table class="table table-striped" id="tour-table">
                 <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Tiêu đề</th>
-                    <th scope="col" class="w-25">Nội dung</th>
-                    <th scope="col">Mức giá</th>
-                    <th scope="col">Thời gian bắt đầu</th>
-                    <th scope="col">Thời gian kết thúc</th>
-                    <th scope="col">Người tạo</th>
-                    <th scope="col" style="width: 20%">Action</th>
+                    <th scope="col" style="width: 5%">ID</th>
+                    <th scope="col" style="width: 10%">Tiêu đề</th>
+                    <th scope="col" style="width: 25%">Nội dung</th>
+                    <th scope="col" style="width: 10%">Mức giá</th>
+                    <th scope="col" style="width: 15%">Thời gian bắt đầu</th>
+                    <th scope="col" style="width: 15%">Thời gian kết thúc</th>
+                    <th scope="col" style="width: 10%">Người tạo</th>
+                    <th scope="col" style="width: 10%">Action</th>
                 </tr>
                 </thead>
             </table>

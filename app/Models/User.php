@@ -8,14 +8,20 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use phpDocumentor\Reflection\Types\This;
+use function Symfony\Component\String\s;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    const ROLE_ADMIN = 1;
+    const ROLE_EDITOR = 2;
+    const ROLE_CUSTOMER = 3;
+
     const ROLES = [
-      1 => 'Quản trị viên',
-      2 => 'Biên tập viên'
+      self::ROLE_ADMIN => 'Quản trị viên',
+      self::ROLE_EDITOR => 'Biên tập viên',
+      self::ROLE_CUSTOMER => 'Khách hàng'
     ];
 
     const INACTIVE = 0;

@@ -1,6 +1,6 @@
 @php
 @endphp
-<div class="mt-5 container border">
+<div class="container">
     <div>
         <label>Họ và tên</label>
         <input class="form-control" id="account-name" name="account[name]" type="text" value="{{ old('account.name', $user->name ?? null) }}">
@@ -58,11 +58,11 @@
             <div>
                 <label class="label">Avatar</label>
             </div>
-            <input type="file" value="1" id="account-avatar" name="account[avatar]">
+            <input type="file" id="account-avatar" name="account[avatar]" hidden value="{{ old('account.avatar', $image->path_image ?? null) }}">
 
             <div style="width: 30%; height: 30%">
-                <label id="image-upload">
-                    <img id="blah" src="#" style="width: 50%; height: 50%;display: none">
+                <label id="image-upload" for="account-avatar">
+                    <img id="blah" src="{{ asset('avatar/'.old('account.avatar', $image->path_image ?? 'default-avatar.jpg')) }}" style="width: 50%; height: 50%">
                 </label>
             </div>
         </div>
@@ -73,6 +73,10 @@
 </div>
 @push('scripts')
     <script>
+        $(document).ready(function () {
+                readURL($('#account-avatar'))
+        });
+
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -83,10 +87,10 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
         $("#account-avatar").change(function(){
-            $('#blah').css('display', 'block');
             readURL(this);
-            $("#account-avatar").hide()
         });
+
     </script>
 @endpush

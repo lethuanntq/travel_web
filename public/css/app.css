@@ -10019,3 +10019,21 @@ h3 {
     border-color: #dee2e6;
   }
 }
+
+.button-delete {
+    color: #fff;
+    background-color: #d9505d;
+    border-color: #dc3545;
+}
+
+.button-edit {
+    color: #fff;
+    background-color: #5d8f71;
+    border-color: #5d8f71;
+}
+
+.button-create {
+    color: #fff;
+    background-color: #5d8f71;
+    border-color: #5d8f71;
+}

@@ -17,7 +17,6 @@
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-
     <!-- Top Menu -->
         @include('management.layouts.top_menu')
     <!-- Top Menu -->
@@ -26,11 +25,18 @@
         @include('management.layouts.left_menu')
     <!-- Left Menu -->
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content -->
-        @yield('content')
-        <!-- Content  -->
+{{--   Content--}}
+    <div class="content-wrapper mt-3">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">@yield('title')</h5>
+                </div>
+                <div class="card-body">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Right Menu -->
         @include('management.layouts.right_menu')
@@ -41,7 +47,26 @@
     <!-- Footer Menu -->
 
 </div>
-<!-- ./wrapper -->
+
+<!-- modal form -->
+<div class="modal fade" id="delete-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document" style="margin-top: 15%">
+        <div class="modal-content">
+            <div class="modal-body" id="print-detail">削除してよろしいですか。</div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal" style="display: inline">いいえ</button>
+                <button type="button" class="btn" onclick="event.preventDefault();document.getElementById('delete-form').submit();" style="display: inline">はい</button>
+            </div>
+            <form method="post" action="#" id="delete-form" class="d-block">
+                @csrf
+                @method('delete')
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- modal delete -->
 <div class="modal fade" id="delete-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm" role="document" style="margin-top: 15%">
         <div class="modal-content">
