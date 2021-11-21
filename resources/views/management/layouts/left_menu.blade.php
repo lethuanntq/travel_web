@@ -12,8 +12,9 @@
             <div class="image">
                 @php
                     $avatar = \App\Models\Image::query()->where('user_id', \Illuminate\Support\Facades\Auth::user()->id)->first();
+                    $pathImage = isset($avatar) ? $avatar->path_image : 'default-avatar.jpg';
                 @endphp
-                <img src="{{asset( 'avatar/'. $avatar->path_image ?? 'default-avatar.jpg')}}" class="img-circle elevation-2" alt="User Image">
+                <img src="{{asset( 'avatar/'. $pathImage)}}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block">{{ \Illuminate\Support\Facades\Auth::user()->name }}</a>
