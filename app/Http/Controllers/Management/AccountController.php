@@ -58,7 +58,7 @@ class AccountController extends Controller
             })
             ->addColumn('action', function ($user) {
                 return '<a href="'. route('management.account.edit', $user->id) .'" class="btn btn-xs btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                        <a href="#" class="btn btn-xs btn-danger delete" data-toggle="modal" data-target="#delete-confirm-modal"  data-action="' . route('management.account.delete', $user->id) . '"' . '><i class="fa fa-times"></i></a>';
+                        <a href="#"  class="btn btn-xs btn-danger delete" data-toggle="modal" data-target="#delete-confirm-modal"  data-action="' . route('management.account.delete', $user->id) . '"' . '><i class="fa fa-times"></i></a>';
             })
             ->make(true);
     }

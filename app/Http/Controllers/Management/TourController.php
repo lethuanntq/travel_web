@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Management;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use App\Models\Tour;
 use App\Models\User;
 use App\Services\TourService;
@@ -49,6 +50,12 @@ class TourController extends Controller
         return redirect()->route('management.tour.index')->with('message', 'Update thành công!');
     }
 
+    public function delete(Tour $tour)
+    {
+        $this->tourService->delete($tour);
+
+        return redirect()->route('management.tour.index')->with('message', 'Xóa thành công');
+    }
     public function getData()
     {
         $tours = Tour::query()->select(['id', 'title', 'description', 'price', 'start_date', 'end_date', 'created_by'])->get();

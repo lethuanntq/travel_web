@@ -1,6 +1,8 @@
 @extends('auth.layout')
-
 @section('content')
+    @if(\Illuminate\Support\Facades\Session::has('error'))
+        <div class="danger alert-danger text-center justify-content-center" style="width: 30%">{{ \Illuminate\Support\Facades\Session::get('error') }}</div>
+    @endif
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

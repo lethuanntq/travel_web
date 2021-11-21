@@ -52,10 +52,10 @@
 <div class="modal fade" id="delete-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm" role="document" style="margin-top: 15%">
         <div class="modal-content">
-            <div class="modal-body" id="print-detail">削除してよろしいですか。</div>
+            <div class="modal-body" id="print-detail">Bạn có chắc chắn muốn xóa khôngggg ?</div>
             <div class="modal-footer">
-                <button type="button" class="btn" data-dismiss="modal" style="display: inline">いいえ</button>
-                <button type="button" class="btn" onclick="event.preventDefault();document.getElementById('delete-form').submit();" style="display: inline">はい</button>
+                <button type="button" class="btn" data-dismiss="modal" style="display: inline">Không</button>
+                <button type="button" class="btn" onclick="event.preventDefault();document.getElementById('delete-form').submit();" style="display: inline">Có</button>
             </div>
             <form method="post" action="#" id="delete-form" class="d-block">
                 @csrf
@@ -65,41 +65,25 @@
     </div>
 </div>
 
-
-<!-- modal delete -->
-<div class="modal fade" id="delete-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document" style="margin-top: 15%">
-        <div class="modal-content">
-            <div class="modal-body" id="print-detail">削除してよろしいですか。</div>
-            <div class="modal-footer">
-                <button type="button" class="btn" data-dismiss="modal" style="display: inline">いいえ</button>
-                <button type="button" class="btn" onclick="event.preventDefault();document.getElementById('delete-form').submit();" style="display: inline">はい</button>
-            </div>
-            <form method="post" action="#" id="delete-form" class="d-block">
-                @csrf
-                @method('delete')
-            </form>
-        </div>
-    </div>
-</div>
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="{{ asset('vendors/plugins/jquery/jquery.min.js') }}"></script>
+
 <!-- Bootstrap 4 -->
 <script src="{{ asset('vendors/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('vendors/dist/js/adminlte.min.js') }}"></script>
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
-@stack('scripts')
-<script>
-    $('.delete').on('click', function (event) {
-        console.log('delete');
+<script type="text/javascript">
+    $('#delete-confirm-modal').on('show.bs.modal', function (event) {
         let target = $(event.relatedTarget);
         $('#delete-form').attr('action', target.data('action'));
     });
 </script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+
+@stack('scripts')
 </body>
 </html>

@@ -50,6 +50,13 @@ class PostController extends Controller
         return redirect()->route('management.post.index')->with('message', 'Update thành công!');
     }
 
+    public function delete(Post $post)
+    {
+        $this->postService->delete($post);
+
+        return redirect()->route('management.post.index')->with('message', 'Xóa thành công');
+    }
+
     public function getData()
     {
         $posts = Post::query()->select(['id', 'title', 'description', 'seo_tag', 'seo_description', 'created_by'])->get();

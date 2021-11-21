@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Management\AccountController;
 use App\Http\Controllers\Management\CustomerController;
@@ -23,7 +24,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::group([
     'as' => 'management.',
     'prefix' => 'management',
-    'middleware' => 'auth'
+    'middleware' => ['isAdmin', 'auth']
 ], function () {
 
     //posts
@@ -46,7 +47,7 @@ Route::group([
     Route::post('customer-store', [CustomerController::class, 'store'])->name('customer.store');
     Route::match(['put', 'patch'], '/customer/update/{customer}', [CustomerController::class, 'update'])->name('customer.update');
 
-    Route::delete('customer/{tour}', [CustomerController::class, 'delete'])->name('customer.delete');
+    Route::delete('customer/{customer}', [CustomerController::class, 'delete'])->name('customer.delete');
 
     //accounts
     Route::get('account', [AccountController::class, 'index'])->name('account.index');
@@ -56,6 +57,7 @@ Route::group([
 
     Route::post('account', [AccountController::class, 'store'])->name('account.store');
     Route::match(['put', 'patch'], 'account/{user}', [AccountController::class, 'update'])->name('account.update');
+
     Route::delete('/account/delete/{user}', [AccountController::class, 'delete'])->name('account.delete');
 
     //tours
@@ -69,5 +71,4 @@ Route::group([
 
     Route::delete('tour/{tour}', [TourController::class, 'delete'])->name('tour.delete');
 
-    Route::post('image', [\App\Http\Controllers\Management\ImageController::class, 'store'])->name('image');
 });
