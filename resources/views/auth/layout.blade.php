@@ -23,12 +23,12 @@
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+{{--            <a class="navbar-brand" href="{{ url('/') }}">--}}
+{{--                {{ config('app.name', 'Laravel') }}--}}
+{{--            </a>--}}
+{{--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">--}}
+{{--                <span class="navbar-toggler-icon"></span>--}}
+{{--            </button>--}}
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
@@ -63,9 +63,20 @@
             </div>
         </div>
     </nav>
-
     <main class="py-4">
-        @yield('content')
+        <section class="vh-100">
+            <div class="container-fluid h-custom">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-md-9 col-lg-6 col-xl-5">
+                        <img src="{{ asset('vendors/dist/img/travel-logo.jpg') }}" class="img-fluid"
+                             alt="Sample image">
+                    </div>
+                    <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 </div>
 </body>
