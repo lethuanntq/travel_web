@@ -16,17 +16,25 @@
                 </li>
             </ul>
             <ul class="navbar-top-right-menu">
-                <li class="nav-item">
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('login') }}" class="nav-link">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('logout') }}" class="nav-link">Sign in</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('register') }}" class="nav-link">Register</a>
-                </li>
+                @auth
+                    <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('logout') }}" class="nav-link">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">{{ auth()->user()->name }}</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('login') }}" class="nav-link">Sign in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('register') }}" class="nav-link">Register</a>
+                    </li>
+                @endauth
             </ul>
         </div>
     </div>

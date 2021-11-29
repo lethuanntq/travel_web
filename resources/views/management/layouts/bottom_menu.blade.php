@@ -5,5 +5,5 @@
         Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy;<a href="{{ route('home') }}">Travel Web</a>.</strong> All rights reserved.
+    <strong>Copyright &copy;<a href="{{ route('management.home') }}">Travel Web</a>.</strong> All rights reserved.
 </footer>

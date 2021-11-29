@@ -33,10 +33,10 @@ class LoginController extends Controller
     protected $redirectTo = RouteServiceProvider::HOME;
         protected function redirectTo()
         {
-            if ( Auth::user()->role == User::ROLE_ADMIN ||  Auth::user()->role == User::ROLE_EDITOR) {
-                return route('home');
+            if ( Auth::user()->role == User::ROLE_ADMIN) {
+                return route('management.home');
             }else {
-                return route('travel.home');
+                return route('home');
             }
 
         }
@@ -58,14 +58,14 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
-        if ( \auth()->attempt(['email' => $input['email'], 'password' => $input['password']])) {
-            if ( \auth()->user()->role == User::ROLE_ADMIN || \auth()->user()->role == User::ROLE_EDITOR) {
-                return \redirect()->route('home');
-            } elseif (\auth()->user()->role == User::ROLE_CUSTOMER) {
-                return  \redirect()->route('travel.home');
+        if (auth()->attempt(['email' => $input['email'], 'password' => $input['password']])) {
+            if (auth()->user()->role == User::ROLE_ADMIN) {
+                return redirect()->route('management.home');
+            } elseif (auth()->user()->role == User::ROLE_CUSTOMER) {
+                return redirect()->route('home');
             }
         } else {
-            return \redirect()->route('login')->with('error', 'Thông tin đăng nhập chưa đúng');
+            return redirect()->route('login')->with('error', 'Thông tin đăng nhập chưa đúng');
         }
     }
 

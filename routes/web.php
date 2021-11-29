@@ -6,6 +6,7 @@ use App\Http\Controllers\Management\AccountController;
 use App\Http\Controllers\Management\CustomerController;
 use App\Http\Controllers\Management\PostController;
 use App\Http\Controllers\Management\TourController;
+use App\Http\Controllers\Management\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,22 +20,24 @@ use App\Http\Controllers\Management\TourController;
 */
 
 Auth::routes();
-Route::get('/index', [\App\Http\Controllers\Travel\HomeController::class, 'index'])->name('home');
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [\App\Http\Controllers\Travel\HomeController::class, 'index'])->name('home');
 Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 Route::group([
     'as' => 'travel.',
     'prefix' => 'travel',
-    'middleware' => ['isUser']
+    'middleware' => ['auth', 'can:customer']
 ], function () {
-    Route::get('/index', [\App\Http\Controllers\Travel\HomeController::class, 'index'])->name('home');
+    Route::get('/mypage', function () {
+        echo 'mypage';
+    })->name('mypage');
 });
 
 Route::group([
     'as' => 'management.',
     'prefix' => 'management',
-    'middleware' => ['isAdmin']
+    'middleware' => ['auth', 'can:admin']
 ], function () {
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 
     //posts
     Route::get('post', [PostController::class, 'index'])->name('post.index');
