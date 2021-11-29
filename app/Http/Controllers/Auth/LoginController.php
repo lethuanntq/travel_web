@@ -36,7 +36,7 @@ class LoginController extends Controller
             if ( Auth::user()->role == User::ROLE_ADMIN ||  Auth::user()->role == User::ROLE_EDITOR) {
                 return route('home');
             }else {
-                dd('Bạn chưa có quyền đăng nhập');
+                return route('travel.home');
             }
 
         }
@@ -49,6 +49,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
     public function login(Request $request)
     {
         $input = $request->all();
@@ -61,7 +62,7 @@ class LoginController extends Controller
             if ( \auth()->user()->role == User::ROLE_ADMIN || \auth()->user()->role == User::ROLE_EDITOR) {
                 return \redirect()->route('home');
             } elseif (\auth()->user()->role == User::ROLE_CUSTOMER) {
-                dd('Bạn chưa có quyền đăng nhập');
+                return  \redirect()->route('travel.home');
             }
         } else {
             return \redirect()->route('login')->with('error', 'Thông tin đăng nhập chưa đúng');

@@ -19,12 +19,21 @@ use App\Http\Controllers\Management\TourController;
 */
 
 Auth::routes();
+Route::get('/index', [\App\Http\Controllers\Travel\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+Route::group([
+    'as' => 'travel.',
+    'prefix' => 'travel',
+    'middleware' => ['isUser']
+], function () {
+    Route::get('/index', [\App\Http\Controllers\Travel\HomeController::class, 'index'])->name('home');
+});
 
 Route::group([
     'as' => 'management.',
     'prefix' => 'management',
-    'middleware' => ['isAdmin', 'auth']
+    'middleware' => ['isAdmin']
 ], function () {
 
     //posts

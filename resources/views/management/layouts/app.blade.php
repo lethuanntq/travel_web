@@ -43,7 +43,7 @@
     <!-- Right Menu -->
 
     <!-- Footer Menu -->
-{{--        @include('layouts.bottom_menu')--}}
+        @include('management.layouts.bottom_menu')
     <!-- Footer Menu -->
 
 </div>
