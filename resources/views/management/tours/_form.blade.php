@@ -33,13 +33,13 @@
     <div class="row mt-3">
         <div class="col-md-3">
             <label>Thời gian bắt đầu</label>
-            <input class="form-control" id="tour-start_date" name="tour[start_date]" type="datetime-local" value="{{ old("tour.start_date", \Carbon\Carbon::parse($tour->start_date)->format('Y-m-d\TH:i') ?? '') }}">
+            <input class="form-control" id="tour-start_date" name="tour[start_date]" type="datetime-local" value="{{ old("tour.start_date", isset ($tour) ? \Carbon\Carbon::parse($tour->start_date)->format('Y-m-d\TH:i') : '') }}">
             <div class="invalid-feedback d-block">{{ $errors->first("tour.start_date") }}</div>
         </div>
         <span class="text-center" style="margin-top: 3%">~</span>
         <div class="col-md-3">
             <label>Thời gian kết thúc</label>
-            <input class="form-control" id="tour-end_date" name="tour[end_date]" type="datetime-local" value="{{ old("tour.end_date", \Carbon\Carbon::parse($tour->end_date)->format('Y-m-d\TH:i') ?? '') }}">
+            <input class="form-control" id="tour-end_date" name="tour[end_date]" type="datetime-local" value="{{ old("tour.end_date", isset ($tour) ? \Carbon\Carbon::parse($tour->end_date)->format('Y-m-d\TH:i') : '') }}">
             <div class="invalid-feedback d-block">{{ $errors->first("tour.end_date") }}</div>
         </div>
     </div>
