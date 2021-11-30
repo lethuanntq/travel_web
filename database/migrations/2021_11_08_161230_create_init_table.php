@@ -31,11 +31,11 @@ class CreateInitTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->longText('description');
-            $table->decimal('price', 10, 2);
+            $table->unsignedInteger('price');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->string('price_promotion')->nullable();
-            $table->string('key_word')->nullable();
+            $table->string('tag')->nullable();
             
             $table->timestamps();
             $table->softDeletes();

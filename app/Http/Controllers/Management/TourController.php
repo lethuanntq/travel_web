@@ -21,13 +21,11 @@ class TourController extends Controller
 
     public function index()
     {
-        session(['title' => 'Quản lý tour']);
         return view('management.tours.index');
     }
 
     public function create()
     {
-        session(['title' => 'Tạo mới tour']);
         return view('management.tours.create');
     }
 
@@ -58,12 +56,11 @@ class TourController extends Controller
     }
     public function getData()
     {
-        $tours = Tour::query()->select(['id', 'title', 'description', 'price', 'start_date', 'end_date', 'created_by'])->get();
-        $names = User::query()->select(['id', 'name'])->get()->keyBy('id');
+        $tours = Tour::query()->get();
 
         return Datatables::of($tours)
-            ->editColumn('created_by', function ($tour) use ($names){
-                return $names[$tour->created_by]['name'];
+            ->editColumn('created_by', function ($tour) {
+                return $tour->createdBy->name;
             })
             ->editColumn('description', function ($tour){
                 return html_entity_decode($tour->description);
