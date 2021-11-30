@@ -7,14 +7,8 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="{{ asset('vendors/plugins/fontawesome-free/css/all.min.css') }}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('vendors/dist/css/adminlte.min.css') }}">
     <!-- Main style -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <!-- DataTables style -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -69,9 +63,7 @@
 <!-- REQUIRED SCRIPTS -->
 <!-- Main script -->
 <script src="{{ asset('js/app.js') }}"></script>
-
-<!-- AdminLTE App -->
-<script src="{{ asset('vendors/dist/js/adminlte.min.js') }}"></script>
+<!-- CKEditor -->
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script type="text/javascript">
     $('#delete-confirm-modal').on('show.bs.modal', function (event) {
@@ -79,10 +71,6 @@
         $('#delete-form').attr('action', target.data('action'));
     });
 </script>
-
-<!-- DataTables -->
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
 
 @stack('scripts')
 </body>
