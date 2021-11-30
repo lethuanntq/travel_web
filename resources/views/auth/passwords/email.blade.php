@@ -10,10 +10,10 @@
     </div>
     <!-- Email input -->
     <div class="form-outline mb-4">
-        <input id="email" type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
         <label class="form-label" for="email">Email address</label>
+        <input id="email" type="text" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
         @error('email')
-        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+        <div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>
         @enderror
     </div>
 
