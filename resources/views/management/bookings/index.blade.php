@@ -1,5 +1,5 @@
 @extends('management.layouts.app')
-@section('title', 'Quản lý khách hàng')
+@section('title', 'Quản lý booking')
 @section('content')
     <div class="ml-3 mr-3">
         @if(\Illuminate\Support\Facades\Session::has('message'))
@@ -10,17 +10,18 @@
                 <div class="col-sm-6">
                 </div>
                 <div class="col-sm-6">
-                    <a id="create-account" href="{{  route('management.customer.create') }}" class="btn btn-primary float-right"><i class="fa fa-plus"></i></a>
+                    <a id="create-account" href="{{  route('management.booking.create') }}" class="btn btn-primary float-right"><i class="fa fa-plus"></i></a>
                 </div>
             </div>
-            <table class="table table-striped" id="customer-table">
+            <table class="table table-striped" id="booking-table">
                 <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Tên khách hàng</th>
-                    <th scope="col">Số lần book tour</th>
+                    <th scope="col" class="col-md-1">ID</th>
+                    <th scope="col">Khách hàng</th>
+                    <th scope="col">Tour</th>
+                    <th scope="col">Note</th>
                     <th scope="col">Trạng thái</th>
-                    <th scope="col" style="width: 10%">Action</th>
+                    <th scope="col" class="col-md-1">Action</th>
                 </tr>
                 </thead>
             </table>
@@ -30,14 +31,15 @@
 @push('scripts')
     <script>
         $(function() {
-            $('#customer-table').DataTable({
+            $('#booking-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{!! route('management.customer.data') !!}',
+                ajax: '{!! route('management.booking.data') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'user_id', name:'user_id' },
-                    { data: 'number_booked', name: 'number_booked' },
+                    { data: 'customer', name:'customer' },
+                    { data: 'tour', name:'tour' },
+                    { data: 'note', name:'note' },
                     { data: 'status', name: 'status' },
                     { data: 'action', name: 'action' }
                 ]

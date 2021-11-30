@@ -64,10 +64,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('management.customer.index') }}" class="nav-link">
+                    <a href="{{ route('management.booking.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Quản lý khách hàng
+                            Quản lý booking
                             <i class="right fas fa-angle-right"></i>
                         </p>
                     </a>

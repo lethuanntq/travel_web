@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Management\AccountController;
-use App\Http\Controllers\Management\CustomerController;
+use App\Http\Controllers\Management\BookingController;
 use App\Http\Controllers\Management\PostController;
 use App\Http\Controllers\Management\TourController;
 use App\Http\Controllers\Management\HomeController;
@@ -25,7 +25,7 @@ Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logou
 Route::group([
     'as' => 'travel.',
     'prefix' => 'travel',
-    'middleware' => ['auth', 'can:customer']
+    'middleware' => ['auth', 'can:booking']
 ], function () {
     Route::get('/mypage', function () {
         echo 'mypage';
@@ -51,15 +51,15 @@ Route::group([
     Route::delete('post-delete/{post}', [PostController::class, 'delete'])->name('post.delete');
 
     //customers
-    Route::get('customer', [CustomerController::class, 'index'])->name('customer.index');
-    Route::get('customer-data', [CustomerController::class, 'getData'])->name('customer.data');
-    Route::get('customer/new', [CustomerController::class, 'create'])->name('customer.create');
-    Route::get('customer/{customer}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
+    Route::get('booking', [BookingController::class, 'index'])->name('booking.index');
+    Route::get('booking-data', [BookingController::class, 'getData'])->name('booking.data');
+    Route::get('booking/new', [BookingController::class, 'create'])->name('booking.create');
+    Route::get('booking/{booking}/edit', [BookingController::class, 'edit'])->name('booking.edit');
 
-    Route::post('customer-store', [CustomerController::class, 'store'])->name('customer.store');
-    Route::match(['put', 'patch'], '/customer/update/{customer}', [CustomerController::class, 'update'])->name('customer.update');
+    Route::post('booking-store', [BookingController::class, 'store'])->name('booking.store');
+    Route::match(['put', 'patch'], '/booking/update/{booking}', [BookingController::class, 'update'])->name('booking.update');
 
-    Route::delete('customer/{customer}', [CustomerController::class, 'delete'])->name('customer.delete');
+    Route::delete('booking/{booking}', [BookingController::class, 'delete'])->name('booking.delete');
 
     //accounts
     Route::get('account', [AccountController::class, 'index'])->name('account.index');
