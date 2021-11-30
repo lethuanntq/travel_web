@@ -40,15 +40,7 @@ class UserSeeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'phone_number' => '0123456789',
                 'password' => bcrypt('123456789'),
-                'role' => '1',
-                'active' => 1
-            ],
-            [
-                'name' => 'editor',
-                'email' => 'editor@gmail.com',
-                'phone_number' => '0123456789',
-                'password' => bcrypt('123456789'),
-                'role' => '2',
+                'role' => 1,
                 'active' => 1
             ],
             [
@@ -56,7 +48,7 @@ class UserSeeder extends Seeder
                 'email' => 'customer@gmail.com',
                 'phone_number' => '0123456789',
                 'password' => bcrypt('123456789'),
-                'role' => '3',
+                'role' => 2,
                 'active' => 1
             ],
         ];

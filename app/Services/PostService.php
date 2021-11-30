@@ -1,15 +1,13 @@
 <?php
 
-
 namespace App\Services;
 
-
+use App\Models\Post;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use App\Models\Post;
 
 class PostService extends BaseService
 {
@@ -17,64 +15,70 @@ class PostService extends BaseService
     {
         $rules = Post::rules();
         $attrs = Post::attributes();
+        $operator = Auth::user();
+        
         DB::beginTransaction();
         try {
             $this->validate($request->all(), $rules, $attrs);
             $post = new Post();
+            $post->updated_by = $operator->id;
+            $post->created_by = $operator->id;
             $this->save($post, $request);
             DB::commit();
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             Log::error($e->getMessage());
             DB::rollBack();
             throw $e;
         }
-
+        
         return $post;
     }
-
+    
+    public function save(Post $post, Request $request)
+    {
+        $post->fill($request->input('post'));
+        
+        return $post->save();
+    }
+    
     public function update(Post $post, Request $request)
     {
         $rules = Post::rules();
         $attrs = Post::attributes();
+        $operator = Auth::user();
+        $post->updated_by = $operator->id;
+        
         DB::beginTransaction();
         try {
             $this->validate($request->all(), $rules, $attrs);
             $this->save($post, $request);
             DB::commit();
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             Log::error($e->getMessage());
             DB::rollBack();
             throw $e;
         }
-
+        
         return $post;
     }
-
-    public function save(Post $post, Request $request)
-    {
-        $operator = Auth::user();
-        $post->title = $request->input('post.title');
-        $post->seo_tag = $request->input('post.seo_tag');
-        $post->seo_description = $request->input('post.seo_description');
-        $post->key_word = $request->input('post.key_word');
-        $post->description = $request->input('post.description');
-        $post->created_by = $operator->id;
-        $post->updated_by = $operator->id;
-        $post->save();
-    }
-
+    
     public function delete(Post $post)
     {
+        $operator = Auth::user();
+        
         DB::beginTransaction();
-        try{
+        try {
             $post->delete();
+            $post->deleted_by = $operator->id;
+            $post->updated_by = $operator->id;
+            $post->save();
             DB::commit();
-        }catch(Exception $e) {
+        } catch (Exception $e) {
             Log::error($e->getMessage());
             DB::rollBack();
             throw $e;
         }
-
+        
         return true;
     }
 }

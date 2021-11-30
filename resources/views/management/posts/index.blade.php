@@ -2,8 +2,8 @@
 @section('title', 'Quản lý bài viết')
 @section('content')
     <div class="ml-3 mr-3">
-        @if(\Illuminate\Support\Facades\Session::has('message'))
-            <div class="success alert-success" style="width: 30%">{{ \Illuminate\Support\Facades\Session::get('message') }}</div>
+        @if(Session::has('message'))
+            <div class="success alert-success" role="alert">{{ Session::get('message') }}</div>
         @endif
         <div>
             <div class="row mb-1">
@@ -16,13 +16,13 @@
             <table class="table table-striped" id="posts-table">
                 <thead>
                 <tr>
-                    <th scope="col" style="width: 4%">ID</th>
-                    <th scope="col" style="width: 20%">Tiêu đề</th>
-                    <th scope="col" style="width: 30%">Nội dung</th>
-                    <th scope="col" style="width: 10%">Người tạo</th>
-                    <th scope="col" style="width: 10%">Seo Tag</th>
-                    <th scope="col" style="width: 10%">Seo Description</th>
-                    <th scope="col" style="width: 10%">Action</th>
+
+                    <th scope="col" class="col-md-1">ID</th>
+                    <th scope="col" class="col-md-3">Tiêu đề</th>
+                    <th scope="col" class="col-md-5">Nội dung</th>
+                    <th scope="col" class="col-md-1">Vùng miền</th>
+                    <th scope="col" class="col-md-1">Người tạo</th>
+                    <th scope="col" class="col-md-1">Action</th>
                 </tr>
                 </thead>
             </table>
@@ -40,9 +40,8 @@
                     { data: 'id', name: 'id' },
                     { data: 'title', name: 'title' },
                     { data: 'description', name: 'description' },
+                    { data: 'region', name: 'region' },
                     { data: 'created_by', name: 'created_by' },
-                    { data: 'seo_description', name: 'seo_description' },
-                    { data: 'seo_tag', name: 'seo_tag' },
                     { data: 'action', name: 'action' },
                 ]
             });

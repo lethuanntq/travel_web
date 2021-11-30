@@ -2,20 +2,25 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Post extends Model
+class Post extends BaseModel
 {
-    use HasFactory;
-
+    const MIEN_BAC = 0;
+    const MIEN_TRUNG = 1;
+    const MIEN_NAM = 2;
+    const TAY_NGUYEN = 3;
+    
+    const REGIONS = [
+        self::MIEN_BAC => 'Miền Bắc',
+        self::MIEN_TRUNG => 'Miền Trung',
+        self::MIEN_NAM => 'Miền Nam',
+        self::TAY_NGUYEN => 'Tây Nguyên'
+    ];
+    
     public static function rules()
     {
         return [
             'post.title' => 'required|max:255',
-            'post.seo_tag' => 'required|max:255',
-            'post.seo_description' => 'required|max:255',
-            'post.key_word' => 'required|max:255',
+            'post.tag' => 'max:255',
             'post.description' => 'required',
         ];
     }
@@ -24,9 +29,7 @@ class Post extends Model
     {
         return [
             'post.title' => 'title',
-            'post.seo_tag' => 'seo tag',
-            'post.seo_description' => 'seo description',
-            'post.key_word' => 'key word',
+            'post.tag' => 'tag',
             'post.description' => 'description',
         ];
     }
