@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="{{ asset('vendors/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('vendors/dist/css/adminlte.min.css') }}">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <!-- Main style -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- DataTables style -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
@@ -66,11 +67,9 @@
 </div>
 
 <!-- REQUIRED SCRIPTS -->
-<!-- jQuery -->
-<script src="{{ asset('vendors/plugins/jquery/jquery.min.js') }}"></script>
+<!-- Main script -->
+<script src="{{ asset('js/app.js') }}"></script>
 
-<!-- Bootstrap 4 -->
-<script src="{{ asset('vendors/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('vendors/dist/js/adminlte.min.js') }}"></script>
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
@@ -80,7 +79,8 @@
         $('#delete-form').attr('action', target.data('action'));
     });
 </script>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<!-- DataTables -->
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
 
