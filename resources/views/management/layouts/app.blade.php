@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name') }}</title>
 
     <!-- Google Font: Source Sans Pro -->
@@ -64,7 +65,8 @@
 <!-- Main script -->
 <script src="{{ asset('js/app.js') }}"></script>
 <!-- CKEditor -->
-<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('js/http_cdn.ckeditor.com_ckeditor5_31.0.0_classic_ckeditor.js') }}"></script>
+@include('ckfinder::setup')
 <script type="text/javascript">
     $('#delete-confirm-modal').on('show.bs.modal', function (event) {
         let target = $(event.relatedTarget);

@@ -20,6 +20,13 @@ use App\Http\Controllers\Management\HomeController;
 */
 
 Auth::routes();
+
+Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
+    ->name('ckfinder_connector');
+
+Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
+    ->name('ckfinder_browser');
+
 Route::get('/', [\App\Http\Controllers\Travel\HomeController::class, 'index'])->name('home');
 Route::get('/about-me', [\App\Http\Controllers\Travel\HomeController::class, 'aboutMe'])->name('about-me');
 Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');

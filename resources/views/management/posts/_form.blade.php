@@ -32,7 +32,14 @@
     </div>
 </div>
 @push('scripts')
-<script>
-    CKEDITOR.replace('post-description')
-</script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#post-description'), {
+                ckfinder: {
+                    uploadUrl: "{{ route('ckfinder_connector') }}?command=QuickUpload&type=Images&responseType=json",
+                }
+            }).catch(error => {
+            console.error(error);
+        });
+    </script>
 @endpush
