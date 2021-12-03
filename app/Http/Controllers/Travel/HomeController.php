@@ -11,4 +11,9 @@ class HomeController extends Controller
     {
         return view('travel.index');
     }
+
+    public function aboutMe()
+    {
+        return view('travel.pages.about_me');
+    }
 }

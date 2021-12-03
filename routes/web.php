@@ -21,6 +21,7 @@ use App\Http\Controllers\Management\HomeController;
 
 Auth::routes();
 Route::get('/', [\App\Http\Controllers\Travel\HomeController::class, 'index'])->name('home');
+Route::get('/about-me', [\App\Http\Controllers\Travel\HomeController::class, 'aboutMe'])->name('about-me');
 Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 Route::group([
     'as' => 'travel.',

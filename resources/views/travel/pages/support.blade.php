@@ -21,7 +21,7 @@
 
   <body>
     <div class="container-scroller">
-      <!-- partial:../partials/_navbar.blade.php -->
+      <!-- partial:../partials/_navbar.html -->
       <header id="header">
           <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
@@ -29,10 +29,10 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <ul class="navbar-top-left-menu">
                     <li class="nav-item">
-                      <a href="../layout/app.blade.php" class="nav-link">Advertise</a>
+                      <a href="./index-inner.html" class="nav-link">Advertise</a>
                     </li>
                     <li class="nav-item">
-                      <a href="./aboutus.html" class="nav-link">About</a>
+                      <a href="support.blade.php" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
                       <a href="#" class="nav-link">Events</a>
@@ -208,7 +208,7 @@
       </div>
     </div>
     <!-- container-scroller ends -->
-    <!-- partial:../partials/_footer.blade.php -->
+    <!-- partial:../partials/_footer.html -->
     <footer>
           <div class="footer-top">
             <div class="container">

@@ -3,16 +3,13 @@
         <div class="d-flex justify-content-between align-items-center">
             <ul class="navbar-top-left-menu">
                 <li class="nav-item">
-                    <a href="pages/aboutus.html" class="nav-link">Về chúng tôi</a>
+                    <a href="{{ route('about-me') }}" class="nav-link">Về chúng tôi</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Sự kiện nổi bật</a>
+                    <a href="#" class="nav-link">Liên hệ</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Viết cho chúng tôi</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Hỗ trợ</a>
+                    <a href="#" class="nav-link">Quản lý tài khoản</a>
                 </li>
             </ul>
             <ul class="navbar-top-right-menu">
@@ -41,7 +38,7 @@
     <div class="navbar-bottom">
         <div class="d-flex justify-content-between align-items-center">
             <div>
-                <a class="navbar-brand" href="#"
+                <a class="navbar-brand" href="{{ route('home') }}"
                 ><img src="{{ asset('travel/assets/images/logo.png') }}" alt=""
                     /></a>
             </div>
@@ -63,19 +60,19 @@
                             <a class="nav-link" href="index.html">Trang chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/magazine.html">Miền bắc</a>
+                            <a class="nav-link" href="pages/magazine.html">Khuyến mại</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/business.html">Miền trung</a>
+                            <a class="nav-link" href="pages/business.html">Kinh nghiệm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/sports.html">Miền nam</a>
+                            <a class="nav-link" href="pages/sports.html">Điểm đến</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/art.html">Tây nguyên</a>
+                            <a class="nav-link" href="pages/art.html">Thư viện</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/politics.html">Đồng bằng sông cửu long</a>
+                            <a class="nav-link" href="pages/politics.html">Điểm đến của bạn</a>
                         </li>
                     </ul>
                 </div>

@@ -10,7 +10,7 @@
     <!-- Main style -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" style="background-color: white">
 <div class="wrapper">
     <!-- Top Menu -->
         @include('management.layouts.top_menu')
