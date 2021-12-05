@@ -60,7 +60,7 @@
                             <a class="nav-link" href="index.html">Trang chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/magazine.html">Khuyến mại</a>
+                            <a class="nav-link" href="{{ route('travel.discount.index') }}">Khuyến mại</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="pages/business.html">Kinh nghiệm</a>

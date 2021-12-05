@@ -7,6 +7,7 @@ use App\Http\Controllers\Management\BookingController;
 use App\Http\Controllers\Management\PostController;
 use App\Http\Controllers\Management\TourController;
 use App\Http\Controllers\Management\HomeController;
+use App\Http\Controllers\Travel\DiscountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,11 +34,14 @@ Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logou
 Route::group([
     'as' => 'travel.',
     'prefix' => 'travel',
-    'middleware' => ['auth', 'can:booking']
+    'middleware' => ['auth', 'can:customer']
 ], function () {
     Route::get('/mypage', function () {
         echo 'mypage';
     })->name('mypage');
+
+    Route::get('/discount', [DiscountController::class, 'index'])->name('discount.index');
+    Route::get('/discount/{post}', [DiscountController::class, 'detail'])->name('discount.detail');
 });
 
 Route::group([

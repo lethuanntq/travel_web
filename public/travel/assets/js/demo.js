@@ -48,19 +48,4 @@ $(function() {
   //     .parent("li")
   //     .addClass("active");
   // });
-
-  $("html").easeScroll({
-    frameRate: 60,
-    animationTime: 1000,
-    stepSize: 40,
-    pulseAlgorithm: 1,
-    pulseScale: 8,
-    pulseNormalize: 1,
-    accelerationDelta: 100,
-    accelerationMax: 1,
-    keyboardSupport: true,
-    arrowScroll: 50,
-    touchpadSupport: true,
-    fixedBackground: true
-  });
 });

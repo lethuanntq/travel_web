@@ -16,8 +16,9 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->text(20),
-            'description' => $this->faker->text(200),
-            'region' => $this->faker->randomElement(array_keys(Post::REGIONS)),
+            'short_description' => $this->faker->text(200),
+            'description' => $this->faker->text(1000),
+            'type' => $this->faker->randomElement(array_keys(Post::TYPES)),
             'created_by' => 1,
             'updated_by' => 1,
         ];

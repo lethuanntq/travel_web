@@ -4,24 +4,29 @@ namespace App\Models;
 
 class Post extends BaseModel
 {
-    const MIEN_BAC = 0;
-    const MIEN_TRUNG = 1;
-    const MIEN_NAM = 2;
-    const TAY_NGUYEN = 3;
-    
-    const REGIONS = [
-        self::MIEN_BAC => 'Miền Bắc',
-        self::MIEN_TRUNG => 'Miền Trung',
-        self::MIEN_NAM => 'Miền Nam',
-        self::TAY_NGUYEN => 'Tây Nguyên'
+    const TYPE_DISCOUNT = 0;
+    const TYPE_EXPERIENCE = 1;
+    const TYPE_DESTINATION = 2;
+    const TYPE_LIBRARY = 3;
+
+    const TYPES = [
+        self::TYPE_DISCOUNT => 'Khuyến mại',
+        self::TYPE_EXPERIENCE => 'Kinh nghiệm',
+        self::TYPE_DESTINATION => 'Điểm đến',
+        self::TYPE_LIBRARY => 'Thư viện'
     ];
-    
+
+    const PATH = 'post/';
+
     public static function rules()
     {
         return [
             'post.title' => 'required|max:255',
             'post.tag' => 'max:255',
+            'post.short_description' => 'required|max:500',
             'post.description' => 'required',
+            'post.type' => 'required',
+            'post.thumbnail' => 'image|max:2048',
         ];
     }
 
@@ -30,7 +35,10 @@ class Post extends BaseModel
         return [
             'post.title' => 'title',
             'post.tag' => 'tag',
+            'post.short_description' => 'short description',
             'post.description' => 'description',
+            'post.type' => 'type',
+            'post.thumbnail' => 'thumbnail',
         ];
     }
 }

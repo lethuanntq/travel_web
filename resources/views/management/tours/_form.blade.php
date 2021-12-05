@@ -44,7 +44,7 @@
         </div>
     </div>
     <div class="mt-3">
-        <button type="submit" name="submit" class="btn btn-secondary">Tạo mới</button>
+        <button type="submit" name="submit" class="btn btn-secondary">@isset($tour) Cập nhật @else Tạo mới @endisset</button>
     </div>
 </div>
 @push('scripts')

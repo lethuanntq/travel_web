@@ -1,3 +1,4 @@
+<html>
 <head>
     <!-- Required meta tags -->
     <meta charset="UTF-8" />
@@ -51,7 +52,6 @@
 <!-- End plugin js for this page -->
 <!-- Custom js for this page-->
 <script src="{{ asset('travel/assets/js/demo.js') }}"></script>
-<script src="{{ asset('travel/assets/js/jquery.easeScroll.js') }}"></script>
 <!-- End custom js for this page-->
 </body>
 </html>

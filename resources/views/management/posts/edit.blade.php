@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="ml-3 mr-3">
-        <form method="post" action="{{ route('management.post.update', $post->id) }}">
+        <form method="post" action="{{ route('management.post.update', $post->id) }}" enctype="multipart/form-data">
             @csrf
             @method('patch')
             @include('management.posts._form')
