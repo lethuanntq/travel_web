@@ -18,6 +18,30 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('travel/assets/css/style.css') }}">
     <!-- endinject -->
+    <style>
+        .post-title {
+            font-size: 30px;
+            line-height: 38px;
+            color: #0055a5;
+            font-weight: 500;
+            text-align: justify;
+        }
+        .post-summary {
+            color: #333;
+            font-size: 15px;
+            line-height: 22px;
+            margin-bottom: 10px;
+            text-align: justify;
+            font-weight: 700;
+        }
+        .post-description {
+            line-height: 22px;
+            font-size: 15px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: initial;
+        }
+    </style>
 </head>
 
 <body>

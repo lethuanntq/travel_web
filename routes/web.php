@@ -33,15 +33,14 @@ Route::get('/about-me', [\App\Http\Controllers\Travel\HomeController::class, 'ab
 Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 Route::group([
     'as' => 'travel.',
-    'prefix' => 'travel',
-    'middleware' => ['auth', 'can:customer']
+    'prefix' => 'travel'
 ], function () {
-    Route::get('/mypage', function () {
-        echo 'mypage';
-    })->name('mypage');
 
     Route::get('/discount', [DiscountController::class, 'index'])->name('discount.index');
     Route::get('/discount/{post}', [DiscountController::class, 'detail'])->name('discount.detail');
+
+    Route::get('/experience', [DiscountController::class, 'index'])->name('discount.index');
+    Route::get('/experience/{post}', [DiscountController::class, 'detail'])->name('discount.detail');
 });
 
 Route::group([
