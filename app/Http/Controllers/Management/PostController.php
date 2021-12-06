@@ -113,4 +113,9 @@ class PostController extends Controller
 
        return false;
     }
+
+    public function getHighlightPosts()
+    {
+        return Post::query()->where('highlight', Post::HIGHLIGHT)->orderBy('created_at', 'desc')->get();
+    }
 }

@@ -52,7 +52,6 @@ class CreateInitTable extends Migration
 
         Schema::create('bookings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('user_id')->unsigned()->constrained('users');
             $table->foreignId('tour_id')->unsigned()->constrained('tours');
             $table->integer('adult')->unsigned();
             $table->integer('child')->unsigned();

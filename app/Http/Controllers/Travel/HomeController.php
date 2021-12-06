@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Travel;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Management\PostController;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,6 +15,12 @@ class HomeController extends Controller
 
     public function aboutMe()
     {
-        return view('travel.pages.about_me');
+        $highlightPosts = app(PostController::class)->getHighlightPosts();
+        return view('travel.pages.about_me', ['highlightPosts' => $highlightPosts]);
+    }
+
+    public function conTact()
+    {
+
     }
 }

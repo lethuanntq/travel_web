@@ -132,7 +132,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-4">
-                                @include('travel.layout.right_menu')
+                                @include('travel.layout.right_menu',  $highlightPosts)
                             </div>
                         </div>
                     </div>

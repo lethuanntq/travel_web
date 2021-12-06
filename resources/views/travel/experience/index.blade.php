@@ -26,7 +26,7 @@
                     </table>
                 </div>
                 <div class="col-lg-3">
-                    @include('travel.layout.right_menu')
+                    @include('travel.layout.right_menu', ['highlightPosts' => $highlightPosts])
                 </div>
             </div>
         </div>
