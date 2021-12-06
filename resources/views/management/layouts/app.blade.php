@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Main style -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('travel/switch.css') }}">
 </head>
 <body class="hold-transition sidebar-mini" style="background-color: white">
 <div class="wrapper">
@@ -66,12 +67,35 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <!-- CKEditor -->
 <script src="{{ asset('js/http_cdn.ckeditor.com_ckeditor5_31.0.0_classic_ckeditor.js') }}"></script>
-@include('ckfinder::setup')
+{{--@include('ckfinder::setup')--}}
 <script type="text/javascript">
     $('#delete-confirm-modal').on('show.bs.modal', function (event) {
         let target = $(event.relatedTarget);
         $('#delete-form').attr('action', target.data('action'));
     });
+
+    function priority(data) {
+        var id = $(data).data('id');
+        console.log(id);
+        $.ajax({
+           url : '{{ route('management.post.highlight') }}?id=' + id,
+           type : "POST",
+       }).done(function (response) {
+           if(response.status) {
+               $('#highlight-message').removeClass('danger alert-danger');
+               $('#highlight-message').addClass('success alert-success');
+          } else {
+               $('#highlight-message').removeClass('success alert-success');
+               $('#highlight-message').addClass('danger alert-danger');
+               $(data).prop('checked', false);
+          }
+
+           $('#highlight-message').text(response.message);
+           $('#highlight-message').css('display', 'block');
+       }).fail(function (error) {
+           console.log(error);
+       })
+    }
 </script>
 
 @stack('scripts')

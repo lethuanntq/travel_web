@@ -3,9 +3,10 @@
 @section('content')
     <div class="ml-3 mr-3">
         @if(Session::has('message'))
-            <div class="success alert-success" role="alert">{{ Session::get('message') }}</div>
+            <div class="success alert-success" role="alert" style="width: 30%">{{ Session::get('message') }}</div>
         @endif
-        <div>
+            <div id="highlight-message"  class="text-center" role="alert" style="display: none;width: 15%"></div>
+            <div>
             <div class="row mb-1">
                 <div class="col-sm-6">
                 </div>
@@ -16,12 +17,12 @@
             <table class="table table-striped" id="posts-table">
                 <thead>
                 <tr>
-
                     <th scope="col" class="col-md-1">ID</th>
-                    <th scope="col" class="col-md-3">Tiêu đề</th>
-                    <th scope="col" class="col-md-5">Mô tả</th>
+                    <th scope="col" class="col-md-2">Tiêu đề</th>
+                    <th scope="col" class="col-md-4">Mô tả</th>
                     <th scope="col" class="col-md-1">Loại</th>
                     <th scope="col" class="col-md-1">Người tạo</th>
+                    <th scope="col" class="col-sm-1">Nổi bật</th>
                     <th scope="col" class="col-md-1">Action</th>
                 </tr>
                 </thead>
@@ -42,6 +43,7 @@
                     { data: 'short_description', name: 'short_description' },
                     { data: 'type', name: 'type' },
                     { data: 'created_by', name: 'created_by' },
+                    { data: 'highlight', name: 'highlight' },
                     { data: 'action', name: 'action' },
                 ]
             });

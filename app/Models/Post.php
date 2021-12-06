@@ -8,7 +8,8 @@ class Post extends BaseModel
     const TYPE_EXPERIENCE = 1;
     const TYPE_DESTINATION = 2;
     const TYPE_LIBRARY = 3;
-
+    const HIGHLIGHT = 1;
+    const MAX_POSTS_HIGHLIGHT = 5;
     const TYPES = [
         self::TYPE_DISCOUNT => 'Khuyến mại',
         self::TYPE_EXPERIENCE => 'Kinh nghiệm',

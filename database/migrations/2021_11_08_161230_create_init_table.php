@@ -21,6 +21,7 @@ class CreateInitTable extends Migration
             $table->longText('description');
             $table->string('thumbnail')->nullable();
             $table->tinyInteger('type');
+            $table->longText('highlight')->default(0);
 
             $table->timestamps();
             $table->softDeletes();
@@ -53,6 +54,8 @@ class CreateInitTable extends Migration
             $table->bigIncrements('id');
             $table->foreignId('user_id')->unsigned()->constrained('users');
             $table->foreignId('tour_id')->unsigned()->constrained('tours');
+            $table->integer('adult')->unsigned();
+            $table->integer('child')->unsigned();
             $table->longText('note')->nullable();
             $table->tinyInteger('status');
 

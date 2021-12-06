@@ -34,6 +34,10 @@ Route::get('/', [\App\Http\Controllers\Travel\HomeController::class, 'index'])->
 Route::get('/about-me', [\App\Http\Controllers\Travel\HomeController::class, 'aboutMe'])->name('about-me');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+
+Route::get('/contact', [\App\Http\Controllers\Travel\HomeController::class, 'conTact'])->name('contact');
+Route::post('/contact', [\App\Http\Controllers\Travel\HomeController::class, 'postContact'])->name('contact');
+
 Route::group([
     'as' => 'travel.',
     'prefix' => 'travel'
@@ -65,6 +69,7 @@ Route::group([
         Route::match(['put', 'patch'], 'post/{post}', [PostController::class, 'update'])->name('post.update');
 
         Route::delete('post-delete/{post}', [PostController::class, 'delete'])->name('post.delete');
+        Route::post('highlight', [PostController::class, 'highlight'])->name('post.highlight');
 
         //tours
         Route::get('tour', [TourController::class, 'index'])->name('tour.index');
