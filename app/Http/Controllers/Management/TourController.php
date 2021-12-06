@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Management;
 
 use App\Http\Controllers\Controller;
-use App\Models\Post;
 use App\Models\Tour;
-use App\Models\User;
 use App\Services\TourService;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -54,22 +52,26 @@ class TourController extends Controller
 
         return redirect()->route('management.tour.index')->with('message', 'Xóa thành công');
     }
+
     public function getData()
     {
         $tours = Tour::query()->get();
 
         return Datatables::of($tours)
+            ->editColumn('price', function ($tour) {
+                return $tour->type == Tour::TYPE_DISCOUNT ? number_format($tour->price_promotion) : number_format($tour->price);
+            })
+            ->editColumn('type', function ($tour) {
+                return Tour::TYPES[$tour->type];
+            })
             ->editColumn('created_by', function ($tour) {
                 return $tour->createdBy->name;
-            })
-            ->editColumn('description', function ($tour){
-                return html_entity_decode($tour->description);
             })
             ->addColumn('action', function ($tour) {
                 return '<a href="'. route('management.tour.edit', $tour->id) .'" class="btn btn-xs btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a>
                         <a href="#" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete-confirm-modal"  data-action="' . route('management.tour.delete', $tour->id) . '"' . '><i class="fa fa-times"></i></a>';
             })
-            ->rawColumns(['description', 'action'])
+            ->rawColumns(['action'])
             ->make(true);
     }
 }

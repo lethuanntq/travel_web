@@ -59,11 +59,7 @@ class LoginController extends Controller
         ]);
 
         if (auth()->attempt(['email' => $input['email'], 'password' => $input['password']])) {
-            if (auth()->user()->role == User::ROLE_ADMIN) {
                 return redirect()->route('management.home');
-            } elseif (auth()->user()->role == User::ROLE_CUSTOMER) {
-                return redirect()->route('home');
-            }
         } else {
             return redirect()->route('login')->with('error', 'Thông tin đăng nhập chưa đúng');
         }

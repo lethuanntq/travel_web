@@ -5,10 +5,8 @@ namespace App\Services;
 use App\Models\Post;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
@@ -35,14 +33,6 @@ class PostService extends BaseService
             DB::rollBack();
             throw $e;
         }
-
-        return $post;
-    }
-
-    public function save(Post $post, Request $request)
-    {
-        $post->fill($request->input('post'));
-        $post->save();
 
         return $post;
     }
@@ -79,6 +69,7 @@ class PostService extends BaseService
             $post->delete();
             $post->deleted_by = $operator->id;
             $post->updated_by = $operator->id;
+
             $post->save();
             DB::commit();
         } catch (Exception $e) {
@@ -90,14 +81,22 @@ class PostService extends BaseService
         return true;
     }
 
+    public function save(Post $post, Request $request)
+    {
+        $post->fill($request->input('post'));
+        $post->save();
+
+        return $post;
+    }
+
     private function saveThumbnail(Post $post, $file)
     {
-        if($file) {
+        if ($file) {
             $folder = Post::PATH . $post->id . '/thumbnail/';
             if (Storage::exists($folder)) {
                 Storage::deleteDirectory($folder);
             }
-            $path = Storage::putFile(Post::PATH . $post->id . '/thumbnail' , $file);
+            $path = Storage::putFile(Post::PATH . $post->id . '/thumbnail', $file);
             $post->thumbnail = Storage::url($path);
 
             return $post->save();

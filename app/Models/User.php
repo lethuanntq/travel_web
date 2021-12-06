@@ -14,16 +14,17 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    const INACTIVE = 0;
+    const ACTIVE = 1;
     const ROLE_ADMIN = 1;
-    const ROLE_CUSTOMER = 2;
+    const ROLE_EDITOR = 2;
 
     const ROLES = [
       self::ROLE_ADMIN => 'Quản trị viên',
-      self::ROLE_CUSTOMER => 'Khách hàng'
+      self::ROLE_EDITOR => 'Biên tập viên'
     ];
 
-    const INACTIVE = 0;
-    const ACTIVE = 1;
+
     /**
      * The attributes that are mass assignable.
      *

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -40,16 +41,16 @@ class UserSeeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'phone_number' => '0123456789',
                 'password' => bcrypt('123456789'),
-                'role' => 1,
-                'active' => 1
+                'role' => User::ROLE_ADMIN,
+                'active' => User::ACTIVE,
             ],
             [
-                'name' => 'customer',
-                'email' => 'customer@gmail.com',
+                'name' => 'editor',
+                'email' => 'editor@gmail.com',
                 'phone_number' => '0123456789',
                 'password' => bcrypt('123456789'),
-                'role' => 2,
-                'active' => 1
+                'role' => User::ROLE_EDITOR,
+                'active' => User::ACTIVE,
             ],
         ];
     }

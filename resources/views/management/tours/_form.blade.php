@@ -26,6 +26,21 @@
         </div>
     </div>
     <div class="mt-3">
+        <label>Thumbnail</label>
+        <div>
+            <input id="tour-thumbnail" name="tour[thumbnail]" type="file">
+            <div class="holder">
+                <img id="imgPreview" src="@isset($tour->thumbnail) {{ $tour->thumbnail }} @else {{ asset( 'avatar/'. 'default-avatar.jpg') }} @endisset" class="img-circle" alt="thumbnail" width="300" height="300">
+            </div>
+        </div>
+        <div class="invalid-feedback d-block">{{ $errors->first("tour.thumbnail") }}</div>
+    </div>
+    <div class="mt-3">
+        <label>Mô tả</label>
+        <textarea class="form-control" rows="3" id="tour-short_description" name="tour[short_description]" type="text">{{ old('tour.short_description', $tour->short_description ?? null) }}</textarea>
+        <div class="invalid-feedback d-block">{{ $errors->first("tour.short_description") }}</div>
+    </div>
+    <div class="mt-3">
         <label>Nội dung</label>
         <textarea class="form-control" rows="5" id="tour-description" name="tour[description]" type="text">{{ old("tour.description", $tour->description ?? '') }}</textarea>
         <div class="invalid-feedback d-block">{{ $errors->first("tour.description") }}</div>
@@ -44,11 +59,42 @@
         </div>
     </div>
     <div class="mt-3">
+        <div>
+            <label>Loại</label>
+        </div>
+        @foreach(\App\Models\Tour::TYPES as $key => $status)
+            <input type="radio" id="tour-type-{{ $key }}" name="tour[type]" value="{{$key}}" class="mr-1"
+                   @if(old('tour.type', $tour->type ?? []) == $key) checked @endif
+            ><label class="mr-3" for="tour-type-{{ $key }}">{{ $status }}</label>
+        @endforeach
+        <div class="invalid-feedback d-block">{{ $errors->first("tour.type") }}</div>
+    </div>
+    <div class="mt-3">
         <button type="submit" name="submit" class="btn btn-secondary">@isset($tour) Cập nhật @else Tạo mới @endisset</button>
     </div>
 </div>
 @push('scripts')
     <script>
-        CKEDITOR.replace('tour-description')
+        ClassicEditor
+            .create(document.querySelector('#tour-description'), {
+                ckfinder: {
+                    uploadUrl: "{{ route('ckfinder_connector') }}?command=QuickUpload&type=Images&responseType=json",
+                }
+            }).catch(error => {
+            console.error(error);
+        });
+
+        $(document).ready(()=>{
+            $('#tour-thumbnail').change(function(){
+                const file = this.files[0];
+                if (file){
+                    let reader = new FileReader();
+                    reader.onload = function(event){
+                        $('#imgPreview').attr('src', event.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
     </script>
 @endpush

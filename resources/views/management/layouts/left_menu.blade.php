@@ -47,24 +47,27 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('management.booking.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Quản lý booking
-                            <i class="right fas fa-angle-right"></i>
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('management.account.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Quản lý tài khoản
-                            <i class="right fas fa-angle-right"></i>
-                        </p>
-                    </a>
-                </li>
+
+                @if(auth()->user()->role == \App\Models\User::ROLE_ADMIN)
+                    <li class="nav-item">
+                        <a href="{{ route('management.booking.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Quản lý booking
+                                <i class="right fas fa-angle-right"></i>
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('management.account.index')}}" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Quản lý tài khoản
+                                <i class="right fas fa-angle-right"></i>
+                            </p>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

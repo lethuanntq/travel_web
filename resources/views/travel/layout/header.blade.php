@@ -8,30 +8,6 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link">Liên hệ</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Quản lý tài khoản</a>
-                </li>
-            </ul>
-            <ul class="navbar-top-right-menu">
-                @auth
-                    <li class="nav-item">
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('logout') }}" class="nav-link">Logout</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">{{ auth()->user()->name }}</a>
-                    </li>
-                @else
-                    <li class="nav-item">
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('login') }}" class="nav-link">Sign in</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('register') }}" class="nav-link">Register</a>
-                    </li>
-                @endauth
             </ul>
         </div>
     </div>
@@ -63,7 +39,7 @@
                             <a class="nav-link" href="{{ route('travel.discount.index') }}">Khuyến mại</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/business.html">Kinh nghiệm</a>
+                            <a class="nav-link" href="{{ route('travel.experience.index') }}">Kinh nghiệm</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="pages/sports.html">Điểm đến</a>

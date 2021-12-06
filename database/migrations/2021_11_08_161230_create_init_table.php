@@ -32,13 +32,15 @@ class CreateInitTable extends Migration
         Schema::create('tours', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
+            $table->string('tag')->nullable();
+            $table->longText('short_description');
             $table->longText('description');
+            $table->string('thumbnail')->nullable();
+            $table->tinyInteger('type');
             $table->unsignedInteger('price');
+            $table->string('price_promotion')->nullable();
             $table->dateTime('start_date');
             $table->dateTime('end_date');
-            $table->string('price_promotion')->nullable();
-            $table->string('thumbnail')->nullable();
-            $table->string('tag')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
@@ -60,20 +62,6 @@ class CreateInitTable extends Migration
             $table->foreignId('updated_by')->unsigned()->nullable()->constrained('users');
             $table->foreignId('deleted_by')->unsigned()->nullable()->constrained('users');
         });
-
-        Schema::create('promotional', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->foreignId('tour_id')->unsigned()->nullable()->constrained('tours');
-            $table->foreignId('post_id')->unsigned()->nullable()->constrained('posts');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
-
-            $table->timestamps();
-            $table->softDeletes();
-            $table->foreignId('created_by')->unsigned()->nullable()->constrained('users');
-            $table->foreignId('updated_by')->unsigned()->nullable()->constrained('users');
-            $table->foreignId('deleted_by')->unsigned()->nullable()->constrained('users');
-        });
     }
 
     /**
@@ -84,7 +72,6 @@ class CreateInitTable extends Migration
     public function down()
     {
         Schema::dropIfExists('bookings');
-        Schema::dropIfExists('promotional');
         Schema::dropIfExists('posts');
         Schema::dropIfExists('tours');
     }

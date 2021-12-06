@@ -22,9 +22,9 @@ class Post extends BaseModel
     {
         return [
             'post.title' => 'required|max:255',
-            'post.tag' => 'max:255',
             'post.short_description' => 'required|max:500',
             'post.description' => 'required',
+            'post.tag' => 'max:255',
             'post.type' => 'required',
             'post.thumbnail' => 'image|max:2048',
         ];
@@ -34,9 +34,9 @@ class Post extends BaseModel
     {
         return [
             'post.title' => 'title',
-            'post.tag' => 'tag',
             'post.short_description' => 'short description',
             'post.description' => 'description',
+            'post.tag' => 'tag',
             'post.type' => 'type',
             'post.thumbnail' => 'thumbnail',
         ];

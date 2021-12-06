@@ -1,6 +1,6 @@
 @php
     $currentTime = \Carbon\Carbon::now();
-    $customers = \App\Models\User::where('role', \App\Models\User::ROLE_CUSTOMER)->get();
+    $customers = \App\Models\User::where('role', \App\Models\User::ROLE_EDITOR)->get();
     $tours = \App\Models\Tour::whereDate('start_date', '>=', $currentTime)
         ->whereDate('end_date', '>=', $currentTime)
         ->get();

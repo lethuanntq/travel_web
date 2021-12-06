@@ -16,13 +16,14 @@
             <table class="table table-striped" id="tour-table">
                 <thead>
                 <tr>
-                    <th scope="col" style="width: 5%">ID</th>
-                    <th scope="col" style="width: 10%">Tiêu đề</th>
-                    <th scope="col" style="width: 25%">Nội dung</th>
-                    <th scope="col" style="width: 10%">Mức giá</th>
-                    <th scope="col" style="width: 15%">Thời gian bắt đầu</th>
-                    <th scope="col" style="width: 15%">Thời gian kết thúc</th>
-                    <th scope="col" style="width: 10%">Người tạo</th>
+                    <th scope="col" style="width: 3%">ID</th>
+                    <th scope="col" class="col-md-2">Tiêu đề</th>
+                    <th scope="col" class="col-md-3">Mô tả</th>
+                    <th scope="col" style="width: 7%">Mức giá</th>
+                    <th scope="col" class="col-md-1">Loại</th>
+                    <th scope="col" style="width: 13%">Thời gian bắt đầu</th>
+                    <th scope="col" style="width: 13%">Thời gian kết thúc</th>
+                    <th scope="col" style="width: 5%">Người tạo</th>
                     <th scope="col" style="width: 10%">Action</th>
                 </tr>
                 </thead>
@@ -40,8 +41,9 @@
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'title', name: 'title' },
-                    { data: 'description', name: 'description' },
+                    { data: 'short_description', name: 'short_description' },
                     { data: 'price', name: 'price' },
+                    { data: 'type', name: 'type' },
                     { data: 'start_date', name: 'start_date' },
                     { data: 'end_date', name: 'end_date' },
                     { data: 'created_by', name: 'created_by' },

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Tour;
 
 class TourFactory extends Factory
 {
@@ -15,7 +16,9 @@ class TourFactory extends Factory
     {
         return [
             'title' => $this->faker->text(20),
-            'description' => $this->faker->text(200),
+            'short_description' => $this->faker->text(200),
+            'description' => $this->faker->text(1000),
+            'type' => $this->faker->randomElement(array_keys(Tour::TYPES)),
             'price' => $this->faker->randomNumber(6),
             'start_date' => $this->faker->dateTime(),
             'end_date' => $this->faker->dateTime(),

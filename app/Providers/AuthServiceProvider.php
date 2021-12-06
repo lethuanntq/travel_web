@@ -28,15 +28,17 @@ class AuthServiceProvider extends ServiceProvider
 
         //Authorization
         Gate::before(function (User $user) {
-            return $user->role === User::ROLE_ADMIN;
+            if ($user->role === User::ROLE_ADMIN) {
+                return true;
+            }
         });
 
         Gate::define('admin', function (User $user) {
            return $user->role === User::ROLE_ADMIN;
         });
 
-        Gate::define('customer', function (User $user) {
-            return $user->role === User::ROLE_CUSTOMER;
+        Gate::define('editor', function (User $user) {
+            return $user->role === User::ROLE_EDITOR;
         });
     }
 }
