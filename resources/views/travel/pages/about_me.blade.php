@@ -7,129 +7,39 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-8">
-                                <div>
-                                    <p>
-                                        GIỚI THIỆU
-                                        GIỚI THIỆU VỀ CÔNG TY DU LỊCH VIETREND TRAVEL
-                                        Vietrend Travel là thương hiệu của Công ty TNHH Du Lịch và Dịch Vụ Vietrend. Vietrend Travel được đánh giá là một trong những thuơng hiệu có uy tín trong các doanh nghiệp Lữ hành Quốc tế và Nội địa của Việt Nam.
-
-                                        logo-vietrend-travel
-                                        Logo chính thức của Vietrend Travel
-                                        Trải qua nhiều năm hoạt động, Vietrend Travel đã không ngừng phát triền kinh doanh trên lĩnh vực Du lịch, nâng cao chất lượng, đa dạng hoá các hạng mục dịch vụ, nhằm mục đích cao nhất là làm hài lòng mọi yêu cầu của Quý khách hàng. Chúng tôi tin tưởng rằng với uy tín đã tạo được trên thị trường, cùng với sự định hướng và chỉ đạo của Ban lãnh đạo Công ty TNHH Du Lịch và Dịch Vụ Vietrend luôn đem đến cho khách hàng những sản phẩm, dịch vụ đạt chất lượng tốt nhất với giá cả cạnh tranh. Nguyên tắc hoạt động kinh doanh của Vietrend Travel là: “Sự hài lòng của Quý khách luôn là tiêu chí hàng đầu của Vietrend Travel”
-
-                                        Với đội ngũ cán bộ nhân viên kinh nghiệm, Vietrend Travel là nhà tổ chức chuyên nghiệp:
-
-                                        Tổ chức các tour du lịch trong nước và tour du lịch nước ngoài theo yêu cầu của Quý khách.
-                                        Tổ chức nghiên cứu học tập, khảo sát nghiên cứu thị trường tìm bạn hàng trong lĩnh vực thuơng mại du lịch tại Châu Âu, Châu Úc, Châu Mĩ, Châu Phi, Châu Úc… theo yêu cầu của Quý khách hàng.
-                                        Tư vấn Hộ chiếu, làm Visa, thủ tục xuất nhập cảnh.
-                                        Dịch vụ đặt phòng khách sạn, resort trong toàn quốc và quốc tế.
-                                        Đại lý đặt vé máy bay, tàu hoả giao vé tận nhà.
-                                        Cho thuê xe ô tô từ 4 – 45 chỗ đời mới, chất lượng cao.
-                                        …
-                                        Với phương châm uy tín chất lượng đặt lên hàng đầu, Vietrend Travel đã và sẽ là địa chỉ lựa chọn các dịch vụ du lịch đáng tin cậy hàng đầu của Quý khách.
-
-                                        VIETREND TRAVEL – HƠN CẢ MỘT CHUYẾN ĐI
-
-                                        Trân trọng!
-
-                                        ĐỘI NGŨ NHÂN SỰ VIETREND TRAVEL
-                                        Là một trong những công ty thuộc hệ thống các doanh nghiệp Lữ hành hàng đầu Việt Nam, Công ty TNHH Du Lịch Và Dịch Vụ VIETREND với phương châm “Coi con người là nhân tố trung tâm để quyết định thành công, phồn thịnh và phát triển bền vững” trải qua nhiều năm phát triển, ngay từ khi mới thành lập chúng tôi đã mong muốn cung cấp cho du khách các tour du lịch tạo mới lạ, đa dạng, phong  phú, chất lượng dịch vụ hoàn hảo tạo niềm tin vững chắc cho mọi khách hàng.
-
-                                        Với đội ngũ nhân sự vững mạnh, có kiến thức sâu rộng, là những người có “TIẾNG NÓI” tại thị trường du lịch Việt Nam và nước ngoài, chúng tôi hy vọng rằng thương hiệu DU LỊCH VIETREND TRAVEL sẽ luôn có một chỗ đứng vững chắc trong lòng du khách, luôn mang tới cho quý khách những hành trình du lịch tuyệt vời, những dịch vụ UY TÍN – CHẤT LƯỢNG – HOÀN HẢO – HỢP LÝ – CẠNH TRANH. Để làm được những điều này, quý khách hàng luôn là trọng tâm trong quá trình hình thành và phát triển của doanh nghiệp chúng tôi. Một lần nữa xin gửi lời cảm ơn Quý khách đã luôn TIN TƯỞNG, ĐỒNG HÀNH và LỰA CHỌN Vietrend Travel trong suốt nhiều năm hoạt động vừa qua.
-                                    </p>
+                                <h1><b>Giới thiệu về công ty</b></h1>
+                                <p>Công ty Travel JSC có tên thương hiệu là Công ty du lịch Việt, tên giao dịch tiếng Anh là Travel Co.,Ltd.</p>
+                                <p>Trụ sở chính: 99 Trần Hưng Đạo, Quận 1, TP. Hồ Chí Minh</p>
+                                <p>Chi nhánh Hà Nội: Tòa nhà Sudico, Nam Từ Liêm, Hà Nội</p>
+                                <div class="text-center mt-3">
+                                    <img src="{{ asset('travel/assets/images/about/gioithieu.jpg') }}" width="500">
                                 </div>
-                                <div class="post-comment-section">
-                                    <div class="comment-section">
-                                        <h5 class="font-weight-600">Comments</h5>
-                                        <div class="comment-box">
-                                            <div class="d-flex align-items-center">
-                                                <div class="rotate-img">
-                                                    <img
-                                                        src="../assets/images/faces/face2.jpg"
-                                                        alt="banner"
-                                                        class="img-fluid img-rounded mr-3"
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <p class="fs-12 mb-1 line-height-xs">
-                                                        24 Jul 2020
-                                                    </p>
-                                                    <p
-                                                        class="fs-16 font-weight-600 mb-0 line-height-xs"
-                                                    >
-                                                        Chigusa Kisa
-                                                    </p>
-                                                </div>
-                                            </div>
+                                <p class="mt-3">
+                                    Với đội ngũ nhân viên trẻ, yêu nghề có đam mê du lịch, năng động, nắm bắt thông tin tốt. Cùng sự góp sức của các Hướng dẫn viên, Chuyên gia Du lịch dày dặn kinh nghiệm am hiểu tâm lý khách hàng, địa phương, điểm đến đã cùng Giấc Mơ Việt không ngừng sáng tạo thiết kế thành công Giấc Mơ Du Lịch cho nhiều Quý khách hàng. Qua đó khơi dậy tình yêu đất nước, con người Việt Nam cũng như quảng bá hình ảnh Việt Nam ra thế giới với niềm tự hào sâu sắc về quê hương mình.
+                                </p>
+                                <p>
+                                    Song song đó, chúng tôi còn là nhà tư vấn các tua, chương trình đặc biệt theo yêu cầu của Quý khách hàng và tận tâm phục vụ cung cấp thông tin nhanh chóng, chính xác đáp ứng nhu cầu đi du lịch ngày càng cao, đa dạng của Quý khách hàng trong và ngoài nước.
+                                </p>
 
-                                            <p class="fs-12 mt-3">
-                                                Praesent facilisis vulputate venenatis. In
-                                                facilisis placerat arcu, in tempor neque aliquet
-                                                quis. Integer lacinia in ligula eu sodales. Proin
-                                                non lorem iaculis, dictum lorem quis, bibendum
-                                                leo.
-                                            </p>
-                                        </div>
-                                        <div class="comment-box from">
-                                            <div class="d-flex align-items-center">
-                                                <div class="rotate-img">
-                                                    <img
-                                                        src="../assets/images/faces/face3.jpg"
-                                                        alt="banner"
-                                                        class="img-fluid img-rounded mr-3"
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <p class="fs-12 mb-1 line-height-xs">
-                                                        24 Jul 2020
-                                                    </p>
-                                                    <p
-                                                        class="fs-16 font-weight-600 mb-0 line-height-xs"
-                                                    >
-                                                        Mohsen Salehi
-                                                    </p>
-                                                </div>
-                                            </div>
+                                <p class="mt-3"><b>Sứ mệnh của chúng tôi</b></p>
+                                <p>
+                                    “ Sứ mệnh của chúng tôi là trở thành một Doanh nghiệp Lữ hành hàng đầu Việt Nam. Tận tâm phục vụ những khách hàng trong thị trường mà Công ty có được”
+                                </p>
 
-                                            <p class="fs-12 mt-3">
-                                                Praesent facilisis vulputate venenatis. In
-                                                facilisis placerat arcu, in tempor neque aliquet
-                                                quis. Integer lacinia in ligula eu sodales. Proin
-                                                non lorem iaculis, dictum lorem quis, bibendum
-                                                leo.
-                                            </p>
-                                        </div>
-                                        <div class="comment-box mb-0">
-                                            <div class="d-flex align-items-center">
-                                                <div class="rotate-img">
-                                                    <img
-                                                        src="../assets/images/faces/face3.jpg"
-                                                        alt="banner"
-                                                        class="img-fluid img-rounded mr-3"
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <p class="fs-12 mb-1 line-height-xs">
-                                                        24 Jul 2020
-                                                    </p>
-                                                    <p
-                                                        class="fs-16 font-weight-600 mb-0 line-height-xs"
-                                                    >
-                                                        Lucy Miller
-                                                    </p>
-                                                </div>
-                                            </div>
+                                <p class="mt-3"><b>Triết lý của chúng tôi: </b></p>
+                                <p>Khách hàng là giá trị cơ bản của bất kỳ doanh nghiệp nào, là lý do duy nhất để doanh nghiệp tồn tại và phát triển. Chính sách “khách hàng là trung tâm” như kim chỉ nam soi đường cho mọi hoạt động của doanh nghiệp.</p>
+                                <p> - Chúng tôi luôn luôn lắng nghe và chia sẻ mong muốn của từng Quý khách hàng, mang lại cho Quý khách sự hài lòng về dịch vụ cũng như thái độ phục vụ của từng nhân viên trong chuyến đi, sao cho mỗi dịch vụ đơn lẻ là một mắt xích kết nối hoàn hảo giá trị chuyến đi của Quý khách. Mỗi tình cảm, hạnh phúc hay mức độ hài lòng của Quý khách là một viên gạch xây dựng lên thành công và giá trị của Công ty. </p>
 
-                                            <p class="fs-12 mt-3">
-                                                Praesent facilisis vulputate venenatis. In
-                                                facilisis placerat arcu, in tempor neque aliquet
-                                                quis. Integer lacinia in ligula eu sodales. Proin
-                                                non lorem iaculis, dictum lorem quis, bibendum
-                                                leo.
-                                            </p>
-                                        </div>
-                                    </div>
+                                <p class="mt-3"><b>Đội ngũ của chúng tôi:</b></p>
+                                <p>Đội ngũ nhân viên văn phòng, điều hành tua, hướng dẫn viên của chúng tôi đều tự tin thông thạo ít nhất hai ngôn ngữ tiếng Việt và tiếng Anh. Đã từng làm việc trong các Công ty Lữ hành có ít nhất 10 năm kinh nghiệm cũng như được Tổng cục Du lịch Việt Nam cấp phép hoạt động trong lĩnh vực Dẫn tua du lịch quốc tế. </p>
+                                <p>Với kinh nghiệm đó chúng tôi không ngừng mang mang đến cho Quý khách hàng chương trình du lịch hoàn hảo về điểm đến nổi tiếng trong cả nước cũng như không ngừng mở rộng khám phá đưa và khai thác các điểm du lịch mới. </p>
+                                <div class="text-center mt-3">
+                                    <img src="{{ asset('travel/assets/images/about/nhan-vien-cong-ty.jpg') }}" width="500">
                                 </div>
+                                <p class="mt-3"><b>Định hướng phát triển của công ty: </b></p>
+                                <p>- Giữ vững và ngày càng tăng tốc độ phát triển trên mọi chỉ tiêu: doanh số, thị phần, nhân lực, giá trị thương hiệu, số lượng sản phẩm độc đáo (thiết kế tua trọn gói, tua theo yêu cầu, cung cấp dịch vụ đơn lẻ như: bán vé máy bay, vé tàu, phòng khách sạn, dịch vụ vận chuyển khác...) </p>
+                                <p>- Phát huy và nâng cao thế mạnh sẵn có của công ty về thiết kế tua trọn gói cho những nhóm nhỏ, nhóm gia đình đơn lẻ, tua đặc biệt cho từng sự kiện để phục vụ nhu cầu ngày càng cao, đa dạng của khách hàng trong thời kỳ hội nhập với thế giới nhanh chóng như hiện nay. </p>
+                                <p>- Với mong muốn không ngừng phát huy chất lượng sản phẩm và thái độ phục vụ Quý khách hàng ngày càng tận tụy, chu đáo. Chúng tôi luôn sẵn sàng tiếp nhận và biết ơn thông tin góp ý của Quý khách. </p>
                             </div>
                             <div class="col-lg-4">
                                 @include('travel.layout.right_menu',  $highlightPosts)

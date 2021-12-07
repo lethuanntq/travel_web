@@ -24,7 +24,7 @@ class User extends Authenticatable
       self::ROLE_EDITOR => 'Biên tập viên'
     ];
 
-
+    const EMAIL_ADMIN = 'lethuanqed@gmail.com';
     /**
      * The attributes that are mass assignable.
      *

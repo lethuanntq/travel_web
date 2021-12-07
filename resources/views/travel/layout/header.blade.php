@@ -6,7 +6,7 @@
                     <a href="{{ route('about-me') }}" class="nav-link">Về chúng tôi</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Liên hệ</a>
+                    <a href="{{ route('contact') }}" class="nav-link">Liên hệ</a>
                 </li>
             </ul>
         </div>
@@ -33,7 +33,7 @@
                     id="navbarSupportedContent">
                     <ul class="navbar-nav d-lg-flex justify-content-between ">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Trang chủ</a>
+                            <a class="nav-link" href="{{ route('home') }}">Trang chủ</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('travel.discount.index') }}">Khuyến mại</a>

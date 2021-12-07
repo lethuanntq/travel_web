@@ -56,13 +56,13 @@
         </header>
 
         <!-- partial -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="font-family: 'Times New Roman'">
             <div class="container">
               @yield('travel_content')
             </div>
         </div>
 
-        <footer>
+        <footer style="font-family: 'Times New Roman'">
             @include('travel.layout.footer')
         </footer>
 

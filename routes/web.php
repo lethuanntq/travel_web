@@ -36,7 +36,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::get('/contact', [\App\Http\Controllers\Travel\HomeController::class, 'conTact'])->name('contact');
-Route::post('/contact', [\App\Http\Controllers\Travel\HomeController::class, 'postContact'])->name('contact');
+Route::post('/contact', [\App\Http\Controllers\Travel\HomeController::class, 'postContact'])->name('post.contact');
 
 Route::group([
     'as' => 'travel.',
