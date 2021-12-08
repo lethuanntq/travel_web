@@ -3,7 +3,7 @@
 @section('content')
     <div class="ml-3 mr-3">
         @if(\Illuminate\Support\Facades\Session::has('message'))
-            <div class="success alert-success" style="width: 30%">{{ \Illuminate\Support\Facades\Session::get('message') }}</div>
+            <div class="alert alert-success">{{ \Illuminate\Support\Facades\Session::get('message') }}</div>
         @endif
         <div>
             <div class="row mb-1">

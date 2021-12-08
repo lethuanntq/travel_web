@@ -3,7 +3,9 @@
 @section('content')
     <div class="ml-3 mr-3">
         @if(Session::has('message'))
-            <div class="success alert-success" role="alert" style="width: 30%">{{ Session::get('message') }}</div>
+            <div class="alert alert-success" role="alert">
+                {{ Session::get('message') }}
+            </div>
         @endif
             <div id="highlight-message"  class="text-center" role="alert" style="display: none;width: 15%"></div>
             <div>
