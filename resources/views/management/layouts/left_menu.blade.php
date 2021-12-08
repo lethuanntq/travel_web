@@ -22,16 +22,14 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
                     <a href="{{ route('management.home') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Dashboard
-                            <i class="right fas fa-angle-right"></i>
+                        <i class="nav-icon fas fa-industry"></i>
+                        <p>Dashboard
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('management.post.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Quản lý bài viết
                             <i class="right fas fa-angle-right"></i>
@@ -40,7 +38,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('management.tour.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-bus-alt"></i>
                         <p>
                             Quản lý tour
                             <i class="right fas fa-angle-right"></i>
@@ -51,7 +49,7 @@
                 @if(auth()->user()->role == \App\Models\User::ROLE_ADMIN)
                     <li class="nav-item">
                         <a href="{{ route('management.booking.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-address-book"></i>
                             <p>
                                 Quản lý booking
                                 <i class="right fas fa-angle-right"></i>
@@ -60,7 +58,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{route('management.account.index')}}" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-users"></i>
                             <p>
                                 Quản lý tài khoản
                                 <i class="right fas fa-angle-right"></i>

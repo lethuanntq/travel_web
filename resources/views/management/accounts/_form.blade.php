@@ -68,7 +68,7 @@
         </div>
     </div>
     <div class="mt-3">
-        <button type="submit" name="submit" class="btn btn-secondary" value="save">Save</button>
+        <button type="submit" name="submit" class="btn btn-secondary" value="save">Đăng ký</button>
     </div>
 </div>
 @push('scripts')

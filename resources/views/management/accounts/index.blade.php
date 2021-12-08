@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                 </div>
                 <div class="col-sm-6">
-                    <a id="create-account" href="{{ route('management.account.create') }}" class="btn btn-primary float-right"><i class="fa fa-plus"></i></a>
+                    <a id="create-account" href="{{ route('management.account.create') }}" class="btn btn-primary float-right"><i class="fa fa-plus"></i> Tạo Mới</a>
                 </div>
             </div>
             <div class="row">
@@ -18,11 +18,11 @@
                    <table class="table table-bordered" id="users-table">
                        <thead>
                        <tr>
-                           <th scope="col" style="width: 4%">id</th>
-                           <th scope="col" style="width: 20%">name</th>
+                           <th scope="col" style="width: 10px">id</th>
+                           <th scope="col" >Họ và tên</th>
                            <th scope="col" style="width: 20%">Email</th>
                            <th scope="col" style="width: 20%">Chức vụ</th>
-                           <th scope="col" style="width: 6%">Action</th>
+                           <th scope="col" width="150" class="text-center">Thao tác</th>
                        </tr>
                        </thead>
                    </table>

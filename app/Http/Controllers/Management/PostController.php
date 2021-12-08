@@ -78,9 +78,9 @@ class PostController extends Controller
                         </label>';
             })
             ->addColumn('action', function ($post) {
-                return '<a href="' . route('management.post.edit', $post->id) . '" class="btn btn-xs btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                return '<a href="' . route('management.post.edit', $post->id) . '" class="btn btn-xs btn-warning">Chỉnh sửa</a>
                         <a href="#" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete-confirm-modal"  data-action="' . route('management.post.delete',
-                        $post->id) . '"' . '><i class="fa fa-times"></i></a>';
+                        $post->id) . '"' . '> Xóa</a>';
             })
             ->rawColumns(['action', 'highlight'])
             ->make(true);

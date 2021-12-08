@@ -1,31 +1,31 @@
-<div class="mt-5 container border">
-    <div>
-        <label>Tên tour</label>
+<div class="container border">
+    <div class="form-group">
+        <label class="col-form-label">Tên tour</label>
         <input class="form-control" id="tour-title" name="tour[title]" type="text" value="{{ old("tour.title", $tour->title ?? '') }}">
         <div class="invalid-feedback d-block">{{ $errors->first("tour.title") }}</div>
     </div>
-    <div class="mt-3">
+    <div class="form-group">
         <div>
             <label>Giá</label>
             <input class="form-control" id="tour-price" name="tour[price]" type="text" value="{{ old("tour.price", $tour->price ?? '') }}">
             <div class="invalid-feedback d-block">{{ $errors->first("tour.price") }}</div>
         </div>
     </div>
-    <div class="mt-3">
+    <div class="form-group">
         <div>
             <label>Giá khuyến mại</label>
             <input class="form-control" id="tour-price-promotion" name="tour[price_promotion]" type="text" value="{{ old("tour.price_promotion", $tour->price_promotion ?? '') }}">
             <div class="invalid-feedback d-block">{{ $errors->first("tour.price_promotion") }}</div>
         </div>
     </div>
-    <div class="mt-3">
+    <div class="form-group">
         <div>
             <label>Từ khóa</label>
             <input class="form-control" id="tour-tag" name="tour[tag]" type="text" value="{{ old("tour.tag", $tour->tag ?? '') }}">
             <div class="invalid-feedback d-block">{{ $errors->first("tour.tag") }}</div>
         </div>
     </div>
-    <div class="mt-3">
+    <div class="form-group">
         <label>Thumbnail</label>
         <div>
             <input id="tour-thumbnail" name="tour[thumbnail]" type="file">
@@ -35,17 +35,17 @@
         </div>
         <div class="invalid-feedback d-block">{{ $errors->first("tour.thumbnail") }}</div>
     </div>
-    <div class="mt-3">
+    <div class="form-group">
         <label>Mô tả</label>
         <textarea class="form-control" rows="3" id="tour-short_description" name="tour[short_description]" type="text">{{ old('tour.short_description', $tour->short_description ?? null) }}</textarea>
         <div class="invalid-feedback d-block">{{ $errors->first("tour.short_description") }}</div>
     </div>
-    <div class="mt-3">
+    <div class="form-group">
         <label>Nội dung</label>
         <textarea class="form-control" rows="5" id="tour-description" name="tour[description]" type="text">{{ old("tour.description", $tour->description ?? '') }}</textarea>
         <div class="invalid-feedback d-block">{{ $errors->first("tour.description") }}</div>
     </div>
-    <div class="row mt-3">
+    <div class="row form-group">
         <div class="col-md-3">
             <label>Thời gian bắt đầu</label>
             <input class="form-control" id="tour-start_date" name="tour[start_date]" type="datetime-local" value="{{ old("tour.start_date", isset ($tour) ? \Carbon\Carbon::parse($tour->start_date)->format('Y-m-d\TH:i') : '') }}">
@@ -58,7 +58,7 @@
             <div class="invalid-feedback d-block">{{ $errors->first("tour.end_date") }}</div>
         </div>
     </div>
-    <div class="mt-3">
+    <div class="form-group">
         <div>
             <label>Loại</label>
         </div>
@@ -69,8 +69,8 @@
         @endforeach
         <div class="invalid-feedback d-block">{{ $errors->first("tour.type") }}</div>
     </div>
-    <div class="mt-3">
-        <button type="submit" name="submit" class="btn btn-secondary">@isset($tour) Cập nhật @else Tạo mới @endisset</button>
+    <div class="form-group">
+        <button type="submit" name="submit" class="btn btn-primary">@isset($tour) Cập nhật @else Tạo mới @endisset</button>
     </div>
 </div>
 @push('scripts')

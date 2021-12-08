@@ -11,19 +11,19 @@
                 <div class="col-sm-6">
                 </div>
                 <div class="col-sm-6">
-                    <a id="create-account" href="{{  route('management.post.create') }}" class="btn btn-primary float-right"><i class="fa fa-plus"></i></a>
+                    <a id="create-account" href="{{  route('management.post.create') }}" class="btn btn-primary float-right"><i class="fa fa-plus"></i> Tạo Mới</a>
                 </div>
             </div>
             <table class="table table-striped" id="posts-table">
                 <thead>
                 <tr>
-                    <th scope="col" class="col-md-1">ID</th>
-                    <th scope="col" class="col-md-2">Tiêu đề</th>
-                    <th scope="col" class="col-md-4">Mô tả</th>
-                    <th scope="col" class="col-md-1">Loại</th>
-                    <th scope="col" class="col-md-1">Người tạo</th>
-                    <th scope="col" class="col-sm-1">Nổi bật</th>
-                    <th scope="col" class="col-md-1">Action</th>
+                    <th scope="col" >ID</th>
+                    <th scope="col" >Tiêu đề</th>
+                    <th scope="col" width="50%">Mô tả</th>
+                    <th scope="col" >Loại</th>
+                    <th scope="col">Người tạo</th>
+                    <th scope="col" width="100">Nổi bật</th>
+                    <th scope="col" width="150"  class="text-center">Thao tác</th>
                 </tr>
                 </thead>
             </table>

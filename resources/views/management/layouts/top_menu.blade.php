@@ -9,14 +9,14 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                <i class="fas fa-expand-arrows-alt"></i>
-            </a>
+            <a href="<?= route('home') ?>" class="nav-link">Trang Chủ</a>
         </li>
+        <li class="nav-item"><a href="#" class="nav-link">|</a></li>
         <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                <i class="fas fa-th-large"></i>
-            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="nav-link" style="border: none;background: none;">Đăng Xuất</button>
+            </form>
         </li>
     </ul>
 </nav>

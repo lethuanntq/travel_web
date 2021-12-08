@@ -5,8 +5,8 @@
         ->whereDate('end_date', '>=', $currentTime)
         ->get();
 @endphp
-<div class="mt-5 container border">
-    <div>
+<div class="container border">
+    <div class="form-group">
         <label>Tên khách hàng</label>
         <select id="booking-user_id" name="booking[user_id]" class="form-control" style="width: 50%">
             <option value=""></option>
@@ -16,7 +16,7 @@
         </select>
         <div class="invalid-feedback d-block">{{ $errors->first("booking.user_id") }}</div>
     </div>
-    <div class="mt-3">
+    <div  class="form-group">
         <div>
             <label>Chọn tour</label>
             <select id="booking-tour_id" name="booking[tour_id]" class="form-control" style="width: 50%">
@@ -28,12 +28,12 @@
             <div class="invalid-feedback d-block">{{ $errors->first("booking.tour_id") }}</div>
         </div>
     </div>
-    <div class="mt-3">
+    <div  class="form-group">
         <label>Note</label>
         <textarea class="form-control" rows="5" id="booking-note" name="booking[note]">{{ old('booking.note', $booking->note ?? null) }}</textarea>
         <div class="invalid-feedback d-block">{{ $errors->first("booking.name") }}</div>
     </div>
-    <div class="mt-3">
+    <div  class="form-group">
         <div>
             <label>Trạng thái</label>
         </div>
@@ -44,7 +44,7 @@
         @endforeach
         <div class="invalid-feedback d-block">{{ $errors->first("booking.status") }}</div>
     </div>
-    <div class="mt-3">
-        <button type="submit" name="submit" class="btn btn-secondary">Tạo mới</button>
+    <div  class="form-group">
+        <button type="submit" name="submit" class="btn btn-primary">Tạo mới</button>
     </div>
 </div>

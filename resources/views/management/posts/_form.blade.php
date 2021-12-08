@@ -1,17 +1,17 @@
-<div class="mt-5 container border">
-    <div>
-        <label>Tên bài viết</label>
+<div class="container border">
+    <div class="form-group">
+        <label class="col-form-label">Tên bài viết</label>
         <input class="form-control" id="post-name" name="post[title]" type="text" value="{{ old('post.title', $post->title ?? null) }}">
         <div class="invalid-feedback d-block">{{ $errors->first("post.title") }}</div>
     </div>
-    <div class="mt-3">
+    <div class="form-group">
         <div>
             <label>Từ khóa</label>
             <input class="form-control" id="post-seo_tag" name="post[tag]" type="text" value="{{ old('post.tag', $post->tag ?? null) }}">
         </div>
         <div class="invalid-feedback d-block">{{ $errors->first("post.tag") }}</div>
     </div>
-    <div class="mt-3">
+    <div class="form-group">
         <label>Thumbnail</label>
         <div>
             <input id="post-thumbnail" name="post[thumbnail]" type="file">
@@ -21,17 +21,17 @@
         </div>
         <div class="invalid-feedback d-block">{{ $errors->first("post.thumbnail") }}</div>
     </div>
-    <div class="mt-3">
+    <div class="form-group">
         <label>Mô tả</label>
         <textarea class="form-control" rows="3" id="post-short_description" name="post[short_description]" type="text">{{ old('post.short_description', $post->short_description ?? null) }}</textarea>
         <div class="invalid-feedback d-block">{{ $errors->first("post.short_description") }}</div>
     </div>
-    <div class="mt-3">
+    <div class="form-group">
         <label>Nội dung</label>
         <textarea class="form-control" rows="5" id="post-description" name="post[description]" type="text">{{ old('post.description', $post->description ?? null) }}</textarea>
         <div class="invalid-feedback d-block">{{ $errors->first("post.description") }}</div>
     </div>
-    <div class="mt-3">
+    <div class="form-group">
         <div>
             <label>Loại</label>
         </div>
@@ -42,8 +42,8 @@
         @endforeach
         <div class="invalid-feedback d-block">{{ $errors->first("post.type") }}</div>
     </div>
-    <div class="mt-3">
-        <button type="submit" name="submit" class="btn btn-secondary">@isset($post) Cập nhật @else Tạo mới @endisset</button>
+    <div class="form-group">
+        <button type="submit" name="submit" class="btn btn-primary">@isset($post) Cập nhật @else Tạo mới @endisset</button>
     </div>
 </div>
 @push('scripts')

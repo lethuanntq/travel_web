@@ -27,7 +27,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">@yield('title')</h5>
+                    <h3 class="mb-0">@yield('title')</h3>
                 </div>
                 <div class="card-body">
                     @yield('content')
@@ -48,11 +48,18 @@
 <!-- modal form -->
 <div class="modal fade" id="delete-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm" role="document" style="margin-top: 15%">
+
         <div class="modal-content">
-            <div class="modal-body" id="print-detail">Bạn có chắc chắn muốn xóa khôngggg ?</div>
+            <div class="modal-header">
+                <h5 class="modal-title">Xác nhận</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="print-detail">Bạn có chắc chắn muốn xóa không?</div>
             <div class="modal-footer">
-                <button type="button" class="btn" data-dismiss="modal" style="display: inline">Không</button>
-                <button type="button" class="btn" onclick="event.preventDefault();document.getElementById('delete-form').submit();" style="display: inline">Có</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="display: inline">Không</button>
+                <button type="button" class="btn btn-danger" onclick="event.preventDefault();document.getElementById('delete-form').submit();" style="display: inline">Có</button>
             </div>
             <form method="post" action="#" id="delete-form" class="d-block">
                 @csrf
