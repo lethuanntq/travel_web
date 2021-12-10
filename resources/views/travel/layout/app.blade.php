@@ -17,6 +17,9 @@
 
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('travel/assets/css/style.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('owlcarousel/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('owlcarousel/assets/owl.theme.default.min.css') }}">
     <!-- endinject -->
     <style>
         .post-title {
@@ -40,6 +43,10 @@
             margin-bottom: 20px;
             color: #333;
             text-align: initial;
+        }
+
+        .owl-dots {
+           display: none;
         }
     </style>
 </head>
@@ -77,5 +84,8 @@
 <!-- Custom js for this page-->
 <script src="{{ asset('travel/assets/js/demo.js') }}"></script>
 <!-- End custom js for this page-->
+
+<script src="{{ asset('owlcarousel/owl.carousel.min.js') }}"></script>
+@stack('travel-scripts')
 </body>
 </html>

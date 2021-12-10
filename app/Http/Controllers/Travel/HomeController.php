@@ -17,9 +17,12 @@ class HomeController extends Controller
     public function index()
     {
         $news = Post::query()->where('type', Post::TYPE_NEWS)->limit(7)->inRandomOrder()->get();
-
+        $newsTravel = Post::query()->where('type', Post::TYPE_DESTINATION)->limit(7)->inRandomOrder()->get();
+        $newsDiscount =  Post::query()->where('type', Post::TYPE_DISCOUNT)->limit(3)->inRandomOrder()->get();
         return view('travel.index', [
-            'news' => $news
+            'news' => $news,
+            'newsTravel' => $newsTravel,
+            'newsDiscount' => $newsDiscount
         ]);
     }
 
