@@ -36,10 +36,8 @@ class AccountController extends Controller
 
     public function edit(User $user)
     {
-        $image = Image::query()->where('user_id', $user->id)->first();
         return view('management.accounts.edit', [
             'user' => $user,
-            'image' => $image
         ]);
     }
 

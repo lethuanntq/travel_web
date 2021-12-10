@@ -10,7 +10,7 @@
                     <b>Chi nhánh Hà Nội:</b> Quận Hoàn Kiếm, Hà Nội
                 </div>
                 <div class="mt-1">
-                    <b>Điện thoại:</b> {{ env('PHONE_NUMBER') }}| Hotline: 1900 1177
+                    <b>Điện thoại:</b> {{ env('PHONE_NUMBER') }}| Hotline: {{ env('HOT_LINE') }}
                 </div>
                 <div class="mt-1">
                     <b>Website:</b> https://travel-web-vn.herokuapp.com/

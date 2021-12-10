@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -12,7 +13,7 @@ use function Symfony\Component\String\s;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
     const INACTIVE = 0;
     const ACTIVE = 1;
@@ -24,7 +25,7 @@ class User extends Authenticatable
       self::ROLE_EDITOR => 'Biên tập viên'
     ];
 
-    const EMAIL_ADMIN = 'lethuanqed@gmail.com';
+    const PATH = 'user/';
     /**
      * The attributes that are mass assignable.
      *
@@ -56,16 +57,25 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public static function rules()
+    public static function rules($user = null)
     {
-        return [
+        $rules = [
             'account.name' => 'required|max:255',
             'account.email' => 'required|email|unique:users,email',
             'account.phone_number' => 'required|digits:10',
             'account.password' => 'required|min:8|max:30|confirmed',
             'account.password_confirmation' => 'required|min:8|max:30',
-            'account.role' => 'required'
+            'account.role' => 'required',
+            'account.avatar' => 'image|max:2048',
         ];
+
+        if ($user) {
+            $rules['account.email'] = 'required|email|unique:users,email,' . $user->id . ',id,deleted_at,NULL';
+            $rules['account.password'] = 'sometimes|nullable|min:8|max:30|confirmed';
+            $rules['account.password_confirmation'] = 'sometimes|nullable|min:8|max:30';
+        }
+
+        return $rules;
     }
 
     public static function attributes()
@@ -76,7 +86,8 @@ class User extends Authenticatable
             'account.phone_number' => 'phone number',
             'account.password' => 'password',
             'account.password_confirmation' => 'password confirm',
-            'account.role' => 'role'
+            'account.role' => 'role',
+            'account.avatar' => 'avatar',
         ];
     }
 }

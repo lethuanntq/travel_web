@@ -39,16 +39,13 @@
                             <a class="nav-link" href="{{ route('travel.discount.index') }}">Khuyến mại</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('travel.experience.index') }}">Kinh nghiệm</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="pages/sports.html">Điểm đến</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/art.html">Thư viện</a>
+                            <a class="nav-link" href="{{ route('travel.news.index') }}">Tin tức</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/politics.html">Điểm đến của bạn</a>
+                            <a class="nav-link" href="{{ route('travel.experience.index') }}">Kinh nghiệm</a>
                         </li>
                     </ul>
                 </div>

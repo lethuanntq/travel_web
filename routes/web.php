@@ -10,6 +10,7 @@ use App\Http\Controllers\Management\TourController;
 use App\Http\Controllers\Management\HomeController;
 use App\Http\Controllers\Travel\DiscountController;
 use App\Http\Controllers\Travel\ExperienceController;
+use App\Http\Controllers\Travel\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,9 @@ Route::group([
 
     Route::get('/experience', [ExperienceController::class, 'index'])->name('experience.index');
     Route::get('/experience/{post}', [ExperienceController::class, 'detail'])->name('experience.detail');
+
+    Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+    Route::get('/news/{post}', [NewsController::class, 'detail'])->name('news.detail');
 });
 
 Route::group([

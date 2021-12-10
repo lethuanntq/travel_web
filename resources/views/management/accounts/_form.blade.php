@@ -9,7 +9,7 @@
     <div class="mt-3">
         <div>
             <label>Email</label>
-            <input class="form-control" id="account-email" name="account[email]" type="email" required value="{{ old('account.email', $user->email ?? null) }}">
+            <input class="form-control" id="account-email" name="account[email]" type="email" value="{{ old('account.email', $user->email ?? null) }}">
             <div class="invalid-feedback d-block">{{ $errors->first("account.email") }}</div>
         </div>
     </div>
@@ -23,14 +23,14 @@
     <div class="mt-3">
         <div>
             <label>Mật khẩu</label>
-            <input class="form-control" id="account-password" name="account[password]" type="password" required value="{{ old('account.password') }}">
+            <input class="form-control" id="account-password" name="account[password]" type="password" value="{{ old('account.password') }}">
             <div class="invalid-feedback d-block">{{ $errors->first("account.password") }}</div>
         </div>
     </div>
     <div class="mt-3">
         <div>
             <label class="label">Nhập lại mật khẩu</label>
-            <input class="form-control" type="password" required id="account-password_confirmation" name="account[password_confirmation]" value="{{ old('account.password_confirmation') }}">
+            <input class="form-control" type="password" id="account-password_confirmation" name="account[password_confirmation]" value="{{ old('account.password_confirmation') }}">
             <div class="invalid-feedback d-block">{{ $errors->first("account.password_confirmation") }}</div>
         </div>
     </div>
@@ -58,39 +58,33 @@
             <div>
                 <label class="label">Avatar</label>
             </div>
-            <input type="file" id="account-avatar" name="account[avatar]" hidden value="{{ old('account.avatar', $image->path_image ?? null) }}">
+            <input id="account-avatar" name="account[avatar]" type="file" hidden>
 
             <div style="width: 30%; height: 30%">
                 <label id="image-upload" for="account-avatar">
-                    <img id="blah" src="{{ asset('avatar/'.old('account.avatar', $image->path_image ?? 'default-avatar.jpg')) }}" style="width: 50%; height: 50%">
+                    <img id="imgPreview" src="@isset($user->avatar) {{ $user->avatar }} @else {{ asset( 'avatar/'. 'default-avatar.jpg') }} @endisset" style="width: 50%; height: 50%">
                 </label>
             </div>
+            <div class="invalid-feedback d-block">{{ $errors->first("account.avatar") }}</div>
         </div>
     </div>
     <div class="mt-3">
-        <button type="submit" name="submit" class="btn btn-secondary" value="save">Đăng ký</button>
+        <button type="submit" name="submit" class="btn btn-primary">@isset($user) Cập nhật @else Tạo mới @endisset</button>
     </div>
 </div>
 @push('scripts')
     <script>
-        $(document).ready(function () {
-                readURL($('#account-avatar'))
+        $(document).ready(()=>{
+            $('#account-avatar').change(function(){
+                const file = this.files[0];
+                if (file){
+                    let reader = new FileReader();
+                    reader.onload = function(event){
+                        $('#imgPreview').attr('src', event.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
         });
-
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#blah').attr('src', e.target.result);
-                    $('#image-upload').attr('for', 'account-avatar');
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $("#account-avatar").change(function(){
-            readURL(this);
-        });
-
     </script>
 @endpush

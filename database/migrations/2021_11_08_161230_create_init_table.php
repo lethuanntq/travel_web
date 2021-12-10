@@ -21,7 +21,7 @@ class CreateInitTable extends Migration
             $table->longText('description');
             $table->string('thumbnail')->nullable();
             $table->tinyInteger('type');
-            $table->longText('highlight')->default(0);
+            $table->tinyInteger('highlight')->default(0);
 
             $table->timestamps();
             $table->softDeletes();

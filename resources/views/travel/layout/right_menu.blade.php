@@ -1,5 +1,5 @@
 <h2 class="mb-4 text-primary font-weight-600">
-    Tin tức du lịch nổi bật
+    Bài viết nổi bật
 </h2>
 @foreach($highlightPosts as $highlightPost)
 <div class="row">
@@ -30,53 +30,3 @@
     </div>
 </div>
 @endforeach
-<div class="trending">
-    <h2 class="mb-4 text-primary font-weight-600">
-        Trending
-    </h2>
-    <div class="mb-4">
-        <div class="rotate-img">
-            <img
-                src="../assets/images/inner/inner_10.jpg"
-                alt="banner"
-                class="img-fluid"
-            />
-        </div>
-        <h3 class="mt-3 font-weight-600">
-            Virus Kills Member Of Advising Iran’s Supreme
-        </h3>
-        <p class="fs-13 text-muted mb-0">
-            <span class="mr-2">Photo </span>10 Minutes ago
-        </p>
-    </div>
-    <div class="mb-4">
-        <div class="rotate-img">
-            <img
-                src="../assets/images/inner/inner_11.jpg"
-                alt="banner"
-                class="img-fluid"
-            />
-        </div>
-        <h3 class="mt-3 font-weight-600">
-            Virus Kills Member Of Advising Iran’s Supreme
-        </h3>
-        <p class="fs-13 text-muted mb-0">
-            <span class="mr-2">Photo </span>10 Minutes ago
-        </p>
-    </div>
-    <div class="mb-4">
-        <div class="rotate-img">
-            <img
-                src="../assets/images/inner/inner_12.jpg"
-                alt="banner"
-                class="img-fluid"
-            />
-        </div>
-        <h3 class="mt-3 font-weight-600">
-            Virus Kills Member Of Advising Iran’s Supreme
-        </h3>
-        <p class="fs-13 text-muted mb-0">
-            <span class="mr-2">Photo </span>10 Minutes ago
-        </p>
-    </div>
-</div>

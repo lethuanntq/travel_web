@@ -24,8 +24,7 @@ class PostService extends BaseService
             $post = new Post();
             $post->updated_by = $operator->id;
             $post->created_by = $operator->id;
-            $post = $this->save($post, $request);
-            $this->saveThumbnail($post, $request->file('post.thumbnail'));
+            $this->save($post, $request);
 
             DB::commit();
         } catch (Exception $e) {
@@ -47,8 +46,7 @@ class PostService extends BaseService
         DB::beginTransaction();
         try {
             $this->validate($request->all(), $rules, $attrs);
-            $post = $this->save($post, $request);
-            $this->saveThumbnail($post, $request->file('post.thumbnail'));
+            $this->save($post, $request);
 
             DB::commit();
         } catch (Exception $e) {
@@ -69,8 +67,8 @@ class PostService extends BaseService
             $post->delete();
             $post->deleted_by = $operator->id;
             $post->updated_by = $operator->id;
-
             $post->save();
+
             DB::commit();
         } catch (Exception $e) {
             Log::error($e->getMessage());
@@ -85,6 +83,7 @@ class PostService extends BaseService
     {
         $post->fill($request->input('post'));
         $post->save();
+        $this->saveThumbnail($post, $request->file('post.thumbnail'));
 
         return $post;
     }

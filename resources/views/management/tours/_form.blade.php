@@ -28,9 +28,11 @@
     <div class="form-group">
         <label>Thumbnail</label>
         <div>
-            <input id="tour-thumbnail" name="tour[thumbnail]" type="file">
+            <input id="tour-thumbnail" name="tour[thumbnail]" type="file" hidden>
             <div class="holder">
-                <img id="imgPreview" src="@isset($tour->thumbnail) {{ $tour->thumbnail }} @else {{ asset( 'avatar/'. 'default-avatar.jpg') }} @endisset" class="img-circle" alt="thumbnail" width="300" height="300">
+                <label for="tour-thumbnail">
+                    <img id="imgPreview" src="@isset($tour->thumbnail) {{ $tour->thumbnail }} @else {{ asset( 'avatar/'. 'default-avatar.jpg') }} @endisset" class="img-circle" alt="thumbnail" width="300" height="300">
+                </label>
             </div>
         </div>
         <div class="invalid-feedback d-block">{{ $errors->first("tour.thumbnail") }}</div>

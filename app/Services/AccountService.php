@@ -1,19 +1,14 @@
 <?php
 
-
 namespace App\Services;
 
-use App\Models\Image;
-use Exception;
 use App\Models\User;
-use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Log;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\ValidationException;
 
 class AccountService extends BaseService
 {
@@ -21,15 +16,18 @@ class AccountService extends BaseService
     {
         $rules = User::rules();
         $attrs = User::attributes();
-        $datas = $request->all()['account'];
+        $operator = Auth::user();
+
         DB::beginTransaction();
         try {
-        $this->validate($request->all(), $rules, $attrs);
+            $this->validate($request->all(), $rules, $attrs);
+            $user = new User();
+            $user->updated_by = $operator->id;
+            $user->created_by = $operator->id;
+            $this->save($user, $request);
 
-        $user = new User();
-        $this->save($user, $request);
-        DB::commit();
-        }catch (Exception $e) {
+            DB::commit();
+        } catch (Exception $e) {
             Log::error($e->getMessage());
             DB::rollBack();
             throw $e;
@@ -40,58 +38,38 @@ class AccountService extends BaseService
 
     public function update(User $user, Request $request)
     {
-        $rules = User::rules();
+        $rules = User::rules($user);
         $attrs = User::attributes();
+        $operator = Auth::user();
+        $user->updated_by = $operator->id;
 
         DB::beginTransaction();
         try {
-        $this->validate($request->all(), $rules, $attrs);
-        $this->save($user, $request);
-        DB::commit();
-        }catch (Exception $e) {
+            $this->validate($request->all(), $rules, $attrs);
+            $this->save($user, $request);
+
+            DB::commit();
+        } catch (Exception $e) {
             Log::error($e->getMessage());
             DB::rollBack();
             throw $e;
         }
         return $user;
-    }
-
-    public function save(User $user, Request $request)
-    {
-        $data = $request->all()['account'];
-        $user->name = $data['name'];
-        $user->email = $data['email'];
-        $user->phone_number = $data['phone_number'];
-        $user->password = bcrypt($data['password']);
-        $user->role = $data['role'];
-        $user->active =$data['active']  ?? User::INACTIVE;
-        $user->save();
-
-        if (isset($data['avatar'])) {
-            $this->storeFile($data['avatar'] , $user);
-        }
-
-
-        return $user;
-    }
-
-    public function validate($data = [], $rules = [], $attr = [])
-    {
-        $validator = Validator::make($data, $rules, [], $attr);
-        if ($validator->fails()) {
-            throw new ValidationException($validator);
-        }
-
-        return true;
     }
 
     public function delete(User $user)
     {
+        $operator = Auth::user();
+
         DB::beginTransaction();
-        try{
+        try {
             $user->delete();
+            $user->deleted_by = $operator->id;
+            $user->updated_by = $operator->id;
+            $user->save();
+
             DB::commit();
-        }catch(Exception $e) {
+        } catch (Exception $e) {
             Log::error($e->getMessage());
             DB::rollBack();
             throw $e;
@@ -100,16 +78,26 @@ class AccountService extends BaseService
         return true;
     }
 
-    public function storeFile(UploadedFile $file, User $user)
+    public function save(User $user, Request $request)
     {
-        if ($file->move('avatar', $file->getClientOriginalName())) {
-                $image =  Image::query()->where('user_id', $user->id)->first() ?? new Image();
-                $image->user_id = $user->id;
-                $image->path_image = $file->getClientOriginalName();
+        $user->fill(array_filter($request->input('account')));
+        $user->save();
+        $this->saveAvatar($user, $request->file('account.avatar'));
 
-                return $image->save();
-        };
+        return $user;
+    }
 
-        return false;
+    private function saveAvatar(User $user, $file)
+    {
+        if ($file) {
+            $folder = User::PATH . $user->id . '/avatar/';
+            if (Storage::exists($folder)) {
+                Storage::deleteDirectory($folder);
+            }
+            $path = Storage::putFile(User::PATH . $user->id . '/avatar', $file);
+            $user->avatar = Storage::url($path);
+
+            return $user->save();
+        }
     }
 }

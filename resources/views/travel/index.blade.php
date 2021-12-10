@@ -84,125 +84,22 @@
                 <div class="card-body">
                     <table>
                         <tbody>
-                            <tr>
+                        @foreach($news as $new)
+                            <tr onclick="location.href='{!! route('travel.discount.detail', $new) !!}';" style="cursor: pointer;">
                                 <th scope="col" class="w-25">
-                                    <img
-                                        src="{{ asset('travel/assets/images/dashboard/home_4.jpg') }}"
-                                        alt="thumb"
-                                        class="img-fluid"
-                                    />
+                                    <img src="{{ $new->thumbnail }}" alt="thumbnail" class="img-fluid">
                                 </th>
                                 <th scope="col" class="w-75">
                                     <div class="grid-margin ml-5">
-                                        <h2 class="mb-2" style="width: 101%">
-                                            South Korea’s Moon Jae-in sworn in vowing to address
-                                            North
-                                        </h2>
-                                        <div class="fs-13 mb-2">
-                                            <span class="mr-2">Photo </span>10 Minutes ago
-                                        </div>
-                                        <p class="mb-0">
-                                            Lorem Ipsum has been the industry's standard dummy
-                                            text ever since the 1500s, when an
-                                        </p>
+                                        <h2 class="mb-2">{{ $new->title }}</h2>
+                                        <div class="fs-13 mb-2">{{ $new->updated_at->diffForHumans() }}</div>
+                                        <p class="mb-0">{{ $new->short_description }}</p>
                                     </div>
                                 </th>
                             </tr>
+                        @endforeach
                         </tbody>
                     </table>
-{{--                    <div class="row">--}}
-{{--                        <div class="col-sm-4 grid-margin">--}}
-{{--                            <div class="position-relative">--}}
-{{--                                <div class="rotate-img">--}}
-{{--                                    <img--}}
-{{--                                        src="{{ asset('travel/assets/images/dashboard/home_4.jpg') }}"--}}
-{{--                                        alt="thumb"--}}
-{{--                                        class="img-fluid"--}}
-{{--                                    />--}}
-{{--                                </div>--}}
-{{--                                <div class="badge-positioned">--}}
-{{--                            <span class="badge badge-danger font-weight-bold"--}}
-{{--                            >Flash news</span--}}
-{{--                            >--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-sm-8  grid-margin">--}}
-{{--                            <h2 class="mb-2 font-weight-600">--}}
-{{--                                South Korea’s Moon Jae-in sworn in vowing to address--}}
-{{--                                North--}}
-{{--                            </h2>--}}
-{{--                            <div class="fs-13 mb-2">--}}
-{{--                                <span class="mr-2">Photo </span>10 Minutes ago--}}
-{{--                            </div>--}}
-{{--                            <p class="mb-0">--}}
-{{--                                Lorem Ipsum has been the industry's standard dummy--}}
-{{--                                text ever since the 1500s, when an--}}
-{{--                            </p>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
-{{--                    <div class="row">--}}
-{{--                        <div class="col-sm-4 grid-margin">--}}
-{{--                            <div class="position-relative">--}}
-{{--                                <div class="rotate-img">--}}
-{{--                                    <img--}}
-{{--                                        src="{{ asset('travel/assets/images/dashboard/home_5.jpg') }}"--}}
-{{--                                        alt="thumb"--}}
-{{--                                        class="img-fluid"--}}
-{{--                                    />--}}
-{{--                                </div>--}}
-{{--                                <div class="badge-positioned">--}}
-{{--                            <span class="badge badge-danger font-weight-bold"--}}
-{{--                            >Flash news</span--}}
-{{--                            >--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-sm-8  grid-margin">--}}
-{{--                            <h2 class="mb-2 font-weight-600">--}}
-{{--                                No charges over 2017 Conservative battle bus cases--}}
-{{--                            </h2>--}}
-{{--                            <div class="fs-13 mb-2">--}}
-{{--                                <span class="mr-2">Photo </span>10 Minutes ago--}}
-{{--                            </div>--}}
-{{--                            <p class="mb-0">--}}
-{{--                                Lorem Ipsum has been the industry's standard dummy--}}
-{{--                                text ever since the 1500s, when an--}}
-{{--                            </p>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
-{{--                    <div class="row">--}}
-{{--                        <div class="col-sm-4">--}}
-{{--                            <div class="position-relative">--}}
-{{--                                <div class="rotate-img">--}}
-{{--                                    <img--}}
-{{--                                        src="{{ asset('travel/assets/images/dashboard/home_6.jpg') }}"--}}
-{{--                                        alt="thumb"--}}
-{{--                                        class="img-fluid"--}}
-{{--                                    />--}}
-{{--                                </div>--}}
-{{--                                <div class="badge-positioned">--}}
-{{--                            <span class="badge badge-danger font-weight-bold"--}}
-{{--                            >Flash news</span--}}
-{{--                            >--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-sm-8">--}}
-{{--                            <h2 class="mb-2 font-weight-600">--}}
-{{--                                Kaine: Trump Jr. may have committed treason--}}
-{{--                            </h2>--}}
-{{--                            <div class="fs-13 mb-2">--}}
-{{--                                <span class="mr-2">Photo </span>10 Minutes ago--}}
-{{--                            </div>--}}
-{{--                            <p class="mb-0">--}}
-{{--                                Lorem Ipsum has been the industry's standard dummy--}}
-{{--                                text ever since the 1500s, when an--}}
-{{--                            </p>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
                 </div>
             </div>
         </div>

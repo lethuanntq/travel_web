@@ -24,8 +24,7 @@ class TourService extends BaseService
             $tour = new Tour();
             $tour->created_by = $operator->id;
             $tour->updated_by = $operator->id;
-            $tour = $this->save($tour, $request);
-            $this->saveThumbnail($tour, $request->file('tour.thumbnail'));
+            $this->save($tour, $request);
 
             DB::commit();
         } catch (Exception $e) {
@@ -47,8 +46,7 @@ class TourService extends BaseService
         DB::beginTransaction();
         try {
             $this->validate($request->all(), $rules, $attrs);
-            $tour = $this->save($tour, $request);
-            $this->saveThumbnail($tour, $request->file('tour.thumbnail'));
+            $this->save($tour, $request);
 
             DB::commit();
         } catch (Exception $e) {
@@ -82,6 +80,7 @@ class TourService extends BaseService
     {
         $tour->fill($request->input('tour'));
         $tour->save();
+        $this->saveThumbnail($tour, $request->file('tour.thumbnail'));
 
         return $tour;
     }
