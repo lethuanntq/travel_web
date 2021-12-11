@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Travel;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Management\PostController;
+use App\Mail\NotificationMail;
 use App\Mail\SendContactAdmin;
 use App\Mail\SendContactCustomer;
 use App\Models\Post;
@@ -60,5 +61,21 @@ class HomeController extends Controller
             'contact.phone_number' => 'required|regex:/(01)[0-9]{9}',
             'contact.description' => 'required'
         ];
+    }
+
+    public function notification(Request $request)
+    {
+        $data = $request->all();
+
+        if ($data['email']) {
+            if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                return response()->json(['message' => 'Sai format tin email']);
+            }
+            Mail::to($data['email'])->send(new NotificationMail());
+
+            return response()->json(['message' => 'Đăng ký thành công, cảm ơn bạn']);
+        }
+
+        return response()->json(['message' => 'Gửi email thất bại']);
     }
 }

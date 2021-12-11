@@ -45,69 +45,37 @@
                 <h3 class="font-weight-bold mb-3">Truy cập nhanh</h3>
                 <div class="footer-border-bottom pb-2">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 font-weight-600"><a>Về chúng tôi</a></h5>
+                        <h5 class="mb-0 font-weight-600" onclick="location.href='{!! route('about-me') !!}';">Về chúng
+                            tôi</h5>
                         <i class="fas fa-angle-right"></i>
                     </div>
                 </div>
                 <div class="footer-border-bottom pb-2">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 font-weight-600"><a>Khuyến mại</a></h5>
+                        <h5 class="mb-0 font-weight-600"
+                            onclick="location.href='{!! route('travel.discount.index') !!}';">Khuyến mại</h5>
                     </div>
                 </div>
                 <div class="footer-border-bottom pb-2">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 font-weight-600"><a>Kinh nghiệm</a></h5>
+                        <h5 class="mb-0 font-weight-600"
+                            onclick="location.href='{!! route('travel.experience.index') !!}';">Kinh nghiệm</h5>
                     </div>
                 </div>
                 <div class="footer-border-bottom pb-2">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 font-weight-600"><a>Điểm đến</a></h5>
+                        <h5 class="mb-0 font-weight-600" onclick="location.href='{!! route('about-me') !!}';">Điểm
+                            đến</h5>
                     </div>
                 </div>
-                <div class="footer-border-bottom pb-2">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 font-weight-600"><a>Thư viện</a></h5>
-                    </div>
-                </div>
-                <div class="footer-border-bottom pb-2">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 font-weight-600"><a>Điểm đến của bạn</a></h5>
-                    </div>
-                </div>
-
             </div>
             <div class="col-sm-3">
-                <h3 class="font-weight-bold mb-3">Khu vực du lịch</h3>
-                <div class="footer-border-bottom pb-2">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 font-weight-600"><a>Miền bắc</a></h5>
-                        <div class="count">1</div>
-                    </div>
-                </div>
-                <div class="footer-border-bottom pb-2 pt-2">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 font-weight-600"><a>Miền trung</a></h5>
-                        <div class="count">1</div>
-                    </div>
-                </div>
-                <div class="footer-border-bottom pb-2 pt-2">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 font-weight-600"><a>Miền nam</a></h5>
-                        <div class="count">1</div>
-                    </div>
-                </div>
-                <div class="footer-border-bottom pb-2 pt-2">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 font-weight-600"><a>Tây Nguyên</a></h5>
-                        <div class="count">1</div>
-                    </div>
-                </div>
-                <div class="pt-2">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 font-weight-600"><a>Đồng bằng sông Cửu Long</a></h5>
-                        <div class="count">1</div>
-                    </div>
-                </div>
+                <h5 class="font-weight-bold mb-3">NHẬN ƯU ĐÃI TỪ CHÚNG TÔI</h5>
+                <p><i>Cập nhật thông tin du lịch ưu đãi mới nhất từ travel jsc đến email của bạn</i></p>
+                <form id="form-email" method="post" action="#">
+                    <input type="email" class="form-control" placeholder="Nhập email của bạn" style="height: 14%" name="email">
+                    <a class="btn btn-info mt-2" id="submit">Đăng ký</a>
+                </form>
             </div>
         </div>
     </div>
@@ -118,7 +86,8 @@
             <div class="col-sm-12">
                 <div class="d-sm-flex justify-content-between align-items-center">
                     <div class="fs-14 font-weight-600">
-                        © 2020 @ <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white"> Travel Company</a>. All rights reserved.
+                        © 2020 @ <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white"> Travel
+                            Company</a>. All rights reserved.
                     </div>
                     <div class="fs-14 font-weight-600">
                     </div>
@@ -127,4 +96,19 @@
         </div>
     </div>
 </div>
+@push('travel-scripts')
+    <script>
+        $('#submit').click(function () {
+            $.ajax({
+                url: '{{ route('travel.email.notification') }}',
+                data: $('#form-email').serializeArray(),
+                type: 'post'
+            }).done(function (response) {
+                alert(response.message)
+            }).fail(function (message) {
+                console.log(message);
+            })
+        })
+    </script>
+@endpush
 

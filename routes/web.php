@@ -51,6 +51,8 @@ Route::group([
 
     Route::get('/news', [NewsController::class, 'index'])->name('news.index');
     Route::get('/news/{post}', [NewsController::class, 'detail'])->name('news.detail');
+
+    Route::post('/email/notification', [\App\Http\Controllers\Travel\HomeController::class, 'notification'])->name('email.notification');
 });
 
 Route::group([
