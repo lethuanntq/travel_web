@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Travel\DestinationController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
@@ -54,6 +55,9 @@ Route::group([
     Route::get('/news/{post}', [NewsController::class, 'detail'])->name('news.detail');
 
     Route::post('/email/notification', [\App\Http\Controllers\Travel\HomeController::class, 'notification'])->name('email.notification');
+
+    Route::get('/destination', [DestinationController::class, 'index'])->name('destination.index');
+    Route::get('/destination/{tour}', [DestinationController::class, 'detail'])->name('destination.detail');
 });
 
 Route::group([

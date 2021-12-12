@@ -33,6 +33,7 @@ class CreateInitTable extends Migration
         Schema::create('tours', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
+            $table->string('destination_name');
             $table->string('tag')->nullable();
             $table->longText('short_description');
             $table->longText('description');

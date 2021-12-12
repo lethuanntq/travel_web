@@ -48,6 +48,49 @@
         .owl-dots {
            display: none;
         }
+
+        .size-destination {
+            max-width: 30% ;
+            position: relative
+        }
+
+        .size-banner-content {
+            position: absolute;
+            padding: 100% 110%;
+            left: 0px;
+            bottom: 0px;
+            color: #ffffff;
+            width: 10%;
+            display: inline-block;
+
+            font-size: 130%;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.25rem;
+        }
+
+        .destinations-list {
+            margin-right: -1.8%;
+        }
+
+        .destinations-list li {
+            float: left;
+            margin-right: 3%;
+            margin-left: 3%;
+            width: 18.2%;
+            margin-bottom: 20px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .size-img {
+            max-width: 400%;
+        }
     </style>
 </head>
 

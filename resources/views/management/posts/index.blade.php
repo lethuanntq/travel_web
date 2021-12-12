@@ -7,7 +7,7 @@
                 {{ Session::get('message') }}
             </div>
         @endif
-            <div id="highlight-message"  class="text-center" role="alert" style="display: none;width: 15%"></div>
+            <div id="highlight-message"  class="alert alert-success" role="alert" style="display: none;width: 15%"></div>
             <div>
             <div class="row mb-1">
                 <div class="col-sm-6">

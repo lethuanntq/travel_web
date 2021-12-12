@@ -9,6 +9,7 @@ use App\Mail\SendContactAdmin;
 use App\Mail\SendContactCustomer;
 use App\Models\Post;
 use App\Models\Setting;
+use App\Models\Tour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -19,8 +20,8 @@ class HomeController extends Controller
     public function index()
     {
         $news = Post::query()->where('type', Post::TYPE_NEWS)->limit(7)->inRandomOrder()->get();
-        $newsTravel = Post::query()->where('type', Post::TYPE_DESTINATION)->limit(7)->inRandomOrder()->get();
-        $newsDiscount =  Post::query()->where('type', Post::TYPE_DISCOUNT)->limit(3)->inRandomOrder()->get();
+        $newsTravel = Tour::query()->where('type', Tour::TYPE_NORMAL)->limit(7)->inRandomOrder()->get();
+        $newsDiscount =  Tour::query()->where('type', Tour::TYPE_DISCOUNT)->limit(3)->inRandomOrder()->get();
         return view('travel.index', [
             'news' => $news,
             'newsTravel' => $newsTravel,

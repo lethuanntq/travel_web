@@ -39,7 +39,7 @@
                             <a class="nav-link" href="{{ route('travel.discount.index') }}">Khuyến mại</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/sports.html">Điểm đến</a>
+                            <a class="nav-link" href="{{ route('travel.destination.index') }}">Điểm đến</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('travel.news.index') }}">Tin tức</a>

@@ -19,6 +19,7 @@ class Tour extends BaseModel
         return [
             'tour.title' => 'required|max:255',
             'tour.short_description' => 'required|max:500',
+            'tour.destination_name' => 'required|max:500',
             'tour.description' => 'required',
             'tour.tag' => 'max:255',
             'tour.type' => 'required',

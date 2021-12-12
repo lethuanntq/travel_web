@@ -5,6 +5,11 @@
         <div class="invalid-feedback d-block">{{ $errors->first("tour.title") }}</div>
     </div>
     <div class="form-group">
+        <label class="col-form-label">Tên điểm đến</label>
+        <input class="form-control" id="tour-destination_name" name="tour[destination_name]" type="text" value="{{ old("tour.destination_name", $tour->destination_name ?? '') }}">
+        <div class="invalid-feedback d-block">{{ $errors->first("tour.destination_name") }}</div>
+    </div>
+    <div class="form-group">
         <div>
             <label>Giá</label>
             <input class="form-control" id="tour-price" name="tour[price]" type="text" value="{{ old("tour.price", $tour->price ?? '') }}">
