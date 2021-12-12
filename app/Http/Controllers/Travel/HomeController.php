@@ -8,6 +8,7 @@ use App\Mail\NotificationMail;
 use App\Mail\SendContactAdmin;
 use App\Mail\SendContactCustomer;
 use App\Models\Post;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -48,7 +49,7 @@ class HomeController extends Controller
             throw new ValidationException($validator);
         }
         Mail::to($contact['contact']['email'])->send(new SendContactCustomer($contact['contact']));
-        Mail::to(env('support_email', 'lethuanqed@gmail.com'))->send(new SendContactAdmin($contact['contact']));
+        Mail::to(Setting::first()->support_email)->send(new SendContactAdmin($contact['contact']));
 
         return redirect()->route('contact')->with('success', 'Đã gửi thành công, vui lòng đợi phản hồi qua email của anh/chị');
     }

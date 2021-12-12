@@ -11,6 +11,7 @@ use App\Http\Controllers\Management\HomeController;
 use App\Http\Controllers\Travel\DiscountController;
 use App\Http\Controllers\Travel\ExperienceController;
 use App\Http\Controllers\Travel\NewsController;
+use App\Http\Controllers\Management\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -113,5 +114,8 @@ Route::group([
         Route::match(['put', 'patch'], 'account/{user}', [AccountController::class, 'update'])->name('account.update');
 
         Route::delete('/account/delete/{user}', [AccountController::class, 'delete'])->name('account.delete');
+
+        Route::get('setting', [SettingController::class, 'edit'])->name('setting.edit');
+        Route::match(['put', 'patch'], 'setting/{setting}', [SettingController::class, 'update'])->name('setting.update');
     });
 });

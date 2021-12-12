@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Management;
 
 use App\Http\Controllers\Controller;
-use App\Models\Image;
-use Illuminate\Http\Request;
 use App\Models\User;
 use App\Services\AccountService;
+use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
 class AccountController extends Controller

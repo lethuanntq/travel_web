@@ -65,6 +65,15 @@
                             </p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{route('management.setting.edit')}}" class="nav-link">
+                            <i class="nav-icon fas fa-cog"></i>
+                            <p>
+                                Quản lý hệ thống
+                                <i class="right fas fa-angle-right"></i>
+                            </p>
+                        </a>
+                    </li>
                 @endif
             </ul>
         </nav>

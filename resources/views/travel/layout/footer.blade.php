@@ -2,18 +2,21 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-5">
+                @php
+                    $setting = \App\Models\Setting::first();
+                @endphp
                 <h3 class="font-weight-bold mb-3">TRAVEL COMPANY JSC </h3>
                 <div>
-                    <b>Trụ sở chính :</b>99 Trần Hưng Đạo, Quận 1, TP. Hồ Chí Minh
+                    <b>Trụ sở chính :</b>{{ $setting->headquarters }}
                 </div>
                 <div class="mt-1">
-                    <b>Chi nhánh Hà Nội:</b> Quận Hoàn Kiếm, Hà Nội
+                    <b>Chi nhánh Hà Nội:</b> {{ $setting->branch_1 }}
                 </div>
                 <div class="mt-1">
-                    <b>Điện thoại:</b> {{ env('PHONE_NUMBER') }}| Hotline: {{ env('HOT_LINE') }}
+                    <b>Điện thoại:</b> {{ $setting->phone_number }}| Hotline: {{  $setting->hot_line }}
                 </div>
                 <div class="mt-1">
-                    <b>Website:</b> https://travel-web-vn.herokuapp.com/
+                    <a href="{{ $setting->website }}"><b>Website:</b> {{ $setting->website }}</a>
                 </div>
                 <div class="mt-5">
                     Kết nối với Travel Company
@@ -45,27 +48,27 @@
                 <h3 class="font-weight-bold mb-3">Truy cập nhanh</h3>
                 <div class="footer-border-bottom pb-2">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 font-weight-600" onclick="location.href='{!! route('about-me') !!}';">Về chúng
-                            tôi</h5>
+                        <a class="mb-0 font-weight-600" href="{!! route('about-me') !!}">Về chúng
+                            tôi</a>
                         <i class="fas fa-angle-right"></i>
                     </div>
                 </div>
                 <div class="footer-border-bottom pb-2">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 font-weight-600"
-                            onclick="location.href='{!! route('travel.discount.index') !!}';">Khuyến mại</h5>
+                        <a class="mb-0 font-weight-600"
+                            href="{!! route('travel.discount.index') !!}">Khuyến mại</a>
                     </div>
                 </div>
                 <div class="footer-border-bottom pb-2">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 font-weight-600"
-                            onclick="location.href='{!! route('travel.experience.index') !!}';">Kinh nghiệm</h5>
+                        <a class="mb-0 font-weight-600"
+                            href="{!! route('travel.experience.index') !!}">Kinh nghiệm</a>
                     </div>
                 </div>
                 <div class="footer-border-bottom pb-2">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 font-weight-600" onclick="location.href='{!! route('about-me') !!}';">Điểm
-                            đến</h5>
+                        <a class="mb-0 font-weight-600" href="{!! route('about-me') !!}">Điểm
+                            đến</a>
                     </div>
                 </div>
             </div>

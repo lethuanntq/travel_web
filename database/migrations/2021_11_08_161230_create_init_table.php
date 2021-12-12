@@ -64,6 +64,23 @@ class CreateInitTable extends Migration
             $table->foreignId('updated_by')->unsigned()->nullable()->constrained('users');
             $table->foreignId('deleted_by')->unsigned()->nullable()->constrained('users');
         });
+
+        Schema::create('settings', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('phone_number')->nullable();
+            $table->string('hot_line')->nullable();
+            $table->string('headquarters')->nullable();
+            $table->string('branch_1')->nullable();
+            $table->string('branch_2')->nullable();
+            $table->string('website')->nullable();
+            $table->string('support_email')->nullable();
+
+            $table->timestamps();
+            $table->softDeletes();
+            $table->foreignId('created_by')->unsigned()->nullable()->constrained('users');
+            $table->foreignId('updated_by')->unsigned()->nullable()->constrained('users');
+            $table->foreignId('deleted_by')->unsigned()->nullable()->constrained('users');
+        });
     }
 
     /**
@@ -73,6 +90,7 @@ class CreateInitTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('settings');
         Schema::dropIfExists('bookings');
         Schema::dropIfExists('posts');
         Schema::dropIfExists('tours');
