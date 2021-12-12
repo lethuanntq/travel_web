@@ -5,19 +5,25 @@
         <div class="card-body" data-aos="fade-up">
             <div class="row">
                 <div class="col-lg-9">
-                    {{ $posts->links('travel.layout.pagination') }}
+                    {{ $tours->links('travel.layout.pagination') }}
                     <table>
                         <tbody>
-                        @foreach($posts as $post)
-                            <tr onclick="location.href='{!! route('travel.discount.detail', $post) !!}';" style="cursor: pointer;">
+                        @foreach($tours as $tour)
+                            <tr onclick="location.href='{!! route('travel.discount.detail', $tour) !!}';" style="cursor: pointer;">
                                 <th scope="col" class="w-25">
-                                    <img src="{{ $post->thumbnail }}" alt="thumbnail" class="img-fluid">
+                                    <img src="{{ $tour->thumbnail }}" alt="thumbnail" class="img-fluid">
                                 </th>
                                 <th scope="col" class="w-75">
                                     <div class="grid-margin ml-5">
-                                        <h2 class="mb-2">{{ $post->title }}</h2>
-                                        <div class="fs-13 mb-2">{{ $post->updated_at->diffForHumans() }}</div>
-                                        <p class="mb-0">{{ $post->short_description }}</p>
+                                        <h2 class="mb-2">{{ $tour->title }}</h2>
+                                        <div class="fs-13 mb-2">
+                                            <span>{{ $tour->updated_at->diffForHumans() }}</span>
+                                        </div>
+                                        <div class="fs-13 mb-2">
+                                            <span style="text-decoration: line-through;">{{ number_format($tour->price) . \App\Models\Setting::CURRENCY }}</span>
+                                            <span><b>{{ number_format($tour->price_promotion) . \App\Models\Setting::CURRENCY }}</b></span>
+                                        </div>
+                                        <p class="mb-0">{{ $tour->short_description }}</p>
                                     </div>
                                 </th>
                             </tr>

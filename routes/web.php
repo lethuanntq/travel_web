@@ -46,7 +46,7 @@ Route::group([
     'prefix' => 'travel'
 ], function () {
     Route::get('/discount', [DiscountController::class, 'index'])->name('discount.index');
-    Route::get('/discount/{post}', [DiscountController::class, 'detail'])->name('discount.detail');
+    Route::get('/discount/{tour}', [DiscountController::class, 'detail'])->name('discount.detail');
 
     Route::get('/experience', [ExperienceController::class, 'index'])->name('experience.index');
     Route::get('/experience/{post}', [ExperienceController::class, 'detail'])->name('experience.detail');

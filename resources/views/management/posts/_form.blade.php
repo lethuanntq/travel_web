@@ -12,6 +12,20 @@
         <div class="invalid-feedback d-block">{{ $errors->first("post.tag") }}</div>
     </div>
     <div class="form-group">
+        <div>
+            <label>SEO</label>
+            <input class="form-control" id="tour-seo" name="tour[seo]" type="text" value="{{ old("tour.seo", $tour->seo ?? '') }}">
+            <div class="invalid-feedback d-block">{{ $errors->first("tour.seo") }}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div>
+            <label>SEO Tag</label>
+            <input class="form-control" id="tour-seo_tag" name="tour[seo_tag]" type="text" value="{{ old("tour.seo_tag", $tour->seo_tag ?? '') }}">
+            <div class="invalid-feedback d-block">{{ $errors->first("tour.seo_tag") }}</div>
+        </div>
+    </div>
+    <div class="form-group">
         <label>Thumbnail</label>
         <div>
             <input id="post-thumbnail" name="post[thumbnail]" type="file" hidden>

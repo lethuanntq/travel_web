@@ -4,6 +4,8 @@ namespace App\Models;
 
 class Setting extends BaseModel
 {
+    const CURRENCY = '₫';
+
     public static function rules()
     {
         return [

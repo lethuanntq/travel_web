@@ -8,7 +8,7 @@ class Tour extends BaseModel
     const TYPE_DISCOUNT = 1;
 
     const TYPES = [
-        self::TYPE_NORMAL => 'Điểm đến',
+        self::TYPE_NORMAL => 'Bình thường',
         self::TYPE_DISCOUNT => 'Khuyến mại',
     ];
 
