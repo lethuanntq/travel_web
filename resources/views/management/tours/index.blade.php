@@ -19,11 +19,11 @@
                     <th scope="col" style="width: 3%">ID</th>
                     <th scope="col" >Tiêu đề</th>
                     <th scope="col" >Mô tả</th>
-                    <th scope="col" style="width: 7%">Mức giá</th>
+                    <th scope="col" style="width: 10%">Mức giá</th>
 {{--                    <th scope="col" class="col-md-1">Loại</th>--}}
-                    <th scope="col" style="width: 13%">Thời gian bắt đầu</th>
-                    <th scope="col" style="width: 13%">Thời gian kết thúc</th>
-                    <th scope="col" style="width: 5%">Người tạo</th>
+{{--                    <th scope="col" style="width: 13%">Thời gian bắt đầu</th>--}}
+{{--                    <th scope="col" style="width: 13%">Thời gian kết thúc</th>--}}
+                    <th scope="col" style="width: 10%">Người tạo</th>
                     <th scope="col" width="150" class="text-center">Thao Tác</th>
                 </tr>
                 </thead>
@@ -44,8 +44,8 @@
                     { data: 'short_description', name: 'short_description' },
                     { data: 'price', name: 'price' },
                     // { data: 'type', name: 'type' },
-                    { data: 'start_date', name: 'start_date' },
-                    { data: 'end_date', name: 'end_date' },
+                    // { data: 'start_date', name: 'start_date' },
+                    // { data: 'end_date', name: 'end_date' },
                     { data: 'created_by', name: 'created_by' },
                     { data: 'action', name: 'action' }
                 ]
