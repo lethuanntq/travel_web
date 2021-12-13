@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UserSeeder::class);
         $this->call(SettingSeeder::class);
+        $this->call(TourSeeder::class);
+        $this->call(PostSeeder::class);
 //        Post::factory(50)->create();
 //        Tour::factory(50)->create();
     }

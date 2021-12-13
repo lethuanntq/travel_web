@@ -47,8 +47,8 @@ class CreateInitTable extends Migration
             $table->tinyInteger('type');
             $table->unsignedInteger('price');
             $table->string('price_promotion')->nullable();
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            $table->dateTime('start_date')->nullable();
+            $table->dateTime('end_date')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

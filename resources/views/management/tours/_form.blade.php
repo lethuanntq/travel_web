@@ -35,19 +35,26 @@
 {{--        <input class="form-control" id="tour-destination_name" name="tour[destination_name]" type="text" value="{{ old("tour.destination_name", $tour->destination_name ?? '') }}">--}}
         <div class="invalid-feedback d-block">{{ $errors->first("tour.destination_name") }}</div>
     </div>
-    <div class="form-group">
-        <div>
-            <label>Giá</label>
+    <div class="form-group row">
+        <div class="col-6 input-group">
+            <label class="col-form-label mr-3">Giá</label>
             <input class="form-control" id="tour-price" name="tour[price]" type="text" value="{{ old("tour.price", $tour->price ?? '') }}">
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">VNĐ</span>
+            </div>
             <div class="invalid-feedback d-block">{{ $errors->first("tour.price") }}</div>
+        </div>
+        <div class="col-6 input-group">
+            <label class="col-form-label mr-3">Giá khuyến mại</label>
+            <input class="form-control" id="tour-price-promotion" name="tour[price_promotion]" type="text" value="{{ old("tour.price_promotion", $tour->price_promotion ?? '') }}">
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">VNĐ</span>
+            </div>
+            <div class="invalid-feedback d-block">{{ $errors->first("tour.price_promotion") }}</div>
         </div>
     </div>
     <div class="form-group">
-        <div>
-            <label>Giá khuyến mại</label>
-            <input class="form-control" id="tour-price-promotion" name="tour[price_promotion]" type="text" value="{{ old("tour.price_promotion", $tour->price_promotion ?? '') }}">
-            <div class="invalid-feedback d-block">{{ $errors->first("tour.price_promotion") }}</div>
-        </div>
+
     </div>
     <div class="form-group">
         <div>
@@ -76,7 +83,7 @@
             <input id="tour-thumbnail" name="tour[thumbnail]" type="file" hidden>
             <div class="holder">
                 <label for="tour-thumbnail">
-                    <img id="imgPreview" src="@isset($tour->thumbnail) {{ $tour->thumbnail }} @else {{ asset( 'avatar/'. 'default-avatar.jpg') }} @endisset" class="img-circle" alt="thumbnail" width="300" height="300">
+                    <img id="imgPreview" src="@isset($tour->thumbnail) {{ $tour->thumbnail }} @else {{asset('no-image.jpg')}}@endisset" class="img-reposive" alt="thumbnail" width="300" height="">
                 </label>
             </div>
         </div>
