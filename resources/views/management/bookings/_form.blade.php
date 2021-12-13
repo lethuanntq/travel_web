@@ -1,9 +1,7 @@
 @php
     $currentTime = \Carbon\Carbon::now();
     $customers = \App\Models\User::where('role', \App\Models\User::ROLE_EDITOR)->get();
-    $tours = \App\Models\Tour::whereDate('start_date', '>=', $currentTime)
-        ->whereDate('end_date', '>=', $currentTime)
-        ->get();
+    $tours = \App\Models\Tour::all()
 @endphp
 <style>
     .ck-editor__editable_inline {
@@ -13,12 +11,7 @@
 <div class="container border">
     <div class="form-group">
         <label>Tên khách hàng</label>
-        <select id="booking-user_id" name="booking[user_id]" class="form-control" style="width: 50%">
-            <option value=""></option>
-            @foreach($customers as $customer)
-                <option value="{{ $customer->id  }}" @if(old('booking.user_id', $booking->user_id ?? []) == $customer->id) selected @endif>{{ $customer->name }}</option>
-            @endforeach
-        </select>
+        <input class="form-control w-50" name="booking[name]" value="{{ old('booking.name', $booking->name) }}">
         <div class="invalid-feedback d-block">{{ $errors->first("booking.user_id") }}</div>
     </div>
     <div  class="form-group">
@@ -33,10 +26,41 @@
             <div class="invalid-feedback d-block">{{ $errors->first("booking.tour_id") }}</div>
         </div>
     </div>
+    <div class="form-group">
+        <label>Số điện thoại</label>
+        <input class="form-control w-50" name="booking[phone]" value="{{ old('booking.phone', $booking->phone) }}">
+        <div class="invalid-feedback d-block">{{ $errors->first("booking.phone") }}</div>
+    </div>
+    <div class="form-group">
+        <label>Số lượng người lớn</label>
+        <input type="number" class="form-control w-50" name="booking[adult]" value="{{ old('booking.adult', $booking->adult) }}">
+        <div class="invalid-feedback d-block">{{ $errors->first("booking.adult") }}</div>
+    </div>
+    <div class="form-group">
+        <label>Số lượng trẻ em</label>
+        <input type="number" class="form-control w-50" name="booking[child]" value="{{ old('booking.child', $booking->child) }}">
+        <div class="invalid-feedback d-block">{{ $errors->first("booking.child") }}</div>
+    </div>
+    <div class="row form-group w-50">
+        <div class="col-md-5">
+            <label>Thời gian bắt đầu</label>
+            <input class="form-control" id="booking-start_date" name="booking[start_date]"
+                   type="datetime-local" value="{{ old("booking.start_date", isset ($booking) ? \Carbon\Carbon::parse($booking->start_date)->format('Y-m-d\TH:i') : '') }}">
+            <div
+                class="invalid-feedback d-block">{{ $errors->first("booking.start_date") }}</div>
+        </div>
+        <span class="text-center" style="margin-top: 7%">~</span>
+        <div class="col-md-5">
+            <label>Thời gian kết thúc</label>
+            <input class="form-control" id="booking-end_date" name="booking[end_date]"
+                   type="datetime-local" value="{{ old("booking.start_date", isset ($booking) ? \Carbon\Carbon::parse($booking->start_date)->format('Y-m-d\TH:i') : '') }}">
+            <div class="invalid-feedback d-block">{{ $errors->first("booking.end_date") }}</div>
+        </div>
+    </div>
     <div  class="form-group">
         <label>Note</label>
         <textarea class="form-control" rows="5" id="booking-note" name="booking[note]">{{ old('booking.note', $booking->note ?? null) }}</textarea>
-        <div class="invalid-feedback d-block">{{ $errors->first("booking.name") }}</div>
+        <div class="invalid-feedback d-block">{{ $errors->first("booking.note") }}</div>
     </div>
     <div  class="form-group">
         <div>

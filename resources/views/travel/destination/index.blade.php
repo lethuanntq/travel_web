@@ -13,23 +13,25 @@
             <aside>
                 <ul class="destinations-list">
                     @foreach($destinations as $destination)
-                    <li>
-                        <div class="size-destination" onclick="location.href='{!! route('travel.destination.detail', $destination->id ?? 0) !!}';">
-                            <img
-                                src="{{ asset('travel/assets/images/travel/halong.jpg') }}"
-                                alt="travel"
-                                class="img-fluid img-thumbnail size-img"
-                            />
-                            <div class="size-banner-content">
-                                <div class="ml-5">
-                                    <i class="mdi mdi-airplane"></i>
-                                </div>
-                                <div>
-                                    {{ $destination->destination_name ?? null}}
+                        <li>
+                            <div class="size-destination"
+                                 onclick="location.href='{!! route('travel.destination.detail', $destination->id ?? 0) !!}';">
+                                <img
+                                    src="{{  $destination->thumbnail ?? null }}"
+                                    alt="travel"
+                                    class="img-fluid img-thumbnail"
+                                    style="height: 300px;width: 1000px !important;"
+                                />
+                                <div class="size-banner-content">
+                                    <div class="text-center">
+                                        <i class="mdi mdi-airplane"></i>
+                                    </div>
+                                    <div class="text-center">
+                                        {{ $destination->destination_name ?? null}}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
                     @endforeach
                 </ul>
             </aside>

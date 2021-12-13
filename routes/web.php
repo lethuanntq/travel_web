@@ -58,6 +58,8 @@ Route::group([
 
     Route::get('/destination', [DestinationController::class, 'index'])->name('destination.index');
     Route::get('/destination/{tour}', [DestinationController::class, 'detail'])->name('destination.detail');
+
+    Route::post('/booking', [\App\Http\Controllers\Travel\BookingController::class, 'store'])->name('booking.store');
 });
 
 Route::group([
@@ -100,7 +102,6 @@ Route::group([
         //bookings
         Route::get('booking', [BookingController::class, 'index'])->name('booking.index');
         Route::get('booking-data', [BookingController::class, 'getData'])->name('booking.data');
-        Route::get('booking/new', [BookingController::class, 'create'])->name('booking.create');
         Route::get('booking/{booking}/edit', [BookingController::class, 'edit'])->name('booking.edit');
 
         Route::post('booking-store', [BookingController::class, 'store'])->name('booking.store');

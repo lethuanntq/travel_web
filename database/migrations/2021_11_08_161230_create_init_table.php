@@ -60,9 +60,12 @@ class CreateInitTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId('tour_id')->unsigned()->constrained('tours');
+            $table->string('name');
             $table->text('phone');
             $table->integer('adult')->unsigned();
             $table->integer('child')->unsigned();
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->longText('note')->nullable();
             $table->tinyInteger('status');
 

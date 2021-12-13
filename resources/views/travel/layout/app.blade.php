@@ -50,23 +50,21 @@
         }
 
         .size-destination {
-            max-width: 30% ;
+            max-width: 450px ;
             position: relative
         }
 
         .size-banner-content {
             position: absolute;
-            padding: 100% 110%;
+            padding: 125px 0;
             left: 0px;
             bottom: 0px;
             color: #ffffff;
-            width: 10%;
+            width: 100%;
             display: inline-block;
-
             font-size: 130%;
             font-weight: 700;
             line-height: 1;
-            text-align: center;
             white-space: nowrap;
             vertical-align: baseline;
             border-radius: 0.25rem;
@@ -88,9 +86,6 @@
             list-style: none;
         }
 
-        .size-img {
-            max-width: 400%;
-        }
     </style>
 </head>
 

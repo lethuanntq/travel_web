@@ -24,19 +24,7 @@ class BookingController extends Controller
     {
         return view('management.bookings.index');
     }
-    
-    public function create()
-    {
-        return view('management.bookings.create');
-    }
-    
-    public function store(Request $request)
-    {
-        $this->bookingService->store($request);
-        
-        return redirect()->route('management.booking.index')->with('message', 'Lưu thành công!');
-    }
-    
+
     public function edit(Booking $booking)
     {
         return view('management.bookings.edit', [
@@ -61,21 +49,20 @@ class BookingController extends Controller
     public function getData()
     {
         $bookings = Booking::all();
-        
+
         return Datatables::of($bookings)
             ->editColumn('customer', function ($booking) {
-                return '<a href="' . route('management.account.edit',
-                        $booking->user_id) . '">' . $booking->user->name . '</a>';
+                return $booking->name;
             })
             ->editColumn('tour', function ($booking) {
                 return '<a href="' . route('management.tour.edit',
-                        $booking->user_id) . '">' . $booking->tour->title . '</a>';
+                        $booking->tour_id) . '">' . $booking->tour->title . '</a>';
             })
             ->editColumn('status', function ($booking) {
                 return Booking::STATUS[$booking->status];
             })
             ->addColumn('action', function ($booking) {
-                return '<a href="' . route('management.booking.edit', $booking->id) . '" class="btn btn-xs btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                return '<a href="' . route('management.booking.edit', $booking->id ) . '" class="btn btn-xs btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a>
                         <a href="#" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete-confirm-modal"  data-action="' . route('management.booking.delete',
                         $booking->id) . '"' . '><i class="fa fa-times"></i></a>';
             })->rawColumns(['customer', 'tour', 'action'])

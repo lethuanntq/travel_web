@@ -5,11 +5,15 @@
             <div class="owl-carousel owl-theme">
                 @foreach($newsTravel as $newTravel)
                     <div class="position-relative">
-                        <img
-                            src="{{ $newTravel->thumbnail ?? '#'}}"
-                            alt="travel"
-                            class="img-fluid"
-                        />
+                        <div class="image">
+                            <img
+                                src="{{ $newTravel->thumbnail ?? '#'}}"
+                                alt="travel"
+                                class="img-fluid"
+                                style="height: 700px"
+                            />
+                        </div>
+
                         <div class="banner-content" onclick="location.href='{!! route('travel.discount.detail', $newTravel ?? 0) !!}';">
                             <div class="badge badge-danger fs-12 font-weight-bold mb-3">
                                 Travel news
@@ -43,6 +47,7 @@
                                 src="{{ $newDiscount->thumbnail ?? '#'}}"
                                 alt="thumb"
                                 class="img-fluid img-lg"
+                                style="max-width: 100%; max-height: 650px"
                             />
                         </div>
                     </div>
@@ -64,7 +69,7 @@
                             <tr onclick="location.href='{!! route('travel.discount.detail', $new) !!}';"
                                 style="cursor: pointer;">
                                 <th scope="col" class="w-25">
-                                    <img src="{{ $new->thumbnail }}" alt="thumbnail" class="img-fluid">
+                                    <img src="{{ $new->thumbnail }}" alt="thumbnail" class="img-fluid" style="max-width: 100%; max-height: 200px">
                                 </th>
                                 <th scope="col" class="w-75">
                                     <div class="grid-margin ml-5">

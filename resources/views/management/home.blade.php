@@ -17,7 +17,7 @@
                 <ul class="list-group">
                     <li class="list-group-item">Tổng số khách hàng hủy tour : <a href="{{ route('management.booking.index') }}">{{ \App\Models\Booking::where('status', \App\Models\Booking::CANCEL)->count() }}</a></li>
                     <li class="list-group-item">Tổng số khách đang chờ xác nhận : <a href="{{ route('management.booking.index') }}">{{ \App\Models\Booking::where('status', \App\Models\Booking::BOOKING)->count() }}</a></li>
-                    <li class="list-group-item">Tổng số khách đang tiến hành tour : <a href="{{ route('management.booking.index') }}">{{ App\Models\Booking::where('status', \App\Models\Booking::PAID)->count() }}</a></li>
+                    <li class="list-group-item">Tổng số khách đang tiến hành tour : <a href="{{ route('management.booking.index') }}">{{ App\Models\Booking::where('status', \App\Models\Booking::IN_PROCESS)->count() }}</a></li>
                     <li class="list-group-item">Tổng số khách đã hoàn thành tour : <a href="{{ route('management.booking.index') }}">{{ App\Models\Booking::where('status', \App\Models\Booking::COMPLETED)->count() }}</a></li>
                 </ul>
             </div>

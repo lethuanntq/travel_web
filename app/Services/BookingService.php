@@ -15,14 +15,15 @@ class BookingService extends BaseService
     {
         $rules = Booking::rules();
         $attrs = Booking::attributes();
-        $operator = Auth::user();
-        
+        $bookingData = $request->all();
+        if ($bookingData['booking']) {
+            $bookingData['booking']['status'] = Booking::BOOKING;
+        }
         DB::beginTransaction();
         try {
-            $this->validate($request->all(), $rules, $attrs);
+            $this->validate($bookingData, $rules, $attrs);
             $booking = new Booking();
-            $booking->created_by = $operator->id;
-            $booking->updated_by = $operator->id;
+            $booking->status = Booking::BOOKING;
             $this->save($booking, $request);
             DB::commit();
         } catch (Exception $e) {
@@ -30,10 +31,10 @@ class BookingService extends BaseService
             DB::rollBack();
             throw $e;
         }
-        
-        return $booking;
+
+        return true;
     }
-    
+
     public function save(Booking $booking, Request $request)
     {
         $booking->fill($request->input('booking'));
