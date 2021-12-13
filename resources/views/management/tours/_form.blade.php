@@ -1,3 +1,20 @@
+<style>
+    .ck-editor__editable_inline {
+        min-height: 250px;
+    }
+</style>
+@php
+    $provides = [
+        'Tây Bắc Bộ' =>	['Hòa Bình','Sơn La','Điện Biên','Lai Châu','Lào Cai','Yên Bái'],
+        'Đông Bắc Bộ' => ['Phú Thọ','Hà Giang','Tuyên Quang','Cao Bằng','Bắc Kạn','Thái Nguyên','Lạng Sơn','Bắc Giang','Quảng Ninh'],
+        'Đồng bằng sông Hồng' => ['Hà Nội','Bắc Ninh','Hà Nam','Hải Dương','Hải Phòng','Hưng Yên','Nam Định','Thái Bình','Vĩnh Phúc','Ninh Bình'],
+        'Bắc Trung Bộ' => ['Thanh Hóa','Nghệ An','Hà Tĩnh','Quảng Bình','Quảng Trị','Thừa Thiên Huế'],
+        'Nam Trung Bộ' => ['Đà Nẵng','Quảng Nam','Quảng Ngãi','Bình Định','Phú Yên','Khánh Hòa','Ninh Thuận','Bình Thuận'],
+        'Tây Nguyên' => ['Kon Tum','Gia Lai','Đắk Lắk','Đắk Nông','Lâm Đồng'],
+        'Đông Nam Bộ' => ['TP Hồ Chí Minh','Bà Rịa Vũng Tàu','Bình Dương','Bình Phước','Đồng Nai','Tây Ninh'],
+        'Đồng bằng sông Cửu Long' => ['An Giang','Bạc Liêu','Bến Tre','Cà Mau','Cần Thơ','Đồng Tháp','Hậu Giang','Kiên Giang','Long An','Sóc Trăng','Tiền Giang','Trà Vinh','Vĩnh Long']
+    ]
+@endphp
 <div class="container border">
     <div class="form-group">
         <label class="col-form-label">Tên tour</label>
@@ -6,7 +23,16 @@
     </div>
     <div class="form-group">
         <label class="col-form-label">Tên điểm đến</label>
-        <input class="form-control" id="tour-destination_name" name="tour[destination_name]" type="text" value="{{ old("tour.destination_name", $tour->destination_name ?? '') }}">
+        <select class="form-control" name="tour[destination_name]" id="tour-destination_name">
+            @foreach($provides as $key => $provide)
+                <optgroup label="{{$key}}">
+                    @foreach($provide as $item)
+                        <option <?php if(old("tour.destination_name", $tour->destination_name ?? '')== $item) { echo 'selected'; } ?> value="{{$item}}">{{$item}}</option>
+                    @endforeach
+                </optgroup>
+            @endforeach
+        </select>
+{{--        <input class="form-control" id="tour-destination_name" name="tour[destination_name]" type="text" value="{{ old("tour.destination_name", $tour->destination_name ?? '') }}">--}}
         <div class="invalid-feedback d-block">{{ $errors->first("tour.destination_name") }}</div>
     </div>
     <div class="form-group">
@@ -32,7 +58,7 @@
     </div>
     <div class="form-group">
         <div>
-            <label>SEO</label>
+            <label>SEO Description</label>
             <input class="form-control" id="tour-seo" name="tour[seo]" type="text" value="{{ old("tour.seo", $tour->seo ?? '') }}">
             <div class="invalid-feedback d-block">{{ $errors->first("tour.seo") }}</div>
         </div>
@@ -85,7 +111,7 @@
         </div>
         @foreach(\App\Models\Tour::TYPES as $key => $status)
             <input type="radio" id="tour-type-{{ $key }}" name="tour[type]" value="{{$key}}" class="mr-1"
-                   @if(old('tour.type', $tour->type ?? []) == $key) checked @endif
+                   @if(old('tour.type', $tour->type ?? \App\Models\Tour::TYPE_NORMAL) == $key) checked @endif
             ><label class="mr-3" for="tour-type-{{ $key }}">{{ $status }}</label>
         @endforeach
         <div class="invalid-feedback d-block">{{ $errors->first("tour.type") }}</div>

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class TourService extends BaseService
 {
@@ -22,6 +23,7 @@ class TourService extends BaseService
         try {
             $this->validate($request->all(), $rules, $attrs);
             $tour = new Tour();
+            $tour->slug = Str::slug($request->tour['title'], '-');
             $tour->created_by = $operator->id;
             $tour->updated_by = $operator->id;
             $this->save($tour, $request);
@@ -46,6 +48,7 @@ class TourService extends BaseService
         DB::beginTransaction();
         try {
             $this->validate($request->all(), $rules, $attrs);
+            $tour->slug = Str::slug($request->tour['title'], '-');
             $this->save($tour, $request);
 
             DB::commit();

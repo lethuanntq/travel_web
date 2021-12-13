@@ -29,6 +29,8 @@ Copy file .env.example sửa lại thành .env
   tài khoản: admin@gmail.com/123456789
  - Chạy `php artisan config:clear` để lấy thông tin ở trong file .env
   
+ - Chạy lại DB để cập nhật mới
+  php artisan migrate:fresh --seed
   
 ###Bước 6:
  - Chạy `php artisan serve` để chạy server

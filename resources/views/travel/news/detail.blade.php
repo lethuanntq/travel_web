@@ -1,5 +1,5 @@
 @extends('travel.layout.app')
-
+@section('title', $post->title)
 @section('travel_content')
     <div class="card">
         <div class="card-body" data-aos="fade-up">

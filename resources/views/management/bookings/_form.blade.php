@@ -5,6 +5,11 @@
         ->whereDate('end_date', '>=', $currentTime)
         ->get();
 @endphp
+<style>
+    .ck-editor__editable_inline {
+        min-height: 250px;
+    }
+</style>
 <div class="container border">
     <div class="form-group">
         <label>Tên khách hàng</label>

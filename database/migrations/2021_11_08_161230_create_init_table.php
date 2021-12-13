@@ -16,6 +16,7 @@ class CreateInitTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
+            $table->string('slug');
             $table->string('tag')->nullable();
             $table->longText('short_description');
             $table->longText('description');
@@ -35,6 +36,7 @@ class CreateInitTable extends Migration
         Schema::create('tours', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
+            $table->string('slug');
             $table->string('destination_name');
             $table->string('tag')->nullable();
             $table->longText('short_description');
@@ -58,6 +60,7 @@ class CreateInitTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId('tour_id')->unsigned()->constrained('tours');
+            $table->text('phone');
             $table->integer('adult')->unsigned();
             $table->integer('child')->unsigned();
             $table->longText('note')->nullable();

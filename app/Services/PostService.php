@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PostService extends BaseService
 {
@@ -22,6 +23,7 @@ class PostService extends BaseService
         try {
             $this->validate($request->all(), $rules, $attrs);
             $post = new Post();
+            $post->slug = Str::slug($request->post['title'], '-');
             $post->updated_by = $operator->id;
             $post->created_by = $operator->id;
             $this->save($post, $request);
@@ -46,6 +48,7 @@ class PostService extends BaseService
         DB::beginTransaction();
         try {
             $this->validate($request->all(), $rules, $attrs);
+            $post->slug = Str::slug($request->post['title'], '-');
             $this->save($post, $request);
 
             DB::commit();

@@ -1,3 +1,8 @@
+<style>
+    .ck-editor__editable_inline {
+        min-height: 250px;
+    }
+</style>
 <div class="container border">
     <div class="form-group">
         <label class="col-form-label">Tên bài viết</label>
@@ -53,7 +58,7 @@
         </div>
         @foreach(\App\Models\Post::TYPES as $key => $status)
             <input type="radio" id="post-type-{{ $key }}" name="post[type]" value="{{$key}}" class="mr-1"
-                   @if(old('post.type', $post->type ?? []) == $key) checked @endif
+                   @if(old('post.type', $post->type ?? \App\Models\Post::TYPE_NEWS) == $key) checked @endif
             ><label class="mr-3" for="post-type-{{ $key }}">{{ $status }}</label>
         @endforeach
         <div class="invalid-feedback d-block">{{ $errors->first("post.type") }}</div>
