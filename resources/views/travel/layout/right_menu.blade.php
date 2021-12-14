@@ -3,7 +3,7 @@
 </h2>
 @foreach($highlightPosts as $highlightPost)
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12" onclick="location.href='{!! route('travel.experience.detail', $highlightPost->id) !!}';">
         <div class="border-bottom pb-4 pt-4">
             <div class="row">
                 <div class="col-sm-8">

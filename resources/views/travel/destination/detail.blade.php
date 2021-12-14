@@ -11,13 +11,13 @@
                             <span class="datetime"><img src="https://hanoitourist.com.vn/templates/default/images/icon-date.png">&nbsp{{ $tour->updated_at->format('d/m/Y H:i') }}</span>
                         </div>
                         <div class="clearfix mt-4">
-                            Giá tiền: <span><b>{{ number_format($tour->price_promotion) . \App\Models\Setting::CURRENCY }}</b></span>
+                            Giá tiền: <span style="color: red"><b>{{ number_format($tour->price_promotion) . \App\Models\Setting::CURRENCY }}</b></span>
                         </div>
                         <div class="post-summary row-item mt-4">{{ $tour->short_description }}</div>
                         <div class="post-description row-item mt-4">{!! $tour->description !!}</div>
                     </div>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#booking-tour">
-                        Đặt tour này
+                        Đặt tour
                     </button>
                 </div>
                 <div class="col-lg-3">

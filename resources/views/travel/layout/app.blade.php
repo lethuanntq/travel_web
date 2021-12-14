@@ -101,7 +101,7 @@
         </header>
 
         <!-- partial -->
-        <div class="content-wrapper" style="font-family: 'Times New Roman'">
+        <div class="content-wrapper" style="font-family: 'Roboto'">
             <div class="container">
               @yield('travel_content')
             </div>

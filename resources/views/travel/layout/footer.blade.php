@@ -1,4 +1,4 @@
-<div class="footer-top">
+<div class="footer-top" style="font-family: 'Roboto'">
     <div class="container">
         <div class="row">
             <div class="col-sm-5">

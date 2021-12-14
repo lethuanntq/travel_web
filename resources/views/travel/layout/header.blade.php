@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light" style="font-family: 'Roboto'">
     <div class="navbar-top">
         <div class="d-flex justify-content-between align-items-center">
             <ul class="navbar-top-left-menu">
@@ -29,7 +29,7 @@
                 >
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="justify-content-center"
+                <div class="navbar-collapse justify-content-center collapse"
                     id="navbarSupportedContent">
                     <ul class="navbar-nav d-lg-flex justify-content-between ">
                         <li class="nav-item active">

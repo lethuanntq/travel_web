@@ -16,14 +16,14 @@
 
                         <div class="banner-content" onclick="location.href='{!! route('travel.discount.detail', $newTravel ?? 0) !!}';">
                             <div class="badge badge-danger fs-12 font-weight-bold mb-3">
-                                Travel news
+                                Tour du lịch
                             </div>
                             <h1 class="mb-0">{{ $newTravel->title ?? null}}</h1>
                             <h1 class="mb-2">
                                 {{ $newTravel->short_description ?? null }}
                             </h1>
                             <div class="fs-12">
-                                <span class="mr-2">Photo </span> {{ $newTravel->updated_at->diffForHumans() }}
+                                <span class="mr-2">Cập nhật</span> {{ $newTravel->updated_at->diffForHumans() }}
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                     <table>
                         <tbody>
                         @foreach($news as $new)
-                            <tr onclick="location.href='{!! route('travel.discount.detail', $new) !!}';"
+                            <tr onclick="location.href='{!! route('travel.news.detail', $new) !!}';"
                                 style="cursor: pointer;">
                                 <th scope="col" class="w-25">
                                     <img src="{{ $new->thumbnail }}" alt="thumbnail" class="img-fluid" style="max-width: 100%; max-height: 200px">

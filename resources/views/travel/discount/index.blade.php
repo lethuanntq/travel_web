@@ -20,8 +20,8 @@
                                             <span>{{ $tour->updated_at->diffForHumans() }}</span>
                                         </div>
                                         <div class="fs-13 mb-2">
-                                            <span style="text-decoration: line-through;">{{ number_format($tour->price) . \App\Models\Setting::CURRENCY }}</span>
-                                            <span><b>{{ number_format($tour->price_promotion) . \App\Models\Setting::CURRENCY }}</b></span>
+                                            <span style="text-decoration: line-through">{{ number_format($tour->price) . \App\Models\Setting::CURRENCY }}</span>
+                                            <span style="color: red"><b>{{ number_format($tour->price_promotion) . \App\Models\Setting::CURRENCY }}</b></span>
                                         </div>
                                         <p class="mb-0">{{ $tour->short_description }}</p>
                                     </div>
