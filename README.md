@@ -36,3 +36,12 @@ Copy file .env.example sửa lại thành .env
  - Chạy `php artisan serve` để chạy server
  - Link trang chu: http://127.0.0.1:8000/
  - Link admin: http://127.0.0.1:8000/management
+ 
+### Bước 7 
+ - Chạy các lệnh sau để setup ckeditor
+    + `composer require ckfinder/ckfinder-laravel-package` 
+    + `php artisan ckfinder:download`
+    + `php artisan vendor:publish --tag=ckfinder-assets --tag=ckfinder-config`
+    + `php artisan vendor:publish --tag=ckfinder-views`
+    + `php artisan vendor:publish --tag=ckfinder`
+    + `mkdir -m 777 public/userfiles`

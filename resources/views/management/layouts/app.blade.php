@@ -74,7 +74,7 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <!-- CKEditor -->
 <script src="{{ asset('js/http_cdn.ckeditor.com_ckeditor5_31.0.0_classic_ckeditor.js') }}"></script>
-{{--@include('ckfinder::setup')--}}
+@include('ckfinder::setup')
 <script type="text/javascript">
     $('#delete-confirm-modal').on('show.bs.modal', function (event) {
         let target = $(event.relatedTarget);
