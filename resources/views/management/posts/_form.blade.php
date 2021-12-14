@@ -18,16 +18,17 @@
     </div>
     <div class="form-group">
         <div>
-            <label>SEO</label>
-            <input class="form-control" id="tour-seo" name="tour[seo]" type="text" value="{{ old("tour.seo", $tour->seo ?? '') }}">
-            <div class="invalid-feedback d-block">{{ $errors->first("tour.seo") }}</div>
+            <label>SEO Tag</label>
+            <input class="form-control" id="tour-seo_tag" name="tour[seo_tag]" type="text" value="{{ old("tour.seo_tag", $tour->seo_tag ?? '') }}">
+            <div class="invalid-feedback d-block">{{ $errors->first("tour.seo_tag") }}</div>
         </div>
     </div>
     <div class="form-group">
         <div>
-            <label>SEO Tag</label>
-            <input class="form-control" id="tour-seo_tag" name="tour[seo_tag]" type="text" value="{{ old("tour.seo_tag", $tour->seo_tag ?? '') }}">
-            <div class="invalid-feedback d-block">{{ $errors->first("tour.seo_tag") }}</div>
+            <label>SEO Description</label>
+            <textarea class="form-control" id="tour-seo_description" name="tour[seo_description]" rows="3">{{ old("tour.seo_description", $tour->seo_description ?? '') }}
+            </textarea>
+            <div class="invalid-feedback d-block">{{ $errors->first("tour.seo_description") }}</div>
         </div>
     </div>
     <div class="form-group">

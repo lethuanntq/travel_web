@@ -20,8 +20,8 @@ class CreateInitTable extends Migration
             $table->string('tag')->nullable();
             $table->longText('short_description');
             $table->longText('description');
-            $table->longText('seo')->nullable();
             $table->longText('seo_tag')->nullable();
+            $table->longText('seo_description')->nullable();
             $table->string('thumbnail')->nullable();
             $table->tinyInteger('type');
             $table->tinyInteger('highlight')->default(0);
@@ -41,8 +41,8 @@ class CreateInitTable extends Migration
             $table->string('tag')->nullable();
             $table->longText('short_description');
             $table->longText('description');
-            $table->longText('seo')->nullable();
             $table->longText('seo_tag')->nullable();
+            $table->longText('seo_description')->nullable();
             $table->string('thumbnail')->nullable();
             $table->tinyInteger('type');
             $table->unsignedInteger('price');
