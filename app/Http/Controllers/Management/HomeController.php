@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Management;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
+use App\Services\BookingService;
 
 class HomeController extends Controller
 {
@@ -21,8 +23,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(BookingService $bookingService,Booking $booking)
     {
-        return view('management.home');
+        $analytic = $bookingService->analytic($booking);
+        return view('management.home', compact(['analytic']));
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Booking;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,17 +39,17 @@ class BookingService extends BaseService
     public function save(Booking $booking, Request $request)
     {
         $booking->fill($request->input('booking'));
-        
+
         return $booking->save();
     }
-    
+
     public function update(Booking $booking, Request $request)
     {
         $rules = Booking::rules();
         $attrs = Booking::attributes();
         $operator = Auth::user();
         $booking->updated_by = $operator->id;
-        
+
         DB::beginTransaction();
         try {
             $this->validate($request->all(), $rules, $attrs);
@@ -59,14 +60,14 @@ class BookingService extends BaseService
             DB::rollBack();
             throw $e;
         }
-        
+
         return $booking;
     }
-    
+
     public function delete(Booking $booking)
     {
         $operator = Auth::user();
-        
+
         DB::beginTransaction();
         try {
             $booking->delete();
@@ -77,7 +78,30 @@ class BookingService extends BaseService
             DB::rollBack();
             throw $e;
         }
-        
+
         return true;
+    }
+
+
+    public function analytic(Booking $booking)
+    {
+       $bookingData = Booking::where('created_at', '>=', \Carbon\Carbon::now()->subMonth())
+                            ->groupBy('date')
+        ->orderBy('date', 'DESC')
+        ->get(array(
+            DB::raw('Date(created_at) as date'),
+            DB::raw('COUNT(*) as "total"')
+        ))->keyBy('date');
+        $data = [];
+        for ($i = 10; $i >= 0; $i--) {
+            $month = Carbon::now()->subMonth($i)->format('Y-m-d');
+            $data['month'][] = $month;
+            if(isset($bookingData[$month])){
+                $data['totals'][] = $bookingData[$month]['total'];
+            }else{
+                $data['totals'][] = 0;
+            }
+        }
+        return $data;
     }
 }
