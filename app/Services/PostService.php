@@ -23,7 +23,7 @@ class PostService extends BaseService
         try {
             $this->validate($request->all(), $rules, $attrs);
             $post = new Post();
-            $post->slug = Str::slug($request->post['title'], '-');
+            $post->slug = Str::slug($request->post['title'], '-').'-'.strtotime("now");
             $post->updated_by = $operator->id;
             $post->created_by = $operator->id;
             $this->save($post, $request);
@@ -48,7 +48,7 @@ class PostService extends BaseService
         DB::beginTransaction();
         try {
             $this->validate($request->all(), $rules, $attrs);
-            $post->slug = Str::slug($request->post['title'], '-');
+            $post->slug = Str::slug($request->post['title'], '-').'-'.strtotime("now");
             $this->save($post, $request);
 
             DB::commit();

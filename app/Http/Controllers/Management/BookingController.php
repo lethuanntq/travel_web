@@ -14,12 +14,12 @@ use Yajra\DataTables\DataTables;
 class BookingController extends Controller
 {
     protected $bookingService;
-    
+
     public function __construct(BookingService $bookingService)
     {
         $this->bookingService = $bookingService;
     }
-    
+
     public function index()
     {
         return view('management.bookings.index');
@@ -31,25 +31,28 @@ class BookingController extends Controller
             'booking' => $booking,
         ]);
     }
-    
+
     public function update(Booking $booking, Request $request)
     {
         $this->bookingService->update($booking, $request);
-        
+
         return redirect()->route('management.booking.index')->with('message', 'Update thành công!');
     }
-    
+
     public function delete(Booking $booking)
     {
         $this->bookingService->delete($booking);
-        
+
         return redirect()->route('management.booking.index')->with('message', 'Xóa thành công');
     }
-    
-    public function getData()
-    {
-        $bookings = Booking::all();
 
+    public function getData(Request $request)
+    {
+        $bookings = Booking::select('*');
+        if($request->get('status') != '') {
+            $bookings = $bookings->where('status', $request->get('status'));
+        }
+        $bookings->get();
         return Datatables::of($bookings)
             ->editColumn('customer', function ($booking) {
                 return $booking->name;
@@ -59,13 +62,27 @@ class BookingController extends Controller
                         $booking->tour_id) . '">' . $booking->tour->title . '</a>';
             })
             ->editColumn('status', function ($booking) {
-                return Booking::STATUS[$booking->status];
+                switch ($booking->status) {
+                    case Booking::BOOKING:
+                        $status = '<span class="btn btn-primary btn-sm">'.Booking::LABELS[$booking->status].'</span>';
+                        break;
+                    case Booking::IN_PROCESS:
+                        $status = '<span class="btn btn-warning btn-sm">'.Booking::LABELS[$booking->status].'</span>';
+                        break;
+                    case Booking::COMPLETED:
+                        $status = '<span class="btn btn-success btn-sm">'.Booking::LABELS[$booking->status].'</span>';
+                        break;
+                    default:
+                        $status = '<span class="btn btn-danger btn-sm">'.Booking::LABELS[$booking->status].'</span>';
+                        break;
+                }
+                return $status;
             })
             ->addColumn('action', function ($booking) {
                 return '<a href="' . route('management.booking.edit', $booking->id ) . '" class="btn btn-xs btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a>
                         <a href="#" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete-confirm-modal"  data-action="' . route('management.booking.delete',
                         $booking->id) . '"' . '><i class="fa fa-times"></i></a>';
-            })->rawColumns(['customer', 'tour', 'action'])
+            })->rawColumns(['customer', 'tour', 'status', 'action'])
             ->make(true);
     }
 }

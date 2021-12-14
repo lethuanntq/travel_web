@@ -5,6 +5,16 @@
         @if(\Illuminate\Support\Facades\Session::has('message'))
             <div class="alert alert-success">{{ \Illuminate\Support\Facades\Session::get('message') }}</div>
         @endif
+            <div class="form-group form-inline" id="levelFilterWrapper">
+                <label for="booking-status-filter" class="col-form-label mr-3">Trạng thái :</label>
+                <select id="booking-status-filter" name="booking-status-filter" class="form-control">
+                    <option value="">Tất cả</option>
+                    <option value="0">Mới</option>
+                    <option value="1">Đang hoạt động</option>
+                    <option value="2">Đã hoàn thành</option>
+                    <option value="3">Đã hủy</option>
+                </select>
+            </div>
         <div class="">
             <table class="table table-striped" id="booking-table">
                 <thead>
@@ -23,20 +33,27 @@
 @endsection
 @push('scripts')
     <script>
-        $(function() {
-            $('#booking-table').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: '{!! route('management.booking.data') !!}',
-                columns: [
-                    { data: 'id', name: 'id' },
-                    { data: 'customer', name:'customer' },
-                    { data: 'tour', name:'tour' },
-                    // { data: 'note', name:'note' },
-                    { data: 'status', name: 'status' },
-                    { data: 'action', name: 'action' }
-                ]
-            });
+       var bookingTable =  $('#booking-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url :    '{!! route('management.booking.data') !!}',
+                data: function(d){
+                    d.status =   $('#booking-status-filter').val()
+                }
+            },
+            columns: [
+                { data: 'id', name: 'id' },
+                { data: 'customer', name:'customer' },
+                { data: 'tour', name:'tour' },
+                // { data: 'note', name:'note' },
+                { data: 'status', name: 'status' },
+                { data: 'action', name: 'action' }
+            ]
+        });
+
+        $('#booking-status-filter').change(function (e) {
+            bookingTable.draw();
         });
     </script>
 @endpush

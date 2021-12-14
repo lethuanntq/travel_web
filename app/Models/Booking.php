@@ -17,7 +17,12 @@ class Booking extends BaseModel
         self::COMPLETED => 'Hoàn thành đặt tour',
         self::CANCEL => 'Hủy tour'
     ];
-
+    const LABELS = [
+        self::BOOKING => 'Mới',
+        self::IN_PROCESS => 'Đang hoạt động',
+        self::COMPLETED => 'Đã hoàn thành',
+        self::CANCEL => 'Đã hủy'
+    ];
     public static function rules()
     {
         return [
