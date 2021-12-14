@@ -44,7 +44,7 @@ class TourSeeder extends Seeder
                 'short_description' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa',
                 'description' => ' Bạn đang tìm kiếm gì cho chuyến du lịch sắp tới của mình? Một thành phố biển sôi động nhưng cũng không thiếu những khoảnh khắc bình yên cho bạn thư giãn sau những ngày chăm chỉ làm việc? Một chút nắng, một chút gió, cùng biển xanh cát vàng cho bạn tha hồ đắm mình vào làn nước mát?
  Phan Thiết có đủ cả: từ cảnh quan thiên nhiên đa dạng của đồi cát bay Mũi Né, những hòn đảo lớn nhỏ; đến những di tích lịch sử minh chứng cho nền văn minh Chăm Pa hưng thịnh một thời… Có lẽ bởi những điều thú vị này mà du lịch Phan Thiết chưa bao giờ hết hot và chắc chắn lại càng sôi động mỗi khi hè về.',
-                'seo' => 'Du lịch Phan Thiết từ trước đến nay luôn nổi tiếng với những bãi biển xanh trong và những đồi cát trải dài tít tắp.',
+                'seo_description' => 'Du lịch Phan Thiết từ trước đến nay luôn nổi tiếng với những bãi biển xanh trong và những đồi cát trải dài tít tắp.',
                 'seo_tag' => 'du lịch, thăm quan',
                 'thumbnail' =>  asset('/no-image.jpg'),
                 'type' => '1',
@@ -62,7 +62,7 @@ class TourSeeder extends Seeder
                 'short_description' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa',
                 'description' => ' Bạn đang tìm kiếm gì cho chuyến du lịch sắp tới của mình? Một thành phố biển sôi động nhưng cũng không thiếu những khoảnh khắc bình yên cho bạn thư giãn sau những ngày chăm chỉ làm việc? Một chút nắng, một chút gió, cùng biển xanh cát vàng cho bạn tha hồ đắm mình vào làn nước mát?
  Phan Thiết có đủ cả: từ cảnh quan thiên nhiên đa dạng của đồi cát bay Mũi Né, những hòn đảo lớn nhỏ; đến những di tích lịch sử minh chứng cho nền văn minh Chăm Pa hưng thịnh một thời… Có lẽ bởi những điều thú vị này mà du lịch Phan Thiết chưa bao giờ hết hot và chắc chắn lại càng sôi động mỗi khi hè về.',
-                'seo' => 'Du lịch Phan Thiết từ trước đến nay luôn nổi tiếng với những bãi biển xanh trong và những đồi cát trải dài tít tắp.',
+                'seo_description' => 'Du lịch Phan Thiết từ trước đến nay luôn nổi tiếng với những bãi biển xanh trong và những đồi cát trải dài tít tắp.',
                 'seo_tag' => 'du lịch, thăm quan',
                 'thumbnail' =>  asset('/no-image.jpg'),
                 'type' => '1',
@@ -80,7 +80,7 @@ class TourSeeder extends Seeder
                 'short_description' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa',
                 'description' => ' Bạn đang tìm kiếm gì cho chuyến du lịch sắp tới của mình? Một thành phố biển sôi động nhưng cũng không thiếu những khoảnh khắc bình yên cho bạn thư giãn sau những ngày chăm chỉ làm việc? Một chút nắng, một chút gió, cùng biển xanh cát vàng cho bạn tha hồ đắm mình vào làn nước mát?
  Phan Thiết có đủ cả: từ cảnh quan thiên nhiên đa dạng của đồi cát bay Mũi Né, những hòn đảo lớn nhỏ; đến những di tích lịch sử minh chứng cho nền văn minh Chăm Pa hưng thịnh một thời… Có lẽ bởi những điều thú vị này mà du lịch Phan Thiết chưa bao giờ hết hot và chắc chắn lại càng sôi động mỗi khi hè về.',
-                'seo' => 'Du lịch Phan Thiết từ trước đến nay luôn nổi tiếng với những bãi biển xanh trong và những đồi cát trải dài tít tắp.',
+                'seo_description' => 'Du lịch Phan Thiết từ trước đến nay luôn nổi tiếng với những bãi biển xanh trong và những đồi cát trải dài tít tắp.',
                 'seo_tag' => 'du lịch, thăm quan',
                 'thumbnail' =>  asset('/no-image.jpg'),
                 'type' => '0',
@@ -98,7 +98,7 @@ class TourSeeder extends Seeder
                 'short_description' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa',
                 'description' => ' Bạn đang tìm kiếm gì cho chuyến du lịch sắp tới của mình? Một thành phố biển sôi động nhưng cũng không thiếu những khoảnh khắc bình yên cho bạn thư giãn sau những ngày chăm chỉ làm việc? Một chút nắng, một chút gió, cùng biển xanh cát vàng cho bạn tha hồ đắm mình vào làn nước mát?
  Phan Thiết có đủ cả: từ cảnh quan thiên nhiên đa dạng của đồi cát bay Mũi Né, những hòn đảo lớn nhỏ; đến những di tích lịch sử minh chứng cho nền văn minh Chăm Pa hưng thịnh một thời… Có lẽ bởi những điều thú vị này mà du lịch Phan Thiết chưa bao giờ hết hot và chắc chắn lại càng sôi động mỗi khi hè về.',
-                'seo' => 'Du lịch Phan Thiết từ trước đến nay luôn nổi tiếng với những bãi biển xanh trong và những đồi cát trải dài tít tắp.',
+                'seo_description' => 'Du lịch Phan Thiết từ trước đến nay luôn nổi tiếng với những bãi biển xanh trong và những đồi cát trải dài tít tắp.',
                 'seo_tag' => 'du lịch, thăm quan',
                 'thumbnail' =>  asset('/no-image.jpg'),
                 'type' => '1',
@@ -116,7 +116,7 @@ class TourSeeder extends Seeder
                 'short_description' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa',
                 'description' => ' Bạn đang tìm kiếm gì cho chuyến du lịch sắp tới của mình? Một thành phố biển sôi động nhưng cũng không thiếu những khoảnh khắc bình yên cho bạn thư giãn sau những ngày chăm chỉ làm việc? Một chút nắng, một chút gió, cùng biển xanh cát vàng cho bạn tha hồ đắm mình vào làn nước mát?
  Phan Thiết có đủ cả: từ cảnh quan thiên nhiên đa dạng của đồi cát bay Mũi Né, những hòn đảo lớn nhỏ; đến những di tích lịch sử minh chứng cho nền văn minh Chăm Pa hưng thịnh một thời… Có lẽ bởi những điều thú vị này mà du lịch Phan Thiết chưa bao giờ hết hot và chắc chắn lại càng sôi động mỗi khi hè về.',
-                'seo' => 'Du lịch Phan Thiết từ trước đến nay luôn nổi tiếng với những bãi biển xanh trong và những đồi cát trải dài tít tắp.',
+                'seo_description' => 'Du lịch Phan Thiết từ trước đến nay luôn nổi tiếng với những bãi biển xanh trong và những đồi cát trải dài tít tắp.',
                 'seo_tag' => 'du lịch, thăm quan',
                 'thumbnail' =>  asset('/no-image.jpg'),
                 'type' => '0',
@@ -134,7 +134,7 @@ class TourSeeder extends Seeder
                 'short_description' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa',
                 'description' => ' Bạn đang tìm kiếm gì cho chuyến du lịch sắp tới của mình? Một thành phố biển sôi động nhưng cũng không thiếu những khoảnh khắc bình yên cho bạn thư giãn sau những ngày chăm chỉ làm việc? Một chút nắng, một chút gió, cùng biển xanh cát vàng cho bạn tha hồ đắm mình vào làn nước mát?
  Phan Thiết có đủ cả: từ cảnh quan thiên nhiên đa dạng của đồi cát bay Mũi Né, những hòn đảo lớn nhỏ; đến những di tích lịch sử minh chứng cho nền văn minh Chăm Pa hưng thịnh một thời… Có lẽ bởi những điều thú vị này mà du lịch Phan Thiết chưa bao giờ hết hot và chắc chắn lại càng sôi động mỗi khi hè về.',
-                'seo' => 'Du lịch Phan Thiết từ trước đến nay luôn nổi tiếng với những bãi biển xanh trong và những đồi cát trải dài tít tắp.',
+                'seo_description' => 'Du lịch Phan Thiết từ trước đến nay luôn nổi tiếng với những bãi biển xanh trong và những đồi cát trải dài tít tắp.',
                 'seo_tag' => 'du lịch, thăm quan',
                 'thumbnail' =>  asset('/no-image.jpg'),
                 'type' => '1',
@@ -152,7 +152,7 @@ class TourSeeder extends Seeder
                 'short_description' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa',
                 'description' => ' Bạn đang tìm kiếm gì cho chuyến du lịch sắp tới của mình? Một thành phố biển sôi động nhưng cũng không thiếu những khoảnh khắc bình yên cho bạn thư giãn sau những ngày chăm chỉ làm việc? Một chút nắng, một chút gió, cùng biển xanh cát vàng cho bạn tha hồ đắm mình vào làn nước mát?
  Phan Thiết có đủ cả: từ cảnh quan thiên nhiên đa dạng của đồi cát bay Mũi Né, những hòn đảo lớn nhỏ; đến những di tích lịch sử minh chứng cho nền văn minh Chăm Pa hưng thịnh một thời… Có lẽ bởi những điều thú vị này mà du lịch Phan Thiết chưa bao giờ hết hot và chắc chắn lại càng sôi động mỗi khi hè về.',
-                'seo' => 'Du lịch Phan Thiết từ trước đến nay luôn nổi tiếng với những bãi biển xanh trong và những đồi cát trải dài tít tắp.',
+                'seo_description' => 'Du lịch Phan Thiết từ trước đến nay luôn nổi tiếng với những bãi biển xanh trong và những đồi cát trải dài tít tắp.',
                 'seo_tag' => 'du lịch, thăm quan',
                 'thumbnail' =>  asset('/no-image.jpg'),
                 'type' => '1',

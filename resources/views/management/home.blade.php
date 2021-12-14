@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row mb-3">
             <div class="col-sm-6 mt-sm-5">
-                <h4 class="mb-3">Thống kê về quản lý</h4>
+                <h4 class="p-2 bg-gradient-dark">Thống kê về quản lý</h4>
                 <ul class="list-group">
                     <li class="list-group-item">Tổng số bài viết : <a href="{{ route('management.post.index') }}">{{ \App\Models\Post::count() }}</a></li>
                     <li class="list-group-item">Tổng số tour : <a href="{{ route('management.tour.index') }}">{{ \App\Models\Tour::count() }}</a></li>
@@ -13,7 +13,7 @@
                 </ul>
             </div>
             <div class="col-sm-6 mt-sm-5">
-                <h4 class="mb-3">Thống kê về khách hàng</h4>
+                <h4 class="p-2 bg-gradient-dark">Thống kê về khách hàng</h4>
                 <ul class="list-group">
                     <li class="list-group-item">Tổng số khách hàng hủy tour : <a href="{{ route('management.booking.index') }}">{{ \App\Models\Booking::where('status', \App\Models\Booking::CANCEL)->count() }}</a></li>
                     <li class="list-group-item">Tổng số khách đang chờ xác nhận : <a href="{{ route('management.booking.index') }}">{{ \App\Models\Booking::where('status', \App\Models\Booking::BOOKING)->count() }}</a></li>
@@ -24,7 +24,7 @@
         </div>
         <div class="row">
            <dib class="col-sm-12">
-               <div class=" bg-gradient-dark">
+               <div class="bg-gradient-dark">
                    <div class="card-header border-0">
                        <h3 class="card-title">
                            <i class="fas fa-th mr-1"></i>
@@ -53,7 +53,7 @@
                         labels: {!! json_encode($analytic['month']) !!},
                         datasets: [
                             {
-                                label: 'Digital Goods',
+                                label: 'Tổng tour',
                                 fill: false,
                                 borderWidth: 2,
                                 lineTension: 0,

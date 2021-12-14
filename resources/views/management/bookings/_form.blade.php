@@ -12,7 +12,7 @@
     <div class="form-group">
         <label>Tên khách hàng</label>
         <input class="form-control w-50" name="booking[name]" value="{{ old('booking.name', $booking->name) }}">
-        <div class="invalid-feedback d-block">{{ $errors->first("booking.user_id") }}</div>
+        <div class="invalid-feedback d-block">{{ $errors->first("booking.name") }}</div>
     </div>
     <div  class="form-group">
         <div>
@@ -74,6 +74,6 @@
         <div class="invalid-feedback d-block">{{ $errors->first("booking.status") }}</div>
     </div>
     <div  class="form-group">
-        <button type="submit" name="submit" class="btn btn-primary">Tạo mới</button>
+        <button type="submit" name="submit" class="btn btn-primary">Cập nhật</button>
     </div>
 </div>

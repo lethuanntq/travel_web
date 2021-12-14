@@ -85,7 +85,7 @@ class BookingService extends BaseService
 
     public function analytic(Booking $booking)
     {
-       $bookingData = Booking::where('created_at', '>=', \Carbon\Carbon::now()->subMonth())
+       $bookingData = Booking::where('created_at', '>=', \Carbon\Carbon::now()->subDays(10))
                             ->groupBy('date')
         ->orderBy('date', 'DESC')
         ->get(array(
@@ -94,8 +94,8 @@ class BookingService extends BaseService
         ))->keyBy('date');
         $data = [];
         for ($i = 10; $i >= 0; $i--) {
-            $month = Carbon::now()->subMonth($i)->format('Y-m-d');
-            $data['month'][] = $month;
+            $month = Carbon::now()->subDays($i)->format('Y-m-d');
+            $data['month'][] = Carbon::now()->subDays($i)->format('d-m-Y');
             if(isset($bookingData[$month])){
                 $data['totals'][] = $bookingData[$month]['total'];
             }else{
