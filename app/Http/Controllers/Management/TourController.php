@@ -68,8 +68,8 @@ class TourController extends Controller
                 return $tour->createdBy->name;
             })
             ->addColumn('action', function ($tour) {
-                return '<a href="'. route('management.tour.edit', $tour->id) .'" class="btn btn-xs btn-warning">Chỉnh sửa</a>
-                        <a href="#" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete-confirm-modal"  data-action="' . route('management.tour.delete', $tour->id) . '"' . '>Xóa</a>';
+                return '<a href="'. route('management.tour.edit', $tour) .'" class="btn btn-xs btn-warning">Chỉnh sửa</a>
+                        <a href="#" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete-confirm-modal"  data-action="' . route('management.tour.delete', $tour) . '"' . '>Xóa</a>';
             })
             ->rawColumns(['action'])
             ->make(true);

@@ -46,4 +46,9 @@ class Tour extends BaseModel
 //            'tour.end_date' => 'end date',
         ];
     }
+
+    public function destination()
+    {
+        return $this->belongsTo(Destination::class);
+    }
 }

@@ -24,7 +24,7 @@
                     <th scope="col">Tour</th>
 {{--                    <th scope="col">Ghi Chú</th>--}}
                     <th scope="col">Trạng thái</th>
-                    <th scope="col" class="col-md-1">Thao tác</th>
+                    <th scope="col" class="col-md-2">Thao tác</th>
                 </tr>
                 </thead>
             </table>

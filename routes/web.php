@@ -45,19 +45,20 @@ Route::group([
     'as' => 'travel.',
     'prefix' => 'travel'
 ], function () {
-    Route::get('/discount', [DiscountController::class, 'index'])->name('discount.index');
-    Route::get('/discount/{tour}', [DiscountController::class, 'detail'])->name('discount.detail');
+    Route::get('/khuyen-mai', [DiscountController::class, 'index'])->name('discount.index');
+    Route::get('/khuyen-mai/{tour}', [DiscountController::class, 'detail'])->name('discount.detail');
 
-    Route::get('/experience', [ExperienceController::class, 'index'])->name('experience.index');
-    Route::get('/experience/{post}', [ExperienceController::class, 'detail'])->name('experience.detail');
+    Route::get('/kinh-nghiem', [ExperienceController::class, 'index'])->name('experience.index');
+    Route::get('/kinh-nghiem/{post}', [ExperienceController::class, 'detail'])->name('experience.detail');
 
-    Route::get('/news', [NewsController::class, 'index'])->name('news.index');
-    Route::get('/news/{post}', [NewsController::class, 'detail'])->name('news.detail');
+    Route::get('/tin-tuc', [NewsController::class, 'index'])->name('news.index');
+    Route::get('/tin-tuc/{post}', [NewsController::class, 'detail'])->name('news.detail');
 
     Route::post('/email/notification', [\App\Http\Controllers\Travel\HomeController::class, 'notification'])->name('email.notification');
 
-    Route::get('/destination', [DestinationController::class, 'index'])->name('destination.index');
-    Route::get('/destination/{tour}', [DestinationController::class, 'detail'])->name('destination.detail');
+    Route::get('/diem-den', [DestinationController::class, 'index'])->name('destination.index');
+    Route::get('/diem-den/{destination}', [DestinationController::class, 'detail'])->name('destination.detail');
+    Route::get('/diem-den/{destination}/{tour}', [DestinationController::class, 'tour'])->name('destination.tour');
 
     Route::post('/booking', [\App\Http\Controllers\Travel\BookingController::class, 'store'])->name('booking.store');
 });

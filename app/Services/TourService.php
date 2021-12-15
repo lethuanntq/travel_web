@@ -23,7 +23,6 @@ class TourService extends BaseService
         try {
             $this->validate($request->all(), $rules, $attrs);
             $tour = new Tour();
-            $tour->slug = Str::slug($request->tour['title'], '-').'-'.strtotime("now");
             $tour->created_by = $operator->id;
             $tour->updated_by = $operator->id;
             $this->save($tour, $request);
@@ -48,7 +47,6 @@ class TourService extends BaseService
         DB::beginTransaction();
         try {
             $this->validate($request->all(), $rules, $attrs);
-            $tour->slug = Str::slug($request->tour['title'], '-').'-'.strtotime("now");
             $this->save($tour, $request);
 
             DB::commit();
@@ -81,6 +79,7 @@ class TourService extends BaseService
 
     public function save(Tour $tour, Request $request)
     {
+        $tour->slug = Str::slug($request->tour['title'], '-').'-'.strtotime("now");
         $tour->fill($request->input('tour'));
         $tour->save();
         $this->saveThumbnail($tour, $request->file('tour.thumbnail'));

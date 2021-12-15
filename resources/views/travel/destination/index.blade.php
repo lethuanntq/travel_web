@@ -14,8 +14,8 @@
                 <ul class="destinations-list">
                     @foreach($destinations as $destination)
                         <li>
-                            <div class="size-destination"
-                                 onclick="location.href='{!! route('travel.destination.detail', $destination->id ?? 0) !!}';">
+                            <div class="size-destination" style="cursor: pointer"
+                                 onclick="location.href='{!! route('travel.destination.detail', $destination) !!}';">
                                 <img
                                     src="{{  $destination->thumbnail ?? null }}"
                                     alt="travel"
@@ -27,7 +27,7 @@
                                         <i class="mdi mdi-airplane"></i>
                                     </div>
                                     <div class="text-center">
-                                        {{ $destination->destination_name ?? null}}
+                                        {{ $destination->name ?? null}}
                                     </div>
                                 </div>
                             </div>

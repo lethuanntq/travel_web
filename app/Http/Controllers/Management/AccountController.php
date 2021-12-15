@@ -54,8 +54,8 @@ class AccountController extends Controller
                 return User::ROLES[$user->role];
             })
             ->addColumn('action', function ($user) {
-                return '<a href="'. route('management.account.edit', $user->id) .'" class="btn btn-xs btn-warning">Chỉnh sửa</a>
-                        <a href="#"  class="btn btn-xs btn-danger delete" data-toggle="modal" data-target="#delete-confirm-modal"  data-action="' . route('management.account.delete', $user->id) . '"' . '>Xóa</a>';
+                return '<a href="'. route('management.account.edit', $user) .'" class="btn btn-xs btn-warning">Chỉnh sửa</a>
+                        <a href="#"  class="btn btn-xs btn-danger delete" data-toggle="modal" data-target="#delete-confirm-modal"  data-action="' . route('management.account.delete', $user) . '"' . '>Xóa</a>';
             })
             ->make(true);
     }

@@ -13,6 +13,19 @@ class CreateInitTable extends Migration
      */
     public function up()
     {
+        Schema::create('destinations', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('slug');
+            $table->string('thumbnail')->nullable();
+
+            $table->timestamps();
+            $table->softDeletes();
+            $table->foreignId('created_by')->unsigned()->nullable()->constrained('users');
+            $table->foreignId('updated_by')->unsigned()->nullable()->constrained('users');
+            $table->foreignId('deleted_by')->unsigned()->nullable()->constrained('users');
+        });
+
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
@@ -49,6 +62,7 @@ class CreateInitTable extends Migration
             $table->string('price_promotion')->nullable();
             $table->dateTime('start_date')->nullable();
             $table->dateTime('end_date')->nullable();
+            $table->foreignId('destination_id')->unsigned()->constrained('destinations');
 
             $table->timestamps();
             $table->softDeletes();
@@ -105,5 +119,6 @@ class CreateInitTable extends Migration
         Schema::dropIfExists('bookings');
         Schema::dropIfExists('posts');
         Schema::dropIfExists('tours');
+        Schema::dropIfExists('destinations');
     }
 }

@@ -9,19 +9,29 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class BaseModel extends Model
 {
     use HasFactory, SoftDeletes;
-    
+
     protected $guarded = ['id'];
-    
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function createdBy()
     {
         return $this->belongsTo(User::class, 'created_by');
     }
-    
+
     public function updatedBy()
     {
         return $this->belongsTo(User::class, 'updated_by');
     }
-    
+
     public function deletedBy()
     {
         return $this->belongsTo(User::class, 'deleted_by');

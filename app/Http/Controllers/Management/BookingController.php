@@ -79,10 +79,10 @@ class BookingController extends Controller
                 return $status;
             })
             ->addColumn('action', function ($booking) {
-                return '<a href="' . route('management.booking.edit', $booking->id ) . '" class="btn btn-xs btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                return '<a href="' . route('management.booking.edit', $booking->id) . '" class="btn btn-xs btn-warning">Chỉnh sửa</a>
                         <a href="#" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete-confirm-modal"  data-action="' . route('management.booking.delete',
-                        $booking->id) . '"' . '><i class="fa fa-times"></i></a>';
-            })->rawColumns(['customer', 'tour', 'status', 'action'])
+                        $booking->id) . '"' . '> Xóa</a>';
+            })->rawColumns(['customer', 'tour', 'status','action'])
             ->make(true);
     }
 }

@@ -39,7 +39,6 @@ class TourSeeder extends Seeder
             [
                 'title' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa',
                 'slug' => 'combo-du-lich-phan-thiet-khach-san-sealink-villa-1',
-                'destination_name' => 'Thái Bình',
                 'tag' => 'du lịch, thăm quan',
                 'short_description' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa',
                 'description' => ' Bạn đang tìm kiếm gì cho chuyến du lịch sắp tới của mình? Một thành phố biển sôi động nhưng cũng không thiếu những khoảnh khắc bình yên cho bạn thư giãn sau những ngày chăm chỉ làm việc? Một chút nắng, một chút gió, cùng biển xanh cát vàng cho bạn tha hồ đắm mình vào làn nước mát?
@@ -52,12 +51,12 @@ class TourSeeder extends Seeder
                 'price_promotion' => '80000',
                 'start_date' => null,
                 'end_date' => null,
-                'created_by' => 1
+                'created_by' => 1,
+                'destination_id' => 1
             ],
             [
                 'title' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa 1',
                 'slug' => 'combo-du-lich-phan-thiet-khach-san-sealink-villa-2',
-                'destination_name' => 'Thái Bình',
                 'tag' => 'du lịch, thăm quan',
                 'short_description' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa',
                 'description' => ' Bạn đang tìm kiếm gì cho chuyến du lịch sắp tới của mình? Một thành phố biển sôi động nhưng cũng không thiếu những khoảnh khắc bình yên cho bạn thư giãn sau những ngày chăm chỉ làm việc? Một chút nắng, một chút gió, cùng biển xanh cát vàng cho bạn tha hồ đắm mình vào làn nước mát?
@@ -70,12 +69,12 @@ class TourSeeder extends Seeder
                 'price_promotion' => '2000000',
                 'start_date' => null,
                 'end_date' => null,
-                'created_by' => 1
+                'created_by' => 1,
+                'destination_id' => 1
             ],
             [
                 'title' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa 2',
                 'slug' => 'combo-du-lich-phan-thiet-khach-san-sealink-villa-3',
-                'destination_name' => 'Thái Bình',
                 'tag' => 'du lịch, thăm quan',
                 'short_description' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa',
                 'description' => ' Bạn đang tìm kiếm gì cho chuyến du lịch sắp tới của mình? Một thành phố biển sôi động nhưng cũng không thiếu những khoảnh khắc bình yên cho bạn thư giãn sau những ngày chăm chỉ làm việc? Một chút nắng, một chút gió, cùng biển xanh cát vàng cho bạn tha hồ đắm mình vào làn nước mát?
@@ -88,12 +87,12 @@ class TourSeeder extends Seeder
                 'price_promotion' => '800000',
                 'start_date' => null,
                 'end_date' => null,
-                'created_by' => 1
+                'created_by' => 1,
+                'destination_id' => 1
             ],
             [
                 'title' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa 3',
                 'slug' => 'combo-du-lich-phan-thiet-khach-san-sealink-villa-4',
-                'destination_name' => 'Thái Bình',
                 'tag' => 'du lịch, thăm quan',
                 'short_description' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa',
                 'description' => ' Bạn đang tìm kiếm gì cho chuyến du lịch sắp tới của mình? Một thành phố biển sôi động nhưng cũng không thiếu những khoảnh khắc bình yên cho bạn thư giãn sau những ngày chăm chỉ làm việc? Một chút nắng, một chút gió, cùng biển xanh cát vàng cho bạn tha hồ đắm mình vào làn nước mát?
@@ -106,12 +105,12 @@ class TourSeeder extends Seeder
                 'price_promotion' => '333333',
                 'start_date' => null,
                 'end_date' => null,
-                'created_by' => 1
+                'created_by' => 1,
+                'destination_id' => 1
             ],
             [
                 'title' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa 4',
                 'slug' => 'combo-du-lich-phan-thiet-khach-san-sealink-villa-5',
-                'destination_name' => 'Thái Bình',
                 'tag' => 'du lịch, thăm quan',
                 'short_description' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa',
                 'description' => ' Bạn đang tìm kiếm gì cho chuyến du lịch sắp tới của mình? Một thành phố biển sôi động nhưng cũng không thiếu những khoảnh khắc bình yên cho bạn thư giãn sau những ngày chăm chỉ làm việc? Một chút nắng, một chút gió, cùng biển xanh cát vàng cho bạn tha hồ đắm mình vào làn nước mát?
@@ -124,12 +123,12 @@ class TourSeeder extends Seeder
                 'price_promotion' => '803000',
                 'start_date' => null,
                 'end_date' => null,
-                'created_by' => 1
+                'created_by' => 1,
+                'destination_id' => 1
             ],
             [
                 'title' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa 5',
                 'slug' => 'combo-du-lich-phan-thiet-khach-san-sealink-villa-6',
-                'destination_name' => 'Thái Bình',
                 'tag' => 'du lịch, thăm quan',
                 'short_description' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa',
                 'description' => ' Bạn đang tìm kiếm gì cho chuyến du lịch sắp tới của mình? Một thành phố biển sôi động nhưng cũng không thiếu những khoảnh khắc bình yên cho bạn thư giãn sau những ngày chăm chỉ làm việc? Một chút nắng, một chút gió, cùng biển xanh cát vàng cho bạn tha hồ đắm mình vào làn nước mát?
@@ -142,12 +141,12 @@ class TourSeeder extends Seeder
                 'price_promotion' => '1235689',
                 'start_date' => null,
                 'end_date' => null,
-                'created_by' => 1
+                'created_by' => 1,
+                'destination_id' => 1
             ],
             [
                 'title' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa 6',
                 'slug' => 'combo-du-lich-phan-thiet-khach-san-sealink-villa-7',
-                'destination_name' => 'Thái Bình',
                 'tag' => 'du lịch, thăm quan',
                 'short_description' => 'Combo du lịch Phan Thiết Khách Sạn Sealink Villa',
                 'description' => ' Bạn đang tìm kiếm gì cho chuyến du lịch sắp tới của mình? Một thành phố biển sôi động nhưng cũng không thiếu những khoảnh khắc bình yên cho bạn thư giãn sau những ngày chăm chỉ làm việc? Một chút nắng, một chút gió, cùng biển xanh cát vàng cho bạn tha hồ đắm mình vào làn nước mát?
@@ -160,7 +159,8 @@ class TourSeeder extends Seeder
                 'price_promotion' => '380000',
                 'start_date' => null,
                 'end_date' => null,
-                'created_by' => 1
+                'created_by' => 1,
+                'destination_id' => 1
             ],
         ];
     }

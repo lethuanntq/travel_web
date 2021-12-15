@@ -23,6 +23,17 @@ class Booking extends BaseModel
         self::COMPLETED => 'Đã hoàn thành',
         self::CANCEL => 'Đã hủy'
     ];
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'id';
+    }
+
     public static function rules()
     {
         return [

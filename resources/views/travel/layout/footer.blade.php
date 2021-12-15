@@ -16,7 +16,7 @@
                     <b>Điện thoại:</b> {{ $setting->phone_number }}| Hotline: {{  $setting->hot_line }}
                 </div>
                 <div class="mt-1">
-                    <a href="{{ $setting->website }}"><b>Website:</b> {{ $setting->website }}</a>
+                    <b>Website:</b><a href="{{ $setting->website }}"> {{ $setting->website }}</a>
                 </div>
                 <div class="mt-5">
                     Kết nối với Travel Company
