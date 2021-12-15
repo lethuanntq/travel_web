@@ -7,12 +7,13 @@
                     <div class="position-relative" onclick="location.href='{!! route('travel.destination.detail', $tour) !!}';"
                     style="cursor:pointer;">
                         <div class="image">
-                            <img
-                                src="{{ $tour->thumbnail ?? '#'}}"
-                                alt="travel"
-                                class="img-fluid"
-                                style="height: 700px"
-                            />
+                            <div style="height: 700px;width: 710px">
+                                <img
+                                    src="{{ $tour->thumbnail ?? '#'}}"
+                                    alt="travel"
+                                    class="img-fluid"
+                                />
+                            </div>
                         </div>
 
                         <div class="banner-content">
@@ -45,12 +46,11 @@
                                 <span class="mr-2">Update </span>{{ $newDiscount->updated_at->diffForHumans() }}
                             </div>
                         </div>
-                        <div class="rotate-img">
+                        <div class="rotate-img" style="max-width: 100%; max-height: 650px">
                             <img
                                 src="{{ $newDiscount->thumbnail ?? '#'}}"
                                 alt="thumb"
                                 class="img-fluid img-lg"
-                                style="max-width: 100%; max-height: 650px"
                             />
                         </div>
                     </div>

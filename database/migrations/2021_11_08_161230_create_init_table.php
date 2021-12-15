@@ -50,7 +50,6 @@ class CreateInitTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('slug');
-            $table->string('destination_name');
             $table->string('tag')->nullable();
             $table->longText('short_description');
             $table->longText('description');
