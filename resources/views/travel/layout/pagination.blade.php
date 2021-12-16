@@ -14,7 +14,7 @@
 @if ($paginator->hasPages())
     <div class="pagination">
         {{-- First Page Link --}}
-        <a href="?page=1">First</a>
+        <a href="?page=1">Trang đầu</a>
 
         {{-- Previous Page Link --}}
         @if (!$paginator->onFirstPage())
@@ -46,6 +46,6 @@
         @endif
 
         {{-- Last Page Link --}}
-        <a href="?page={{ $paginator->lastPage() }}">Last</a>
+        <a href="?page={{ $paginator->lastPage() }}">Trang cuối</a>
     </div>
 @endif

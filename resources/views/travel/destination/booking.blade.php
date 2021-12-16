@@ -18,7 +18,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="mt-5 container">
+                    <div class="container">
                         <input name="booking[tour_id]" value="{{$tour->id ?? null}}" hidden>
                         <div>
                             <label class="mb-2">Họ tên người đặt tour(*)</label>
@@ -64,7 +64,7 @@
                         </div>
                         <div class="mt-3">
                             <label class="">Ghi chú</label>
-                            <textarea class="form-control" rows="5" id="booking-note"
+                            <textarea class="form-control" rows="3" id="booking-note"
                                       name="booking[note]"
                                       type="text"></textarea>
                         </div>
@@ -74,8 +74,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <b href="#" class="btn btn-primary" id="submit-booking-tour">Đặt
-                        tour
+                    <b href="#" class="btn btn-primary" id="submit-booking-tour">
+                        ĐẶT TOUR
                     </b>
                 </div>
             </form>

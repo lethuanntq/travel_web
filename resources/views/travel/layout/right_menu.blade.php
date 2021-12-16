@@ -3,16 +3,13 @@
 </h2>
 @foreach($highlightPosts as $highlightPost)
 <div class="row">
-    <div class="col-sm-12" onclick="location.href='{!! route('travel.experience.detail', $highlightPost->id) !!}';">
+    <div class="col-sm-12" >
         <div class="border-bottom pb-4 pt-4">
             <div class="row">
                 <div class="col-sm-8">
                     <h5 class="font-weight-600 mb-1">
-                        {{ $highlightPost->title ?? null}}
+                        <a href="{!! route('travel.news.detail', $highlightPost->slug) !!}">{{ $highlightPost->title ?? null}}</a>
                     </h5>
-                    @php
-
-                    @endphp
                     <p class="fs-13 text-muted mb-0">
                         <span class="mr-2">Tin tức </span>{{ $highlightPost->created_at ?  \Carbon\Carbon::now()->diffForHumans($highlightPost->created_at) : null }}
                     </p>

@@ -1,6 +1,8 @@
 @extends('travel.layout.app')
+@section('title','Điểm đến du lịch')
 @section('travel_content')
     <div class="text-center">
+        <h1  class="font-weight-600 mb-4">Địa điểm du lịch</h1>
         <img src="https://hanoitourist.com.vn/blocks/location/assets/images/bg-diemden.png" alt="Điểm đến">
         <p>Tất cả những người hay mơ mộng đều biết rằng hoàn toàn có thể nhớ nhung một nơi hoàn toàn xa lạ, và thậm chí
             nhớ nhung nhiều hơn cả</p>
@@ -10,30 +12,21 @@
     </div>
     <div class="container mt-5" style="display: inline">
         <div class="row">
-            <aside>
-                <ul class="destinations-list">
-                    @foreach($destinations as $destination)
-                        <li>
-                            <div class="size-destination"
-                                 onclick="location.href='{!! route('travel.destination.detail', $destination->id ?? 0) !!}';">
-                                <div style="height: 300px;width: 500px">
-                                    <img
-                                        src="http://localhost/travel/assets/images/destination/{{ rand(1, 4) }}.png" alt="travel" class="img-fluid img-thumbnail">
 
-                                </div>
-                                <div class="size-banner-content">
-                                    <div class="text-center">
-                                        <i class="mdi mdi-airplane"></i>
-                                    </div>
-                                    <div class="text-center">
-                                        {{ $destination->name ?? null}}
-                                    </div>
-                                </div>
+            @foreach($destinations as $destination)
+                <div class="col-3">
+                    <a class="size-destination d-block text-center"
+                         href="{!! route('travel.destination.detail', $destination->destination_slug) !!}">
+                        <img src="<?= asset('/travel/assets/images/destination/'.rand(1, 4).'.png') ?>" alt="travel" class="img-fluid img-thumbnail" style="opacity: 0.7">
+                        <div class="size-banner-content text-center">
+                            <i class="mdi mdi-airplane"></i>
+                            <div class="text-center">
+                                {{ $destination->destination_name ?? null}}
                             </div>
-                        </li>
-                    @endforeach
-                </ul>
-            </aside>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
         </div>
     </div>
 @endsection

@@ -18,7 +18,7 @@ class TourFactory extends Factory
             'title' => $this->faker->text(20),
             'short_description' => $this->faker->text(200),
             'description' => $this->faker->text(1000),
-            'type' => $this->faker->randomElement(array_keys(Tour::TYPES)),
+//            'type' => $this->faker->randomElement(array_keys(Tour::TYPES)),
             'price' => $this->faker->randomNumber(6),
             'start_date' => $this->faker->dateTime(),
             'end_date' => $this->faker->dateTime(),

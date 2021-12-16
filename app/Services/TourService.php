@@ -80,6 +80,7 @@ class TourService extends BaseService
     public function save(Tour $tour, Request $request)
     {
         $tour->slug = Str::slug($request->tour['title'], '-').'-'.strtotime("now");
+        $tour->destination_slug = Str::slug($request->tour['destination_name'], '-');
         $tour->fill($request->input('tour'));
         $tour->save();
         $this->saveThumbnail($tour, $request->file('tour.thumbnail'));
@@ -99,5 +100,15 @@ class TourService extends BaseService
 
             return $tour->save();
         }
+    }
+
+    public function getTourByDestination($destination_slug)
+    {
+        return Tour::where('destination_slug', $destination_slug)->get();
+    }
+
+    public function detail($slug)
+    {
+        return Tour::where('slug', $slug)->first();
     }
 }

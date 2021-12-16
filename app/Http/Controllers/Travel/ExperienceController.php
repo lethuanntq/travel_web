@@ -18,13 +18,4 @@ class ExperienceController extends Controller
             'highlightPosts' => $highlightPosts
         ]);
     }
-
-    public function detail(Post $post)
-    {
-        $highlightPosts = app(PostController::class)->getHighlightPosts();
-        return view('travel.experience.detail', [
-            'post' => $post,
-            'highlightPosts' => $highlightPosts
-        ]);
-    }
 }

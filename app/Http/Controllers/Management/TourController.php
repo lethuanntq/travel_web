@@ -61,9 +61,9 @@ class TourController extends Controller
             ->editColumn('price', function ($tour) {
                 return $tour->type == Tour::TYPE_DISCOUNT ? number_format($tour->price_promotion) : number_format($tour->price);
             })
-            ->editColumn('type', function ($tour) {
-                return Tour::TYPES[$tour->type];
-            })
+//            ->editColumn('type', function ($tour) {
+//                return Tour::TYPES[$tour->type];
+//            })
             ->editColumn('created_by', function ($tour) {
                 return $tour->createdBy->name;
             })

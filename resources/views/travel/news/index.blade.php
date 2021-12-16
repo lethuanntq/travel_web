@@ -5,25 +5,28 @@
         <div class="card-body" data-aos="fade-up">
             <div class="row">
                 <div class="col-lg-9">
+                    <h1 class="font-weight-600 mb-4">Tin Tức</h1>
+                    @foreach($posts as $post)
+                        <div class="row">
+                            <div class="col-sm-4 grid-margin">
+                                <div class="rotate-img">
+                                    <img src="{{ $post->thumbnail }}" alt="banner" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-sm-8 grid-margin">
+                                <h2 class="font-weight-600 mb-2">
+                                    <a href="{!! route('travel.news.detail', $post->slug) !!}"> {{$post->title}}</a>
+                                </h2>
+                                <p class="fs-13 text-muted mb-0">
+                                    <span class="mr-2">Cập nhật</span>{{ $post->updated_at->diffForHumans() }}
+                                </p>
+                                <p class="fs-15">
+                                    {{ $post->short_description  }}
+                                </p>
+                            </div>
+                        </div>
+                    @endforeach
                     {{ $posts->links('travel.layout.pagination') }}
-                    <table>
-                        <tbody>
-                        @foreach($posts as $post)
-                            <tr onclick="location.href='{!! route('travel.news.detail', $post) !!}';" style="cursor: pointer;">
-                                <th scope="col" class="w-25">
-                                    <img src="{{ $post->thumbnail }}" alt="thumbnail" class="img-fluid">
-                                </th>
-                                <th scope="col" class="w-75">
-                                    <div class="grid-margin ml-5">
-                                        <h2 class="mb-2">{{ $post->title }}</h2>
-                                        <div class="fs-13 mb-2">{{ $post->updated_at->diffForHumans() }}</div>
-                                        <p class="mb-0">{{ $post->short_description }}</p>
-                                    </div>
-                                </th>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
                 </div>
                 <div class="col-lg-3">
                     @include('travel.layout.right_menu', ['highlightPosts' => $highlightPosts])

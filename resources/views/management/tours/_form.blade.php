@@ -112,17 +112,17 @@
 {{--            <div class="invalid-feedback d-block">{{ $errors->first("tour.end_date") }}</div>--}}
 {{--        </div>--}}
 {{--    </div>--}}
-    <div class="form-group">
-        <div>
-            <label>Loại</label>
-        </div>
-        @foreach(\App\Models\Tour::TYPES as $key => $status)
-            <input type="radio" id="tour-type-{{ $key }}" name="tour[type]" value="{{$key}}" class="mr-1"
-                   @if(old('tour.type', $tour->type ?? \App\Models\Tour::TYPE_NORMAL) == $key) checked @endif
-            ><label class="mr-3" for="tour-type-{{ $key }}">{{ $status }}</label>
-        @endforeach
-        <div class="invalid-feedback d-block">{{ $errors->first("tour.type") }}</div>
-    </div>
+{{--    <div class="form-group">--}}
+{{--        <div>--}}
+{{--            <label>Loại</label>--}}
+{{--        </div>--}}
+{{--        @foreach(\App\Models\Tour::TYPES as $key => $status)--}}
+{{--            <input type="radio" id="tour-type-{{ $key }}" name="tour[type]" value="{{$key}}" class="mr-1"--}}
+{{--                   @if(old('tour.type', $tour->type ?? \App\Models\Tour::TYPE_NORMAL) == $key) checked @endif--}}
+{{--            ><label class="mr-3" for="tour-type-{{ $key }}">{{ $status }}</label>--}}
+{{--        @endforeach--}}
+{{--        <div class="invalid-feedback d-block">{{ $errors->first("tour.type") }}</div>--}}
+{{--    </div>--}}
     <div class="form-group">
         <button type="submit" name="submit" class="btn btn-primary">@isset($tour) Cập nhật @else Tạo mới @endisset</button>
     </div>

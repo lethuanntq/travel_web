@@ -13,18 +13,18 @@ class CreateInitTable extends Migration
      */
     public function up()
     {
-        Schema::create('destinations', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('slug');
-            $table->string('thumbnail')->nullable();
-
-            $table->timestamps();
-            $table->softDeletes();
-            $table->foreignId('created_by')->unsigned()->nullable()->constrained('users');
-            $table->foreignId('updated_by')->unsigned()->nullable()->constrained('users');
-            $table->foreignId('deleted_by')->unsigned()->nullable()->constrained('users');
-        });
+//        Schema::create('destinations', function (Blueprint $table) {
+//            $table->bigIncrements('id');
+//            $table->string('name');
+//            $table->string('slug');
+//            $table->string('thumbnail')->nullable();
+//
+//            $table->timestamps();
+//            $table->softDeletes();
+//            $table->foreignId('created_by')->unsigned()->nullable()->constrained('users');
+//            $table->foreignId('updated_by')->unsigned()->nullable()->constrained('users');
+//            $table->foreignId('deleted_by')->unsigned()->nullable()->constrained('users');
+//        });
 
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -53,15 +53,17 @@ class CreateInitTable extends Migration
             $table->string('tag')->nullable();
             $table->longText('short_description');
             $table->longText('description');
+            $table->string('destination_slug');
+            $table->string('destination_name');
             $table->longText('seo_tag')->nullable();
             $table->longText('seo_description')->nullable();
             $table->string('thumbnail')->nullable();
-            $table->tinyInteger('type');
+//            $table->tinyInteger('type');
             $table->unsignedInteger('price');
             $table->string('price_promotion')->nullable();
             $table->dateTime('start_date')->nullable();
             $table->dateTime('end_date')->nullable();
-            $table->foreignId('destination_id')->unsigned()->constrained('destinations');
+//            $table->foreignId('destination_id')->unsigned()->constrained('destinations');
 
             $table->timestamps();
             $table->softDeletes();

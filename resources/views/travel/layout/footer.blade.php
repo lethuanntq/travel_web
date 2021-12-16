@@ -48,26 +48,26 @@
                 <h3 class="font-weight-bold mb-3">Truy cập nhanh</h3>
                 <div class="footer-border-bottom pb-2">
                     <div class="d-flex justify-content-between align-items-center">
-                        <a class="mb-0 font-weight-600" href="{!! route('about-me') !!}">Về chúng
+                        <a class="mb-0 font-weight-600 text-white" href="{!! route('about-me') !!}">Về chúng
                             tôi</a>
                         <i class="fas fa-angle-right"></i>
                     </div>
                 </div>
                 <div class="footer-border-bottom pb-2">
                     <div class="d-flex justify-content-between align-items-center">
-                        <a class="mb-0 font-weight-600"
+                        <a class="mb-0 font-weight-600 text-white"
                             href="{!! route('travel.discount.index') !!}">Khuyến mại</a>
                     </div>
                 </div>
                 <div class="footer-border-bottom pb-2">
                     <div class="d-flex justify-content-between align-items-center">
-                        <a class="mb-0 font-weight-600"
+                        <a class="mb-0 font-weight-600 text-white"
                             href="{!! route('travel.experience.index') !!}">Kinh nghiệm</a>
                     </div>
                 </div>
                 <div class="footer-border-bottom pb-2">
                     <div class="d-flex justify-content-between align-items-center">
-                        <a class="mb-0 font-weight-600" href="{!! route('about-me') !!}">Điểm
+                        <a class="mb-0 font-weight-600 text-white" href="{!! route('travel.destination.index') !!}">Điểm
                             đến</a>
                     </div>
                 </div>
