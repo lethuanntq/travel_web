@@ -102,7 +102,7 @@
                             @foreach($randomTour as $tour)
                             <div class="col-4 grid-margin">
                                 <div class="rotate-img">
-                                    <a href="{!! route('travel.news.detail', $tour->slug) !!}"><img src="{{ $tour->thumbnail }}" alt="banner" class="img-fluid"></a>
+                                    <a href="{!! route('travel.tour.detail', $tour->slug) !!}"><img src="{{ $tour->thumbnail }}" alt="banner" class="img-fluid"></a>
                                 </div>
                                 <p class="fs-13 text-muted mb-0">
                                     <?php $price = $tour->price; if( $tour->price_promotion){ $price = $tour->price_promotion;  } ?>
@@ -111,7 +111,7 @@
                                     <?php } ?>
                                     <span class="price">{{ number_format($price) . \App\Models\Setting::CURRENCY }}</span>
                                 </p>
-                                <h3><a href="{!! route('travel.news.detail', $tour->slug) !!}">{{$tour->title}}</a></h3>
+                                <h3><a href="{!! route('travel.tour.detail', $tour->slug) !!}">{{$tour->title}}</a></h3>
                             </div>
                             @endforeach
                         </div>
