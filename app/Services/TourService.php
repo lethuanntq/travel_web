@@ -104,11 +104,11 @@ class TourService extends BaseService
 
     public function getTourByDestination($destination_slug)
     {
-        return Tour::where('destination_slug', $destination_slug)->get();
+        return Tour::where('destination_slug', $destination_slug)->where('display', Tour::DISPLAY)->get();
     }
 
     public function detail($slug)
     {
-        return Tour::where('slug', $slug)->first();
+        return Tour::where('slug', $slug)->where('display', Tour::DISPLAY)->first();
     }
 }

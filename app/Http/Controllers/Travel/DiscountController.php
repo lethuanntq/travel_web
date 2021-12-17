@@ -10,7 +10,7 @@ class DiscountController extends Controller
 {
     public function index()
     {
-        $tours = Tour::query()->whereNotNull('price_promotion')->orderByDesc('updated_at')->paginate(10);
+        $tours = Tour::query()->where('display', Tour::DISPLAY)->whereNotNull('price_promotion')->orderByDesc('updated_at')->paginate(10);
         $highlightPosts = app(PostController::class)->getHighlightPosts();
 
         return view('travel.discount.index', [

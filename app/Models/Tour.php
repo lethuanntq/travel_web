@@ -12,6 +12,7 @@ class Tour extends BaseModel
         self::TYPE_DISCOUNT => 'Khuyến mại',
     ];
 
+    const DISPLAY = 1;
     const PATH = 'tour/';
 
     public static function rules()

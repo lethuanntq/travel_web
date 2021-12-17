@@ -83,7 +83,6 @@
 
     function priority(data) {
         var id = $(data).data('id');
-        console.log(id);
         $.ajax({
            url : '{{ route('management.post.highlight') }}?id=' + id,
            type : "POST",
@@ -102,6 +101,28 @@
        }).fail(function (error) {
            console.log(error);
        })
+    }
+
+    function checkDisplay(data) {
+        var id = $(data).data('id');
+        $.ajax({
+            url : '{{ route('management.tour.display') }}?id=' + id,
+            type : "POST",
+        }).done(function (response) {
+            if(response.status) {
+                $('#display-message').removeClass('danger alert-danger');
+                $('#display-message').addClass('success alert-success');
+            } else {
+                $('#display-message').removeClass('success alert-success');
+                $('#display-message').addClass('danger alert-danger');
+                $(data).prop('checked', false);
+            }
+
+            $('#display-message').text(response.message);
+            $('#display-message').css('display', 'block');
+        }).fail(function (error) {
+            console.log(error);
+        })
     }
 </script>
 

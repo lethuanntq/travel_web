@@ -1,10 +1,37 @@
 @extends('management.layouts.app')
 @section('title', 'Quản lý tour')
 @section('content')
+    <style>
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #a5a3ab;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 30px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+    </style>
     <div class="ml-3 mr-3">
         @if(\Illuminate\Support\Facades\Session::has('message'))
             <div class="alert alert-success">{{ \Illuminate\Support\Facades\Session::get('message') }}</div>
         @endif
+            <div id="display-message"  class="alert alert-success" role="alert" style="display: none;width: 15%"></div>
         <div>
             <div class="row mb-1">
                 <div class="col-sm-6">
@@ -24,6 +51,7 @@
 {{--                    <th scope="col" style="width: 13%">Thời gian bắt đầu</th>--}}
 {{--                    <th scope="col" style="width: 13%">Thời gian kết thúc</th>--}}
                     <th scope="col" style="width: 10%">Người tạo</th>
+                    <th scope="col" style="width: 10%">Hiển thị</th>
                     <th scope="col" width="150" class="text-center">Thao Tác</th>
                 </tr>
                 </thead>
@@ -47,6 +75,7 @@
                     // { data: 'start_date', name: 'start_date' },
                     // { data: 'end_date', name: 'end_date' },
                     { data: 'created_by', name: 'created_by' },
+                    { data: 'display', name: 'display' },
                     { data: 'action', name: 'action' }
                 ]
             });

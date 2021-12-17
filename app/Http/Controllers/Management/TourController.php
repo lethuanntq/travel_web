@@ -61,9 +61,19 @@ class TourController extends Controller
             ->editColumn('price', function ($tour) {
                 return $tour->type == Tour::TYPE_DISCOUNT ? number_format($tour->price_promotion) : number_format($tour->price);
             })
-//            ->editColumn('type', function ($tour) {
-//                return Tour::TYPES[$tour->type];
-//            })
+            ->editColumn('display', function ($tour) {
+                $checked = '';
+                if ($tour->display == Tour::DISPLAY) {
+                    $checked = 'checked';
+                }
+                return '<label class="switch">
+                            <input type="checkbox" value="1" ' .$checked .' data-id="'. $tour->id .'" onchange="checkDisplay(this)">
+                            <div class="slider round">
+                            <span class="off">Ẩn</span>
+                            <span class="on">Hiện</span>
+                            </div>
+                        </label>';
+            })
             ->editColumn('created_by', function ($tour) {
                 return $tour->createdBy->name;
             })
@@ -71,7 +81,25 @@ class TourController extends Controller
                 return '<a href="'. route('management.tour.edit', $tour) .'" class="btn btn-xs btn-warning">Chỉnh sửa</a>
                         <a href="#" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete-confirm-modal"  data-action="' . route('management.tour.delete', $tour) . '"' . '>Xóa</a>';
             })
-            ->rawColumns(['action'])
+            ->rawColumns(['action', 'display'])
             ->make(true);
+    }
+
+    public function display(Request $request)
+    {
+        $id = $request->input('id', null);
+        $response['status'] = 0;
+        $response['message'] = 'Cập nhật thất bại';
+
+        if (isset($id)) {
+            $tour = Tour::find($id);
+            $tour->display = !$tour->display;
+            $tour->save();
+
+            $response['status'] = 1;
+            $response['message'] = 'Cập nhật thành công';
+        }
+
+        return response()->json($response);
     }
 }

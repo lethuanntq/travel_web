@@ -20,9 +20,9 @@ class HomeController extends Controller
     public function index()
     {
         $news = Post::query()->where('type', Post::TYPE_NEWS)->limit(7)->inRandomOrder()->get();
-        $newsTravel = Tour::query()->whereNull('price_promotion')->limit(7)->inRandomOrder()->get();
-        $newsDiscount =  Tour::query()->whereNotNull('price_promotion')->limit(3)->inRandomOrder()->get();
-        $randomTour =  Tour::query()->limit(6)->inRandomOrder()->get();
+        $newsTravel = Tour::query()->where('display', Tour::DISPLAY)->whereNull('price_promotion')->limit(7)->inRandomOrder()->get();
+        $newsDiscount =  Tour::query()->where('display', Tour::DISPLAY)->whereNotNull('price_promotion')->limit(3)->inRandomOrder()->get();
+        $randomTour =  Tour::query()->where('display', Tour::DISPLAY)->limit(6)->inRandomOrder()->get();
         return view('travel.index', [
             'news' => $news,
             'newsTravel' => $newsTravel,

@@ -52,6 +52,7 @@ class TourSeeder extends Seeder
                 'price_promotion' => null,
                 'start_date' => null,
                 'end_date' => null,
+                'display' => 1,
                 'created_by' => 1,
             ],
             [
@@ -70,6 +71,7 @@ class TourSeeder extends Seeder
                 'price_promotion' => null,
                 'start_date' => null,
                 'end_date' => null,
+                'display' => 1,
                 'created_by' => 1,
             ],
             [
@@ -88,6 +90,7 @@ class TourSeeder extends Seeder
                 'price_promotion' => '800000',
                 'start_date' => null,
                 'end_date' => null,
+                'display' => 1,
                 'created_by' => 1,
             ],
             [
@@ -106,6 +109,7 @@ class TourSeeder extends Seeder
                 'price_promotion' => '333333',
                 'start_date' => null,
                 'end_date' => null,
+                'display' => 1,
                 'created_by' => 1,
             ],
             [
@@ -124,6 +128,7 @@ class TourSeeder extends Seeder
                 'price_promotion' => '803000',
                 'start_date' => null,
                 'end_date' => null,
+                'display' => 1,
                 'created_by' => 1,
             ],
             [
@@ -142,6 +147,7 @@ class TourSeeder extends Seeder
                 'price_promotion' => '1235689',
                 'start_date' => null,
                 'end_date' => null,
+                'display' => 1,
                 'created_by' => 1,
             ],
             [
@@ -160,6 +166,7 @@ class TourSeeder extends Seeder
                 'price_promotion' => '380000',
                 'start_date' => null,
                 'end_date' => null,
+                'display' => 1,
                 'created_by' => 1,
             ],
         ];

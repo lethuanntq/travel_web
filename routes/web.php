@@ -90,6 +90,7 @@ Route::group([
         Route::match(['put', 'patch'], 'tour-update/{tour}', [TourController::class, 'update'])->name('tour.update');
 
         Route::delete('tour/{tour}', [TourController::class, 'delete'])->name('tour.delete');
+        Route::post('display', [TourController::class, 'display'])->name('tour.display');
     });
 
     Route::group([

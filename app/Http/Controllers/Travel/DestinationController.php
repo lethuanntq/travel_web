@@ -14,7 +14,7 @@ class DestinationController extends Controller
 
    public function index()
    {
-       $destinations = Tour::select(['destination_slug','destination_name'])->distinct()->get();
+       $destinations = Tour::select(['destination_slug','destination_name'])->where('display', Tour::DISPLAY)->distinct()->get();
        return view('travel.destination.index', ['destinations' => $destinations]);
    }
 

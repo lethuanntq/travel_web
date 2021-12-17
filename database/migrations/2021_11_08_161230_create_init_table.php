@@ -63,6 +63,8 @@ class CreateInitTable extends Migration
             $table->string('price_promotion')->nullable();
             $table->dateTime('start_date')->nullable();
             $table->dateTime('end_date')->nullable();
+            $table->tinyInteger('display');
+
 //            $table->foreignId('destination_id')->unsigned()->constrained('destinations');
 
             $table->timestamps();
