@@ -73,7 +73,7 @@
                     @foreach($news as $post)
                         <div class="row">
                             <div class="col-sm-4 grid-margin">
-                                <div class="rotate-img" style="max-width: 200px">
+                                <div class="rotate-img img_list">
                                     <img src="{{ $post->thumbnail }}" alt="banner" class="img-fluid">
                                 </div>
                             </div>
