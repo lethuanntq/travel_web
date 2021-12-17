@@ -35,16 +35,15 @@
                     <h2>Thông tin khuyến mại</h2>
                     @foreach($newsDiscount as $newDiscount)
                     <div class="d-flex border-bottom-blue pt-3 pb-4 align-items-center justify-content-between"
-                         onclick="location.href='{!! route('travel.tour.detail', $newDiscount) !!}';"
                          style="cursor:pointer;">
                         <div class="pr-3">
-                            <h5>{{ $newDiscount->title ?? null}}</h5>
+                            <h5><a href="{{  route('travel.tour.detail', $newDiscount) }}">{{ $newDiscount->title ?? null}}</a></h5>
                             <div class="fs-12">
                                     <span style="text-decoration: line-through">{{ number_format($newDiscount->price) . \App\Models\Setting::CURRENCY }}</span>
                                     <span style="color: red"><b>{{ number_format($newDiscount->price_promotion) . \App\Models\Setting::CURRENCY }}</b></span>
                             </div>
                         </div>
-                        <div class="rotate-img" style="max-width: 100%; max-height: 650px">
+                        <div class="rotate-img" style="max-width: 70px">
                             <img
                                 src="{{ $newDiscount->thumbnail ?? '#' }}"
                                 alt="thumb"
@@ -74,7 +73,7 @@
                     @foreach($news as $post)
                         <div class="row">
                             <div class="col-sm-4 grid-margin">
-                                <div class="rotate-img">
+                                <div class="rotate-img" style="max-width: 200px">
                                     <img src="{{ $post->thumbnail }}" alt="banner" class="img-fluid">
                                 </div>
                             </div>

@@ -10,7 +10,7 @@
                     @foreach($tours as $tour)
                         <div class="row">
                             <div class="col-sm-4 grid-margin">
-                                <div class="rotate-img">
+                                <div class="rotate-img img_list">
                                     <img src="{{ $tour->thumbnail }}" alt="banner" class="img-fluid">
                                 </div>
                             </div>

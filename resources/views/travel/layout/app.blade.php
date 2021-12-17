@@ -107,6 +107,10 @@
         h1 {
             border-bottom: 2px solid;
         }
+
+        .img_list {
+            max-width: 200px
+        }
     </style>
 </head>
 
