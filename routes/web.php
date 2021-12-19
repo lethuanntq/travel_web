@@ -85,6 +85,7 @@ Route::group([
         Route::get('tour-data', [TourController::class, 'getData'])->name('tour.data');
         Route::get('tour/new', [TourController::class, 'create'])->name('tour.create');
         Route::get('tour/{tour}/edit', [TourController::class, 'edit'])->name('tour.edit');
+        Route::get('tour/{tour}/copy', [TourController::class, 'copy'])->name('tour.copy');
 
         Route::post('tour', [TourController::class, 'store'])->name('tour.store');
         Route::match(['put', 'patch'], 'tour-update/{tour}', [TourController::class, 'update'])->name('tour.update');

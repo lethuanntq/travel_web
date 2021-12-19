@@ -66,6 +66,12 @@ class BookingController extends Controller
                     case Booking::BOOKING:
                         $status = '<span class="btn btn-primary btn-sm">'.Booking::LABELS[$booking->status].'</span>';
                         break;
+                    case Booking::CONFIRMING:
+                        $status = '<span class="btn btn-info btn-sm">'.Booking::LABELS[$booking->status].'</span>';
+                        break;
+                    case Booking::DEPOSITED:
+                        $status = '<span class="btn btn-secondary btn-sm">'.Booking::LABELS[$booking->status].'</span>';
+                        break;
                     case Booking::IN_PROCESS:
                         $status = '<span class="btn btn-warning btn-sm">'.Booking::LABELS[$booking->status].'</span>';
                         break;

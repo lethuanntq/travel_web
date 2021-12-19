@@ -66,8 +66,8 @@
     <div class="form-group">
         <div>
             <label>SEO Description</label>
-            <input class="form-control" id="tour-seo" name="tour[seo]" type="text" value="{{ old("tour.seo", $tour->seo ?? '') }}">
-            <div class="invalid-feedback d-block">{{ $errors->first("tour.seo") }}</div>
+            <input class="form-control" id="tour-seo_description" name="tour[seo_description]" type="text" value="{{ old("tour.seo_description", $tour->seo_description ?? '') }}">
+            <div class="invalid-feedback d-block">{{ $errors->first("tour.seo_description") }}</div>
         </div>
     </div>
     <div class="form-group">
@@ -123,8 +123,13 @@
 {{--        @endforeach--}}
 {{--        <div class="invalid-feedback d-block">{{ $errors->first("tour.type") }}</div>--}}
 {{--    </div>--}}
+
     <div class="form-group">
-        <button type="submit" name="submit" class="btn btn-primary">@isset($tour) Cập nhật @else Tạo mới @endisset</button>
+        <button type="submit" name="submit" class="btn btn-primary">@if(isset($tour) && !isset($copy)) Cập nhật @else Tạo mới @endif</button>
+        @if(isset($tour) && !isset($copy))
+            <a href="{{ route('management.tour.copy', $tour) }}" class="btn btn-warning" target="_blank">Sao chép</a>
+        @endif
+
     </div>
 </div>
 @push('scripts')

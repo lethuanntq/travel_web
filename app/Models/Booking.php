@@ -7,18 +7,24 @@ use App\Rules\PhoneNumberVNRule;
 class Booking extends BaseModel
 {
     const BOOKING = 0;
-    const IN_PROCESS= 1;
-    const COMPLETED = 2;
-    const CANCEL = 3;
+    const CONFIRMING = 1;
+    const DEPOSITED = 2;
+    const IN_PROCESS= 3;
+    const COMPLETED = 4;
+    const CANCEL = 5;
 
     const STATUS = [
         self::BOOKING => 'Đã đặt tour',
+        self::CONFIRMING => 'Đang xác nhận',
+        self::DEPOSITED => 'Đã đặt cọc',
         self::IN_PROCESS => 'Đang tiến hành tour',
         self::COMPLETED => 'Hoàn thành đặt tour',
         self::CANCEL => 'Hủy tour'
     ];
     const LABELS = [
         self::BOOKING => 'Mới',
+        self::CONFIRMING => 'Đang đợi phản hồi',
+        self::DEPOSITED => 'Đã đặt cọc',
         self::IN_PROCESS => 'Đang hoạt động',
         self::COMPLETED => 'Đã hoàn thành',
         self::CANCEL => 'Đã hủy'

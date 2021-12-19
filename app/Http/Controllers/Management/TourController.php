@@ -53,6 +53,10 @@ class TourController extends Controller
         return redirect()->route('management.tour.index')->with('message', 'Xóa thành công');
     }
 
+    public function copy(Tour $tour)
+    {
+        return view('management.tours.create', ['tour' => $tour, 'copy' => true]);
+    }
     public function getData()
     {
         $tours = Tour::query()->get();

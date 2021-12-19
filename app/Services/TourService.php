@@ -81,6 +81,7 @@ class TourService extends BaseService
     {
         $tour->slug = Str::slug($request->tour['title'], '-').'-'.strtotime("now");
         $tour->destination_slug = Str::slug($request->tour['destination_name'], '-');
+        $tour->display = Tour::DISPLAY;
         $tour->fill($request->input('tour'));
         $tour->save();
         $this->saveThumbnail($tour, $request->file('tour.thumbnail'));
