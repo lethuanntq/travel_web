@@ -10,11 +10,13 @@
                 <select id="booking-status-filter" name="booking-status-filter" class="form-control">
                     <option value="">Tất cả</option>
                     <option value="0">Mới</option>
-                    <option value="1">Đang hoạt động</option>
-                    <option value="2">Đã hoàn thành</option>
-                    <option value="3">Đã hủy</option>
+                    <option value="1">Đang đợi phản hồi</option>
+                    <option value="2">Đã đặt cọc</option>
+                    <option value="3">Đang hoạt động</option>
+                    <option value="4">Đã hoàn thành</option>
+                    <option value="5">Đã hủy</option>
                 </select>
-            </div>
+            </div>F
         <div class="">
             <table class="table table-striped" id="booking-table">
                 <thead>
