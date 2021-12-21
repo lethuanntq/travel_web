@@ -109,7 +109,10 @@
         }
 
         .img_list {
-            max-width: 200px
+            max-height: 170px
+        }
+        .rotate-img{
+            text-align: center;
         }
     </style>
 </head>
