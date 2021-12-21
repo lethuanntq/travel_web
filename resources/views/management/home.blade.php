@@ -25,7 +25,7 @@
                 <h5 class="p-2 bg-gradient-dark">Tour book nhiều nhất</h5>
                 <ul class="list-group">
                     @foreach($bookingBiggest as $item)
-                        <li class="list-group-item"><a style="font-size: 14px" target="_blank" href="{{  route('travel.tour.detail', $item['slug']) }}">{{ $item['tour_title'] }}</a></li>
+                        <li class="list-group-item"><a style="font-size: 14px" target="_blank" href="{{  route('travel.tour.detail', $item['slug']) }}">{{ $item['tour_title'] }}</a>({{$item['count']}})</li>
                     @endforeach
                 </ul>
             </div>
