@@ -25,7 +25,8 @@ class HomeController extends Controller
      */
     public function index(BookingService $bookingService,Booking $booking)
     {
+        $bookingBiggest = $bookingService->bookingBiggest($booking);
         $analytic = $bookingService->analytic($booking);
-        return view('management.home', compact(['analytic']));
+        return view('management.home', compact(['analytic','bookingBiggest']));
     }
 }

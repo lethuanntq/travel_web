@@ -83,6 +83,10 @@ class BookingService extends BaseService
     }
 
 
+    /**
+     * @param Booking $booking
+     * @return array
+     */
     public function analytic(Booking $booking)
     {
        $bookingData = Booking::where('created_at', '>=', \Carbon\Carbon::now()->subDays(10))
@@ -103,5 +107,17 @@ class BookingService extends BaseService
             }
         }
         return $data;
+    }
+
+    /**
+     * @param Booking $booking
+     * @return mixed
+     */
+    public function bookingBiggest(Booking $booking) {
+        return $booking->select(['bookings.*','tours.title as tour_title','tours.slug', DB::raw('COUNT(*) as count')])
+            ->join('tours', 'tours.id', '=', 'bookings.tour_id')
+            ->groupBy('tour_id')
+            ->orderBy('count', 'desc')->limit(4)
+            ->get();
     }
 }
