@@ -12,12 +12,14 @@
     </div>
     <div class="container mt-5" style="display: inline">
         <div class="row">
-
+            @php
+            $i = 1;
+            @endphp
             @foreach($destinations as $destination)
-                <div class="col-3">
+                <div class="col-3 destination-box mb-3" >
                     <a class="size-destination d-block text-center"
                          href="{!! route('travel.destination.detail', $destination->destination_slug) !!}">
-                        <img src="<?= asset('/travel/assets/images/destination/'.rand(1, 4).'.png') ?>" alt="travel" class="img-fluid img-thumbnail" style="opacity: 0.7">
+                        <img src="<?= asset('/travel/assets/images/destination/'.$i.'.png') ?>" alt="travel" class="img-fluid img-thumbnail" style="opacity: 0.7">
                         <div class="size-banner-content text-center">
                             <i class="mdi mdi-airplane"></i>
                             <div class="text-center">
@@ -26,6 +28,13 @@
                         </div>
                     </a>
                 </div>
+                @php
+
+                    if($i == 4) {
+                        $i = 0;
+                    }
+                    $i++;
+                @endphp
             @endforeach
         </div>
     </div>
