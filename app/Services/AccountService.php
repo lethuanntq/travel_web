@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 class AccountService extends BaseService
 {
@@ -22,6 +23,7 @@ class AccountService extends BaseService
         try {
             $this->validate($request->all(), $rules, $attrs);
             $user = new User();
+            $user->password = Hash::make($request->account['password']);
             $user->updated_by = $operator->id;
             $user->created_by = $operator->id;
             $this->save($user, $request);
@@ -81,6 +83,10 @@ class AccountService extends BaseService
     public function save(User $user, Request $request)
     {
         $user->fill(array_filter($request->input('account')));
+        if($request->account['password'])
+        {
+            $user->password = Hash::make($request->account['password']);
+        }
         $user->save();
         $this->saveAvatar($user, $request->file('account.avatar'));
 
