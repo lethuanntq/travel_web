@@ -30,17 +30,18 @@
                             </div>
                             <div class="col-6">
                                 Đánh giá:
-                                <a class="rating social-like" data-type="like" data-id="{{$tour->id}}">
+                                <a class="rating social-like {{ Session::has('rating_'. $tour->id) ? 'disable' : '' }}" data-type="like" data-id="{{$tour->id}}">
                                     <span class="like"><i class="mdi mdi-thumb-up-outline"></i></span>
                                     <span class="count c-like" >{{ $tour->like }}</span>
                                 </a>
                                 &nbsp;
-                                <a class="rating social-dislike" data-type="dislike" data-id="{{$tour->id}}" >
+                                <a class="rating social-dislike {{ Session::has('rating_'. $tour->id) ? 'disable' : '' }}" data-type="dislike" data-id="{{$tour->id}}" >
                                     <span class="count c-dislike" >{{ $tour->dislike }}</span>
                                     <span class="like"><i class="mdi mdi-thumb-down-outline"></i></span>
                                 </a>
                                 <div class="clearfix"></div>
                                 <br>
+                                <span class="font-italic text-warning rating-warning"></span>
                                 <span class="font-italic text-success rating-success"></span><br>
                             </div>
                         </div>
@@ -103,6 +104,8 @@
         $('.rating').click(function () {
             if($(this).hasClass('disable'))
             {
+                $('.rating-success').empty();
+                $('.rating-warning').text('Bạn đã đánh giá rồi!');
                 return;
             }
             $('.rating').addClass('disable');

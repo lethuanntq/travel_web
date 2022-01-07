@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -116,6 +117,7 @@ class TourService extends BaseService
     public function rating(Request $request){
         $ratingData = $request->all();
         $tour = Tour::findOrFail($ratingData['id']);
+        Session::put('rating_'.$ratingData['id'], '1');
         if($ratingData['type'] == 'like'){
             $tour->like = $tour->like + 1;
             return $tour->save();

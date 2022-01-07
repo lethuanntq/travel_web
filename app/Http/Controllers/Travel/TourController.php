@@ -8,6 +8,7 @@ use App\Models\Destination;
 use App\Models\Tour;
 use App\Services\TourService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class TourController extends Controller
 {
