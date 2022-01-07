@@ -33,7 +33,7 @@ class BookingService extends BaseService
             throw $e;
         }
 
-        return true;
+        return $booking;
     }
 
     public function save(Booking $booking, Request $request)
