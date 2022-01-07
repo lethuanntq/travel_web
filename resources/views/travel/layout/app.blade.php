@@ -9,7 +9,11 @@
 
 
     <meta name="keywords" content="@yield('meta_keywords','DT Travel, Du lich Việt Nam')">
-    <meta name="description" content="@yield('meta_description','Du lịch việt name')">
+    <meta name="description" content="@yield('meta_description','Du lịch việt nam')">
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="@yield('title','DT Travel - Du lịch Việt Nam')" />
+    <meta property="og:description"   content="@yield('meta_description','Du lịch việt nam')" />
+    <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
     <link
         rel="stylesheet"
         href="{{ asset('travel/assets/vendors/mdi/css/materialdesignicons.min.css') }}"
@@ -114,11 +118,66 @@
         .rotate-img{
             text-align: center;
         }
+        .social-like, .social-dislike {
+            border: none;
+            outline: none;
+            font-size: 16px;
+            /*width: 48%;*/
+            background-color: #0055a5;
+            color: #fff!important;
+            cursor: pointer;
+            display:inline-block;
+
+        }
+
+        .social-like:hover, .social-dislike:hover {
+            text-decoration:none;
+            color:white;
+        }
+
+        .social-like:active, .social-dislike:active {
+            background-color: #3299CD;
+        }
+
+        .social-like:active .count, .social-dislike:active .dislike {
+            background-color: #3299CD;
+        }
+
+
+        .social-like {
+            border-radius: 10px;
+        }
+
+        .social-dislike {
+            margin-left: 20px;
+            border-radius: 10px;
+        }
+
+        .count, .like, .dislike {
+            padding:10px;
+        }
+
+        .count, .dislike {
+            display: inline-block;
+            background-color: #03A9F4;
+            min-width: 40px;
+            border-radius: 50%;
+            text-align: center;
+        }
+
+        .c-dislike {
+            margin-left: -10px;
+        }
+
+        .c-like {
+            margin-right: -10px;
+        }
     </style>
 </head>
 
 <body>
-
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0&appId=475993840565484&autoLogAppEvents=1" nonce="PIWsgbk7"></script>
 <div class="container-scroller">
     <div class="main-panel">
         <!-- partial:partials/_navbar.blade.php -->

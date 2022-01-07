@@ -17,21 +17,36 @@
                             <div class="col-6" style="">
                                 <p>
                                     <?php $price = $tour->price; if( $tour->price_promotion){ $price = $tour->price_promotion;  } ?>
-                                    <strong>Giá từ: </strong>
+                                    <strong>Giá: </strong>
                                         <?php if($tour->price_promotion){ ?>
                                         <del>{{ number_format($tour->price) . \App\Models\Setting::CURRENCY }}</del>
                                         <?php } ?>
                                         <span class="price">{{ number_format($price) . \App\Models\Setting::CURRENCY }}</span>
                                 </p>
-                            </div>
-                            <div class="col-6">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#booking-tour">
                                     ĐẶT TOUR
                                 </button>
+
+                            </div>
+                            <div class="col-6">
+                                Đánh giá:
+                                <a class="rating social-like" data-type="like" data-id="{{$tour->id}}">
+                                    <span class="like"><i class="mdi mdi-thumb-up-outline"></i></span>
+                                    <span class="count c-like" >{{ $tour->like }}</span>
+                                </a>
+                                &nbsp;
+                                <a class="rating social-dislike" data-type="dislike" data-id="{{$tour->id}}" >
+                                    <span class="count c-dislike" >{{ $tour->dislike }}</span>
+                                    <span class="like"><i class="mdi mdi-thumb-down-outline"></i></span>
+                                </a>
+                                <div class="clearfix"></div>
+                                <br>
+                                <span class="font-italic text-success rating-success"></span><br>
                             </div>
                         </div>
                         <div class="post-summary row-item mt-4">{{ $tour->short_description }}</div>
                         <div class="post-description row-item mt-4">{!! $tour->description !!}</div>
+                        <div class="fb-comments"  data-href="{{ route('travel.tour.detail',['tour' => $tour->slug ]) }}" data-width="100%" data-numposts="5"></div>
                     </div>
 
                 </div>
@@ -85,6 +100,27 @@
                 }
             })
         })
+        $('.rating').click(function () {
+            if($(this).hasClass('disable'))
+            {
+                return;
+            }
+            $('.rating').addClass('disable');
+            type = $(this).data('type');
+            id = $(this).data('id');
+            currentCount = $(this).find('.count').text();
+            $(this).find('.count').empty().html(parseInt(currentCount) + 1);
+            $.ajax({
+                url: '{{ route('travel.tour.rating') }}',
+                type: 'post',
+                data: {type, id}
+            }).done(function (response) {
+                $('.rating-success').text(response.message)
+            }).fail(function (error) {
+
+            })
+        })
+
 
         function removeError() {
             $('#error-name').text('');

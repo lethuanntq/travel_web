@@ -56,6 +56,8 @@ Route::group([
 
     Route::get('/tour/{tour}', [\App\Http\Controllers\Travel\TourController::class, 'detail'])->name('tour.detail');
     Route::post('/booking', [\App\Http\Controllers\Travel\BookingController::class, 'store'])->name('booking.store');
+
+    Route::post('/rating', [\App\Http\Controllers\Travel\TourController::class, 'rating'])->name('tour.rating');
 });
 
 Route::group([

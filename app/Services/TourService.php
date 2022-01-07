@@ -112,4 +112,15 @@ class TourService extends BaseService
     {
         return Tour::where('slug', $slug)->where('display', Tour::DISPLAY)->first();
     }
+
+    public function rating(Request $request){
+        $ratingData = $request->all();
+        $tour = Tour::findOrFail($ratingData['id']);
+        if($ratingData['type'] == 'like'){
+            $tour->like = $tour->like + 1;
+            return $tour->save();
+        }
+        $tour->dislike = $tour->dislike + 1;
+        return $tour->save();
+    }
 }
