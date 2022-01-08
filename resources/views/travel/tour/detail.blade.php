@@ -30,19 +30,35 @@
                             </div>
                             <div class="col-6">
                                 Đánh giá:
-                                <a class="rating social-like {{ Session::has('rating_'. $tour->id) ? 'disable' : '' }}" data-type="like" data-id="{{$tour->id}}">
-                                    <span class="like"><i class="mdi mdi-thumb-up-outline"></i></span>
-                                    <span class="count c-like" >{{ $tour->like }}</span>
-                                </a>
-                                &nbsp;
-                                <a class="rating social-dislike {{ Session::has('rating_'. $tour->id) ? 'disable' : '' }}" data-type="dislike" data-id="{{$tour->id}}" >
-                                    <span class="count c-dislike" >{{ $tour->dislike }}</span>
-                                    <span class="like"><i class="mdi mdi-thumb-down-outline"></i></span>
-                                </a>
-                                <div class="clearfix"></div>
+                                <!-- Add icon library -->
+                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                                <style type="text/css">
+                                    .checked {
+                                        color: orange;
+                                    }
+                                    .rating-star span {
+                                        cursor: pointer;
+                                    }
+                                </style>
+                                <span data-id="{{$tour->id}}" class="rating-star {{ Session::has('rating_'. $tour->id) ? 'disable' : '' }}">
+                                    @for($i = 1; $i <= 5; $i++)
+                                    <span data-star="{{$i}}" class="star-{{$i}} fa fa-star {{ ($tour->vote >= $i) ? 'checked' : '' }}"></span>
+                                    @endfor
+                                </span>
+                                (<strong class="tour-vote" style="color: #fa549d;">{{$tour->vote}}</strong>)
+{{--                                <a class="rating social-like {{ Session::has('rating_'. $tour->id) ? 'disable' : '' }}" data-type="like" data-id="{{$tour->id}}">--}}
+{{--                                    <span class="like"><i class="mdi mdi-thumb-up-outline"></i></span>--}}
+{{--                                    <span class="count c-like" >{{ $tour->like }}</span>--}}
+{{--                                </a>--}}
+{{--                                &nbsp;--}}
+{{--                                <a class="rating social-dislike {{ Session::has('rating_'. $tour->id) ? 'disable' : '' }}" data-type="dislike" data-id="{{$tour->id}}" >--}}
+{{--                                    <span class="count c-dislike" >{{ $tour->dislike }}</span>--}}
+{{--                                    <span class="like"><i class="mdi mdi-thumb-down-outline"></i></span>--}}
+{{--                                </a>--}}
+{{--                                <div class="clearfix"></div>--}}
                                 <br>
-                                <span class="font-italic text-warning rating-warning"></span>
-                                <span class="font-italic text-success rating-success"></span><br>
+                                <small class="font-italic text-warning rating-warning"></small>
+                                <small class="font-italic text-success rating-success"></small><br>
                             </div>
                         </div>
                         <div class="post-summary row-item mt-4">{{ $tour->short_description }}</div>
@@ -123,7 +139,40 @@
 
             })
         })
+        $('.rating-star span').click(function(){
+            ratingStar = $('.rating-star');
+            if(ratingStar.hasClass('disable'))
+            {
+                $('.rating-success').empty();
+                $('.rating-warning').text('Bạn đã đánh giá rồi!');
+                return;
+            }
+            ratingStar.addClass('disable');
+            star = $(this).data('star');
+            id = ratingStar.data('id');
 
+            $.ajax({
+                url: '{{ route('travel.tour.rating.star') }}',
+                type: 'post',
+                data: {star, id}
+            }).done(function (response) {
+                $('.tour-vote').text(parseInt(response.vote));
+                $('.rating-success').text(response.message);
+
+                $( ".rating-star span" ).each(function( index ) {
+                    if ( $(this).data('star') >  response.vote) {
+                        $(this).removeClass('checked');
+                    }else{
+                        $(this).addClass('checked');
+                    }
+
+                });
+
+            }).fail(function (error) {
+
+            })
+
+        });
 
         function removeError() {
             $('#error-name').text('');

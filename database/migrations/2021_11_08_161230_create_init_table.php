@@ -31,8 +31,6 @@ class CreateInitTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('tag')->nullable();
-            $table->integer('like')->nullable()->default(0);
-            $table->integer('dislike')->nullable()->default(0);
             $table->longText('short_description');
             $table->longText('description');
             $table->longText('seo_tag')->nullable();
@@ -53,8 +51,13 @@ class CreateInitTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('tag')->nullable();
-            $table->integer('like')->nullable()->default(0);
-            $table->integer('dislike')->nullable()->default(0);
+            $table->integer('star_1')->nullable()->default(0);
+            $table->integer('star_2')->nullable()->default(0);
+            $table->integer('star_3')->nullable()->default(0);
+            $table->integer('star_4')->nullable()->default(0);
+            $table->integer('star_5')->nullable()->default(0);
+//            $table->integer('like')->nullable()->default(0);
+//            $table->integer('dislike')->nullable()->default(0);
             $table->longText('short_description');
             $table->longText('description');
             $table->string('destination_slug');

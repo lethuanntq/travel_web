@@ -125,4 +125,36 @@ class TourService extends BaseService
         $tour->dislike = $tour->dislike + 1;
         return $tour->save();
     }
+
+    public function ratingStar(Request $request){
+        $ratingData = $request->all();
+        $tour = Tour::findOrFail($ratingData['id']);
+        Session::put('rating_'.$ratingData['id'], '1');
+
+        switch ($ratingData['star']){
+            case '1':
+                $tour->star_1 = $tour->star_1 + 1;
+                break;
+            case '2':
+                $tour->star_2 = $tour->star_2 + 1;
+                break;
+            case '3':
+                $tour->star_3 = $tour->star_3 + 1;
+                break;
+            case '4':
+                $tour->star_4 = $tour->star_4 + 1;
+                break;
+            default:
+                $tour->star_5 = $tour->star_5 + 1;
+                break;
+        }
+        $tour->save();
+        $total = ($tour->star_1 * 1) + ($tour->star_2 * 2) + ($tour->star_3 * 3) + ($tour->star_4 * 4) + ($tour->star_5 * 5);
+        $totalVote = $tour->star_1 + $tour->star_2 + $tour->star_3 + $tour->star_4 + $tour->star_5;
+        if($totalVote != 0 || $total != 0 ){
+            return intval($total/$totalVote);
+        }
+        return 0;
+    }
+
 }

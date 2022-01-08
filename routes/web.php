@@ -58,6 +58,7 @@ Route::group([
     Route::post('/booking', [\App\Http\Controllers\Travel\BookingController::class, 'store'])->name('booking.store');
 
     Route::post('/rating', [\App\Http\Controllers\Travel\TourController::class, 'rating'])->name('tour.rating');
+    Route::post('/rating-star', [\App\Http\Controllers\Travel\TourController::class, 'ratingStar'])->name('tour.rating.star');
 });
 
 Route::group([

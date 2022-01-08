@@ -50,4 +50,13 @@ class Tour extends BaseModel
     {
         return $this->belongsTo(Destination::class);
     }
+
+    public function getVoteAttribute(){
+        $total = ($this->star_1 * 1) + ($this->star_2 * 2) + ($this->star_3 * 3) + ($this->star_4 * 4) + ($this->star_5 * 5);
+        $totalVote = $this->star_1 + $this->star_2 + $this->star_3 + $this->star_4 + $this->star_5;
+        if($totalVote != 0 || $total != 0 ){
+             return intval($total/$totalVote);
+        }
+        return 0;
+    }
 }

@@ -37,4 +37,10 @@ class TourController extends Controller
         $this->tourService->rating($request);
         return response()->json(['message' => 'Đánh giá thành công!']);
     }
+
+    public function ratingStar(Request $request)
+    {
+        $vote = $this->tourService->ratingStar($request);
+        return response()->json(['vote' => $vote, 'message' => 'Đánh giá thành công!']);
+    }
 }
