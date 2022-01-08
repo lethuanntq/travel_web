@@ -40,5 +40,8 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('editor', function (User $user) {
             return $user->role === User::ROLE_EDITOR;
         });
+        Gate::define('tour', function (User $user) {
+            return $user->role === User::ROLE_TOUR;
+        });
     }
 }

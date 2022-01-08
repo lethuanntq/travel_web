@@ -58,10 +58,10 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
-        if (auth()->attempt(['email' => $input['email'], 'password' => $input['password']])) {
+        if (auth()->attempt(['email' => $input['email'], 'password' => $input['password'], 'active' => 1])) {
                 return redirect()->route('management.home');
         } else {
-            return redirect()->route('login')->with('error', 'Thông tin đăng nhập chưa đúng');
+            return redirect()->route('login')->with('error', 'Thông tin đăng nhập chưa đúng hoặc tài khoản của bạn chưa được active');
         }
     }
 

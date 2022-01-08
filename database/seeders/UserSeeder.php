@@ -52,6 +52,14 @@ class UserSeeder extends Seeder
                 'role' => User::ROLE_EDITOR,
                 'active' => User::ACTIVE,
             ],
+            [
+                'name' => 'tour',
+                'email' => 'tour@gmail.com',
+                'phone_number' => '0123456789',
+                'password' => bcrypt('123456789'),
+                'role' => User::ROLE_TOUR,
+                'active' => User::ACTIVE,
+            ],
         ];
     }
 }

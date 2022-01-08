@@ -82,8 +82,10 @@ Route::group([
 
         Route::delete('post-delete/{post}', [PostController::class, 'delete'])->name('post.delete');
         Route::post('highlight', [PostController::class, 'highlight'])->name('post.highlight');
-
-        //tours
+    });
+    Route::group([
+        'middleware' => ['auth', 'can:tour']
+    ], function () {
         Route::get('tour', [TourController::class, 'index'])->name('tour.index');
         Route::get('tour-data', [TourController::class, 'getData'])->name('tour.data');
         Route::get('tour/new', [TourController::class, 'create'])->name('tour.create');
@@ -96,7 +98,6 @@ Route::group([
         Route::delete('tour/{tour}', [TourController::class, 'delete'])->name('tour.delete');
         Route::post('display', [TourController::class, 'display'])->name('tour.display');
     });
-
     Route::group([
         'middleware' => ['auth', 'can:admin']
     ], function () {

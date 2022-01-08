@@ -19,10 +19,12 @@ class User extends Authenticatable
     const ACTIVE = 1;
     const ROLE_ADMIN = 1;
     const ROLE_EDITOR = 2;
+    const ROLE_TOUR = 3;
 
     const ROLES = [
       self::ROLE_ADMIN => 'Quản trị viên',
-      self::ROLE_EDITOR => 'Biên tập viên'
+      self::ROLE_EDITOR => 'Biên tập viên',
+      self::ROLE_TOUR => 'Quản lý tour'
     ];
 
     const PATH = 'user/';

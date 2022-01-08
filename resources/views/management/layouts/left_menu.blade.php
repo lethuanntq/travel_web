@@ -27,6 +27,7 @@
                         </p>
                     </a>
                 </li>
+                @if(in_array(auth()->user()->role, [App\Models\User::ROLE_ADMIN,App\Models\User::ROLE_EDITOR]))
                 <li class="nav-item">
                     <a href="{{ route('management.post.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
@@ -36,6 +37,8 @@
                         </p>
                     </a>
                 </li>
+                @endif
+                @if(in_array(auth()->user()->role, [App\Models\User::ROLE_ADMIN,App\Models\User::ROLE_TOUR]))
                 <li class="nav-item">
                     <a href="{{ route('management.tour.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-bus-alt"></i>
@@ -45,7 +48,7 @@
                         </p>
                     </a>
                 </li>
-
+                @endif
                 @if(auth()->user()->role == \App\Models\User::ROLE_ADMIN)
                     <li class="nav-item">
                         <a href="{{ route('management.booking.index') }}" class="nav-link">
