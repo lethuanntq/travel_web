@@ -4,8 +4,8 @@ namespace App\Models;
 
 class Post extends BaseModel
 {
-    const TYPE_EXPERIENCE = 0;
-    const TYPE_NEWS = 1;
+    const TYPE_EXPERIENCE = 1;
+    const TYPE_NEWS = 0;
 
     const HIGHLIGHT = 1;
     const MAX_POSTS_HIGHLIGHT = 5;
@@ -24,6 +24,7 @@ class Post extends BaseModel
             'post.short_description' => 'required|max:500',
             'post.description' => 'required',
             'post.tag' => 'max:255',
+            'post.seo_tag' => 'max:255',
             'post.type' => 'required',
             'post.thumbnail' => 'image|max:2048',
         ];

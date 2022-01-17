@@ -53,7 +53,7 @@ class PostSeeder extends Seeder
                 'seo_tag' => 'du lịch, thăm quan',
                 'thumbnail' =>  asset('/no-image.jpg'),
                 'type' => 1,
-                'highlight' => 1,
+                'highlight' => 0,
                 'created_by' => 1
             ],
             [
@@ -110,7 +110,7 @@ class PostSeeder extends Seeder
                 'seo_tag' => 'du lịch, thăm quan',
                 'thumbnail' =>  asset('/no-image.jpg'),
                 'type' => 1,
-                'highlight' => 1,
+                'highlight' => 0,
                 'created_by' => 1
             ],
             [
@@ -205,7 +205,7 @@ class PostSeeder extends Seeder
                 'seo_tag' => 'du lịch, thăm quan',
                 'thumbnail' =>  asset('/no-image.jpg'),
                 'type' => 1,
-                'highlight' => 1,
+                'highlight' => 0,
                 'created_by' => 1
             ],
             [
@@ -243,7 +243,7 @@ class PostSeeder extends Seeder
                 'seo_tag' => 'du lịch, thăm quan',
                 'thumbnail' =>  asset('/no-image.jpg'),
                 'type' => 0,
-                'highlight' => 1,
+                'highlight' => 0,
                 'created_by' => 1
             ]
         ];

@@ -47,6 +47,7 @@
                     <th scope="col" >Tiêu đề</th>
                     <th scope="col" >Mô tả</th>
                     <th scope="col" style="width: 10%">Mức giá</th>
+                    <th scope="col">Đánh giá</th>
 {{--                    <th scope="col" class="col-md-1">Loại</th>--}}
 {{--                    <th scope="col" style="width: 13%">Thời gian bắt đầu</th>--}}
 {{--                    <th scope="col" style="width: 13%">Thời gian kết thúc</th>--}}
@@ -71,6 +72,8 @@
                     { data: 'title', name: 'title' },
                     { data: 'short_description', name: 'short_description' },
                     { data: 'price', name: 'price' },
+                    { data: 'vote', name: 'vote' },
+
                     // { data: 'type', name: 'type' },
                     // { data: 'start_date', name: 'start_date' },
                     // { data: 'end_date', name: 'end_date' },

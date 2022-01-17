@@ -25,7 +25,7 @@ class Booking extends BaseModel
         self::BOOKING => 'Mới',
         self::CONFIRMING => 'Đang đợi phản hồi',
         self::DEPOSITED => 'Đã đặt cọc',
-        self::IN_PROCESS => 'Đang hoạt động',
+        self::IN_PROCESS => 'Đang tiến hành',
         self::COMPLETED => 'Đã hoàn thành',
         self::CANCEL => 'Đã hủy'
     ];

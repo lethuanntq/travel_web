@@ -42,7 +42,7 @@
         <div class="invalid-feedback d-block">{{ $errors->first("booking.child") }}</div>
     </div>
     <div class="row form-group w-50">
-        <div class="col-md-5">
+        <div class="col-md-6">
             <label>Thời gian bắt đầu</label>
             <input class="form-control" id="booking-start_date" name="booking[start_date]"
                    type="datetime-local" value="{{ old("booking.start_date", isset ($booking) ? \Carbon\Carbon::parse($booking->start_date)->format('Y-m-d\TH:i') : '') }}">
@@ -50,10 +50,10 @@
                 class="invalid-feedback d-block">{{ $errors->first("booking.start_date") }}</div>
         </div>
         <span class="text-center" style="margin-top: 7%">~</span>
-        <div class="col-md-5">
+        <div class="col-md-6">
             <label>Thời gian kết thúc</label>
             <input class="form-control" id="booking-end_date" name="booking[end_date]"
-                   type="datetime-local" value="{{ old("booking.start_date", isset ($booking) ? \Carbon\Carbon::parse($booking->start_date)->format('Y-m-d\TH:i') : '') }}">
+                   type="datetime-local" value="{{ old("booking.start_date", isset ($booking) ? \Carbon\Carbon::parse($booking->end_date)->format('Y-m-d\TH:i') : '') }}">
             <div class="invalid-feedback d-block">{{ $errors->first("booking.end_date") }}</div>
         </div>
     </div>

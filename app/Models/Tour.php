@@ -25,7 +25,7 @@ class Tour extends BaseModel
             'tour.tag' => 'max:255',
             'tour.thumbnail' => 'image|max:2048',
             'tour.price' => 'required|numeric|digits_between:5,12',
-            'tour.price_promotion' => 'nullable|numeric|digits_between:5,12',
+            'tour.price_promotion' => 'nullable|numeric|digits_between:5,12|lt:tour.price',
 //            'tour.start_date' => 'required|before:tour.end_date',
 //            'tour.end_date' => 'required|after:tour.start_date',
         ];

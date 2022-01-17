@@ -12,21 +12,21 @@
                     <option value="0">Mới</option>
                     <option value="1">Đang đợi phản hồi</option>
                     <option value="2">Đã đặt cọc</option>
-                    <option value="3">Đang hoạt động</option>
+                    <option value="3">Đang tiến hành</option>
                     <option value="4">Đã hoàn thành</option>
                     <option value="5">Đã hủy</option>
                 </select>
-            </div>F
+            </div>
         <div class="">
             <table class="table table-striped" id="booking-table">
                 <thead>
                 <tr>
-                    <th scope="col" class="col-md-1">ID</th>
+                    <th scope="col" width="50px">ID</th>
                     <th scope="col">Khách hàng</th>
                     <th scope="col">Tour</th>
 {{--                    <th scope="col">Ghi Chú</th>--}}
                     <th scope="col">Trạng thái</th>
-                    <th scope="col" class="col-md-2">Thao tác</th>
+                    <th scope="col" width="150px">Thao tác</th>
                 </tr>
                 </thead>
             </table>
